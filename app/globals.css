@@ -1,3 +1,53 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+.transition {
+  animation: rotate 5s ease-in, spin 10s linear 5s;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate3d(1, 1, 1, 120deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate3d(1, 1, 1, 120deg);
+  }
+  to {
+    transform: rotate3d(1, 1, 1, 360deg);
+  }
+}
+
+@keyframes shrink {
+  to {
+    /* transform: scale(0); */
+    width: 0;
+    height: 0;
+  }
+}
+
+.bg-fade {
+  animation: full-fade 20s ease-in-out infinite;
+}
+
+@keyframes full-fade {
+  from {
+    opacity: 0;
+  }
+  33% {
+    opacity: 1;
+  }
+  66% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
