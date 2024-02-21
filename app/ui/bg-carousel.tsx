@@ -1,15 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { bgPhotos } from "../lib/data";
 import Image from "next/image";
+import { Photo } from "../lib/definitions";
 
-export default function BackgroundCarousel() {
+export default function BackgroundCarousel({ images }: { images: Photo[] }) {
   const [current, setCurrent] = useState<number>(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrent(prev => (prev + 1) % bgPhotos.length);
+      setCurrent(prev => (prev + 1) % images.length);
     }, 20000);
 
     return () => clearInterval(timer);
@@ -17,7 +17,7 @@ export default function BackgroundCarousel() {
 
   return (
     <div className="relative h-full overflow-hidden">
-      {bgPhotos.map((p, i) => {
+      {images.map((p, i) => {
         return (
           <Image
             key={p.id}
