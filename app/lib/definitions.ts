@@ -4,11 +4,11 @@ export type NavLink = {
 };
 
 export type Photo = {
-  id: number | string;
+  id: number;
+  description: string;
   url: string;
   width: number;
   height: number;
-  description: string;
 };
 
 export type Gallery = {
