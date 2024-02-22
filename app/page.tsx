@@ -6,7 +6,7 @@ export default async function Home() {
 
   return (
     <main>
-      <div className="h-screen overflow-hidden px-12 py-8">
+      <div className="h-screen overflow-hidden px-1 py-2">
         {homePhotos && <BackgroundCarousel images={homePhotos} />}
       </div>
     </main>
