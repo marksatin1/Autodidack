@@ -13,7 +13,7 @@ export default function BackgroundCarousel({ images }: { images: Photo[] }) {
     }, 20000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [images.length]);
 
   return (
     <div className="relative h-full overflow-hidden">
@@ -25,7 +25,7 @@ export default function BackgroundCarousel({ images }: { images: Photo[] }) {
             width={p.width}
             height={p.height}
             alt={p.description}
-            className={`absolute object-fill object-center w-[2000px] h-auto ${
+            className={`absolute object-fill object-center ${
               i === current ? "bg-fade" : "opacity-0"
             }`}
             style={{

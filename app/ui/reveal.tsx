@@ -31,7 +31,7 @@ export default function ImageReveal({ image }: { image: Photo }) {
     topCtx.fillStyle = "white";
     topCtx.fillRect(0, 0, image.width, image.height);
     setCanvasContext(topCtx);
-  }, []);
+  }, [image.width, image.height, image.url]);
 
   const revealImage = (e: MouseEvent) => {
     let { offsetX: x, offsetY: y } = e.nativeEvent;
