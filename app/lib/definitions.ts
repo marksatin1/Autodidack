@@ -17,3 +17,8 @@ export type Gallery = {
   path: string;
   photo: Photo;
 };
+
+export type Section = {
+  title: string;
+  content: string;
+}
