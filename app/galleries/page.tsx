@@ -1,15 +1,13 @@
-"use client";
-
 import Image from "next/image";
 import { galleries } from "../lib/data";
 import Link from "next/link";
 
 export default function Page() {
   return (
-    <div className="grid grid-cols-2 gap-8 p-8 ">
+    <div className="grid grid-cols-2 gap-8 *:border-2 *:border-black">
       {galleries.map(g => {
         return (
-          <div key={g.id}>
+          <div key={g.id} className="grid justify-center">
             <Link href={g.path}>
               <Image
                 src={g.photo.url}
