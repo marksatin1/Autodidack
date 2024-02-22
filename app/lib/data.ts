@@ -52,7 +52,7 @@ export const galleries: Gallery[] = [
     name: "black_and_white",
     path: "/galleries/black_and_white",
     photo: {
-      id: "",
+      id: 1,
       url: "/1.jpg",
       width: 500,
       height: 500,
@@ -64,7 +64,7 @@ export const galleries: Gallery[] = [
     name: "george_floyd_2020",
     path: "/galleries/george_floyd_2020",
     photo: {
-      id: "",
+      id: 2,
       url: "/2.jpg",
       width: 500,
       height: 500,
@@ -76,7 +76,7 @@ export const galleries: Gallery[] = [
     name: "landscapes",
     path: "/galleries/landscapes",
     photo: {
-      id: "",
+      id: 3,
       url: "/3.jpg",
       width: 500,
       height: 500,
@@ -88,7 +88,7 @@ export const galleries: Gallery[] = [
     name: "cityscapes",
     path: "/galleries/cityscapes",
     photo: {
-      id: "",
+      id: 4,
       url: "/4.jpg",
       width: 500,
       height: 500,
@@ -100,7 +100,7 @@ export const galleries: Gallery[] = [
     name: "street",
     path: "/galleries/street",
     photo: {
-      id: "",
+      id: 5,
       url: "/5.jpg",
       width: 500,
       height: 500,
@@ -112,7 +112,7 @@ export const galleries: Gallery[] = [
     name: "portraits",
     path: "/galleries/portraits",
     photo: {
-      id: "",
+      id: 6,
       url: "/Cowboy-Bebop-Wallpaper.jpg",
       width: 500,
       height: 500,
@@ -121,54 +121,17 @@ export const galleries: Gallery[] = [
   },
 ];
 
-export const bgPhotos: Photo[] = [
+export const sections = [
   {
-    id: 1,
-    url: "/aut-bg-1.avif",
-    width: 2000,
-    height: 1639,
-    description: "Test",
+    title: "About The Site",
+    content: "Description about me",
   },
   {
-    id: 2,
-    url: "/aut-bg-2.avif",
-    width: 2000,
-    height: 1643,
-    description: "Test",
+    title: "About The Photography",
+    content: "Description about the photography",
   },
   {
-    id: 3,
-    url: "/aut-bg-3.avif",
-    width: 2000,
-    height: 1639,
-    description: "Test",
-  },
-  {
-    id: 4,
-    url: "/aut-bg-4.avif",
-    width: 2000,
-    height: 1633,
-    description: "Test",
-  },
-  {
-    id: 5,
-    url: "/aut-bg-5.avif",
-    width: 2000,
-    height: 1638,
-    description: "Test",
-  },
-  {
-    id: 6,
-    url: "/aut-bg-6.avif",
-    width: 2000,
-    height: 1637,
-    description: "Test",
-  },
-  {
-    id: 7,
-    url: "/aut-bg-7.avif",
-    width: 200,
-    height: 1639,
-    description: "Test",
+    title: "About The Site",
+    content: "Description about the web site",
   },
 ];
