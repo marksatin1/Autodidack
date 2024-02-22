@@ -1,7 +1,6 @@
 "use client";
 
 import { MouseEventHandler, useState } from "react";
-import { Photo } from "../lib/definitions";
 import Image from "next/image";
 import { slides } from "../lib/data";
 
