@@ -2,6 +2,7 @@
 
 import { createClient } from "@supabase/supabase-js";
 import { Photo } from "./definitions";
+import { Gallery } from "./definitions";
 
 const supabase = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_KEY!);
 
@@ -9,7 +10,8 @@ export async function getEntrancePhoto() {
   const { data, error } = await supabase.from("photos").select("*").eq("page_id", 1);
 
   if (error) {
-    console.error("Error fetching entrance photo", error);
+    console.error(error);
+    throw new Error("Error fetching entrance photo");
     // Display error handling to client
   }
 
@@ -26,15 +28,17 @@ export async function getEntrancePhoto() {
 }
 
 export async function getHomePhotos() {
-  const { data, error } = await supabase.from("photos").select("*").eq("page_id", 2);
+  // Remote Procedure Call stored in Supabase dashboard
+  const { data, error } = await supabase.rpc("get_random_bg_photos");
 
   if (error) {
-    console.error("Error fetching homepage photos", error);
+    console.error(error);
+    throw new Error("Error fetching homepage photos");
     // Display error handling to client
   }
 
   if (data && data.length > 0) {
-    return data.map(p => {
+    return data.map((p: any) => {
       const { id, description, url, width_px, height_px } = p;
       return {
         id,
@@ -42,6 +46,34 @@ export async function getHomePhotos() {
         url,
         width: width_px,
         height: height_px,
+      };
+    });
+  }
+}
+
+export async function getGalleriesPagePhotos() {
+  // not() prevents the "none" gallery from being included
+  const { data: galleries, error } = await supabase
+    .from("galleries")
+    .select("*")
+    .not("id", "eq", 7);
+
+  if (error) {
+    console.error(error);
+    throw new Error("Error fetching Galleries page photos");
+    // Display error handling to client
+  }
+
+  if (galleries && galleries.length > 0) {
+    return galleries.map((g: Gallery) => {
+      const { id, name, cover_url, cover_width_px, cover_height_px, description } = g;
+      return {
+        id,
+        name,
+        cover_url,
+        cover_width_px,
+        cover_height_px,
+        description,
       };
     });
   }

@@ -12,13 +12,15 @@ export type Photo = {
 };
 
 export type Gallery = {
-  id: number | string;
+  id: number;
   name: string;
-  path: string;
-  photo: Photo;
+  cover_url: string;
+  cover_width_px: number;
+  cover_height_px: number;
+  description: string;
 };
 
 export type Section = {
   title: string;
   content: string;
-}
+};
