@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         {pathname !== "/" && (
-          <header className="w-full grid justify-center p-4">
+          <header className="w-full grid justify-center p-4 mb-8">
             <Logo fontSize="48px" />
           </header>
         )}
