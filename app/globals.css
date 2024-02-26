@@ -89,7 +89,7 @@
 }
 
 .unblur:hover {
-  animation: unblur 3s;
+  animation: unblur 2s;
 }
 
 @keyframes unblur {
