@@ -78,3 +78,30 @@ export async function getGalleriesPagePhotos() {
     });
   }
 }
+
+export async function getGalleryPhotos(galleryId: number) {
+  const { data: galleryPhotos, error } = await supabase
+    .from("photos")
+    .select("*")
+    .eq("page_id", 3)
+    .eq("gallery_id", galleryId);
+
+  if (error) {
+    console.error(error);
+    throw new Error(`Error fetching photos for Gallery #${galleryId}`);
+    // Display error handling to client
+  }
+
+  if (galleryPhotos && galleryPhotos.length > 0) {
+    return galleryPhotos.map((p: any) => {
+      const { id, description, url, width_px, height_px } = p;
+      return {
+        id,
+        description,
+        url,
+        width: width_px,
+        height: height_px,
+      };
+    });
+  }
+}

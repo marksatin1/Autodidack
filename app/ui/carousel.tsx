@@ -2,9 +2,9 @@
 
 import { MouseEventHandler, useState } from "react";
 import Image from "next/image";
-import { slides } from "../lib/data";
+import { Photo } from "../lib/definitions";
 
-export default function Carousel() {
+export default function Carousel({ slides }: { slides: Photo[] }) {
   const [current, setCurrent] = useState<number>(0);
 
   let prevSlide: MouseEventHandler<HTMLButtonElement> = () =>
@@ -13,9 +13,9 @@ export default function Carousel() {
     current === slides.length - 1 ? setCurrent(0) : setCurrent(prev => prev + 1);
 
   return (
-    <div className="w-[600px] mx-auto my-12 overflow-hidden">
+    <div className="w-1/4 object-contain mx-auto overflow-hidden">
       <div
-        className="flex transition ease-out duration-400"
+        className="flex object-contain transition ease-out duration-400"
         style={{
           transform: `translateX(-${current * 100}%)`,
         }}
@@ -26,9 +26,13 @@ export default function Carousel() {
           );
         })}
       </div>
-      <div>
-        <button onClick={prevSlide}>Previous</button>
-        <button onClick={nextSlide}>Next</button>
+      <div className="grid grid-cols-2 ">
+        <button onClick={prevSlide} className="text-xl">
+          Previous
+        </button>
+        <button onClick={nextSlide} className="text-xl">
+          Next
+        </button>
       </div>
     </div>
   );

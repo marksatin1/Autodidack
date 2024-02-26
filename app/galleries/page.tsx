@@ -17,19 +17,24 @@ export default function Page() {
   }, []);
 
   return (
-    <div className="grid grid-cols-2 gap-8 h-[75vh] overflow-scroll *:border-2 *:border-black">
+    <div className="grid grid-cols-2 gap-8 p-4 h-[75vh] overflow-scroll">
       {galleries.map((g: Gallery) => {
         return (
           <div key={g.id} className="grid justify-center">
-            <Link href={`/galleries/${g.name}`}>
+            <Link href={`/galleries/${g.id}/${g.name}`}>
               <Image
                 src={g.cover_url}
                 width={g.cover_width_px}
                 height={g.cover_height_px}
                 alt={g.description}
+                className="shadow-[-3px_5px_10px_black]"
+                style={{
+                  width: "auto",
+                  height: 600,
+                }}
               />
             </Link>
-            <h2 className="text-center font-extrabold">{g.name}</h2>
+            <h2 className="text-2xl text-center font-extrabold my-4">{g.name}</h2>
           </div>
         );
       })}
