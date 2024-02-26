@@ -16,7 +16,7 @@ export default function BackgroundCarousel({ images }: { images: Photo[] }) {
   }, [images.length]);
 
   return (
-    <div className="relative h-full overflow-hidden">
+    <div className="relative h-full overflow-hidden rounded-sm">
       {images.map((p, i) => {
         return (
           <Image
@@ -25,12 +25,10 @@ export default function BackgroundCarousel({ images }: { images: Photo[] }) {
             width={p.width}
             height={p.height}
             alt={p.description}
-            className={`absolute object-fill object-center ${
+            className={`absolute object-fill w-full h-full ${
               i === current ? "bg-fade" : "opacity-0"
             }`}
-            style={{
-              transform: "translateY(-30%)",
-            }}
+            priority
           />
         );
       })}
