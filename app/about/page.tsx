@@ -17,7 +17,7 @@ export default function Page() {
         <form className="border-2 border-black min-h-[300px] mt-6">Contact Form</form>
       </section>
       <section className="col-span-4 overflow-auto pl-8 pr-32">
-        <h2 className="text-[2rem] font-extrabold my-3">About The Site</h2>
+        <h2 className="text-[2rem] font-extrabold my-3">About Me</h2>
         <p className="text-lg">
           When the pandemic hit New York City in March 2020 I had just rediscovered my love for film
           photography. Armed with a couple of cameras and a glut of free time I began crisscrossing
@@ -85,7 +85,7 @@ export default function Page() {
           <br />
           <br />
         </p>
-        <h2 className="text-[2rem] font-extrabold my-3">About My Photography</h2>
+        <h2 className="text-[2rem] font-extrabold my-3">About the Photography</h2>
         <p className="text-lg">
           When people ask me what kinds of photos I take I always take a pause because the answer
           isn’t so straightforward. I find that I’m always pulling the past behind me as I move into
@@ -122,7 +122,7 @@ export default function Page() {
         </ul>
         <br />
         <br />
-        <h2 className="text-[2rem] font-extrabold my-3">Nerd Nook</h2>
+        <h2 className="text-[2rem] font-extrabold my-3">About the Site</h2>
         <p className="text-lg">
           This portfolio is a full-stack web application built with Next.js 13 (React/TypeScript
           under the hood) and a Supabase backend (w/ a PostgreSQL database). Styles and layout are
