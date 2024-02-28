@@ -7,29 +7,24 @@
 }
 
 .transitionTest {
-  animation: rotate 5s ease-in, spin 10s linear 5s;
+  animation: spin-shrink 17.97s ease-in-out forwards, disappear 0.03s ease-in 18.05s forwards;
 }
 
-@keyframes rotate {
-  to {
-    transform: rotate3d(1, 1, 1, 120deg);
-  }
-}
-
-@keyframes spin {
+@keyframes spin-shrink {
   from {
-    transform: rotate3d(1, 1, 1, 120deg);
+    transform: rotateY(0deg) rotateZ(0deg) scale(1);
   }
   to {
-    transform: rotate3d(1, 1, 1, 360deg);
+    transform: rotateY(360deg) rotateZ(360deg) scale(0.01);
   }
 }
 
-@keyframes shrink {
+@keyframes disappear {
+  from {
+    opacity: 1;
+  }
   to {
-    /* transform: scale(0); */
-    width: 0;
-    height: 0;
+    opacity: 0;
   }
 }
 
@@ -98,5 +93,15 @@
   }
   to {
     filter: blur(0);
+  }
+}
+
+.aura {
+  animation: aura 3s ease-in-out forwards;
+}
+
+@keyframes aura {
+  to {
+    box-shadow: 0 0 40px 0 black;
   }
 }

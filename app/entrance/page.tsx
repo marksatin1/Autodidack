@@ -4,5 +4,5 @@ import { getEntrancePhoto } from "../lib/actions";
 export default async function Page() {
   const entrancePhoto = await getEntrancePhoto();
 
-  return <>{entrancePhoto && <ImageReveal image={entrancePhoto} />}</>;
+  return <div>{entrancePhoto && <ImageReveal image={entrancePhoto} />}</div>;
 }
