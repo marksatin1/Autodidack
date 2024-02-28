@@ -1,6 +1,10 @@
 import BackgroundCarousel from "./ui/bg-carousel";
 import { getHomePhotos } from "./lib/actions";
 import Image from "next/image";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faMusic, faDrumSteelpan, faMicrophone, faMicrophoneSlash } from "@fortawesome/free-solid-svg-icons";
+
+library.add(faMusic, faDrumSteelpan, faMicrophone, faMicrophoneSlash);
 
 export default async function Home() {
   const homePhotos = await getHomePhotos();
