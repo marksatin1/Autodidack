@@ -18,15 +18,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {pathname !== "/" && (
+        {pathname !== "/" && pathname !== "/entrance" && (
           <header className="w-full grid justify-center p-4 mb-8">
             <Logo fontSize="48px" />
           </header>
         )}
         <div>{children}</div>
-        <footer className="fixed bottom-0 w-full">
-          <NavBar />
-        </footer>
+        {pathname !== "/entrance" && (
+          <footer className="fixed bottom-0 w-full">
+            <NavBar />
+          </footer>
+        )}
       </body>
     </html>
   );
