@@ -2,10 +2,16 @@
 
 import Link from "next/link";
 import { navLinks } from "../lib/data";
-import { faMusic, faDrumSteelpan, faMicrophone, faMicrophoneSlash } from "@fortawesome/free-solid-svg-icons";
+import {
+  faMusic,
+  faDrumSteelpan,
+  faMicrophone,
+  faMicrophoneSlash,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Permanent_Marker } from "next/font/google";
 import { useState } from "react";
+import Image from "next/image";
 
 const perm = Permanent_Marker({ weight: "400", subsets: ["latin"] });
 
@@ -30,7 +36,7 @@ export default function NavBar() {
         ))}
       </div>
       <div className="col-span-1 grid justify-center items-center">
-        <FontAwesomeIcon icon={icon} size="3x" className="unblur" onClick={changeIcon} />
+        <FontAwesomeIcon icon={icon} size="2x" className="unblur" onClick={changeIcon} />
       </div>
     </div>
   );
