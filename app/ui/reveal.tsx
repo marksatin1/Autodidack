@@ -9,9 +9,9 @@ import Image from "next/image";
 export default function ImageReveal({ image }: { image: Photo }) {
   const topRef = useRef<HTMLCanvasElement>(null);
   const [canvasContext, setCanvasContext] = useState<CanvasRenderingContext2D | null>(null);
-  const [hidden, setHidden] = useState<boolean>(false);
   const [animation, setAnimation] = useState<string>("");
-  const [canvasReady, setCanvasReady] = useState<boolean>(false);
+  const [imageLoading, setImageLoading] = useState<boolean>(true);
+  const [hideCanvas, setHideCanvas] = useState<boolean>(false);
 
   useEffect(() => {
     const top = topRef.current as HTMLCanvasElement;
@@ -24,7 +24,7 @@ export default function ImageReveal({ image }: { image: Photo }) {
     topCtx.fillStyle = "white";
     topCtx.fillRect(0, 0, image.width, image.height);
     setCanvasContext(topCtx);
-    setCanvasReady(true);
+    setImageLoading(false);
   }, [image.width, image.height, image.url]);
 
   const revealImage = (e: MouseEvent) => {
@@ -34,7 +34,7 @@ export default function ImageReveal({ image }: { image: Photo }) {
     canvasContext?.clearRect(x - eraserSize / 2, y - eraserSize / 2, eraserSize, eraserSize);
     if (checkTransparency(canvasContext, image.width, image.height)) {
       setAnimation("transitionTest");
-      setHidden(true);
+      setHideCanvas(true);
     }
   };
 
@@ -47,7 +47,7 @@ export default function ImageReveal({ image }: { image: Photo }) {
           height={image.height}
           alt={image.description}
           className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`}
-          hidden={!canvasReady}
+          hidden={imageLoading}
         />
         <canvas
           width={image.width}
@@ -56,7 +56,7 @@ export default function ImageReveal({ image }: { image: Photo }) {
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
           "
           onMouseMove={revealImage}
-          hidden={hidden}
+          hidden={hideCanvas}
         >
           A white rectangle
         </canvas>
