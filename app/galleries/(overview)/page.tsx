@@ -2,9 +2,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { getGalleriesPagePhotos } from "../lib/actions";
-import { Gallery } from "../lib/definitions";
+import { getGalleriesPagePhotos } from "../../lib/actions";
+import { Gallery } from "../../lib/definitions";
 import { useState, useEffect } from "react";
+import { Suspense } from "react";
+import { GalleriesSkeleton } from "@/app/ui/skeletons";
 
 export default function Page() {
   const [galleries, setGalleries] = useState<Gallery[]>([]);
@@ -32,6 +34,7 @@ export default function Page() {
                   width: "auto",
                   height: 600,
                 }}
+                priority
               />
             </Link>
             <h2 className="text-2xl text-center font-extrabold my-4">{g.name}</h2>
