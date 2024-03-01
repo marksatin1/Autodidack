@@ -23,20 +23,20 @@ export default function NavBar() {
   }
 
   return (
-    <div className="w-full p-8 grid grid-cols-4">
-      <div className="col-start-2 col-span-2 gap-24 flex justify-center items-center">
+    <div className="p-4 grid grid-cols-4">
+      <div className="col-start-2 col-span-2 gap-8 flex justify-center items-center lg:gap-24">
         {navLinks.map(l => (
           <Link key={l.name} href={l.href}>
             <span
-              className={`${perm.className} text-6xl stroke-thin font-extrabold unblur fade-in-out hover:text-amber-500`}
+              className={`${perm.className} text-2xl lg:text-6xl stroke-base font-extrabold unblur fade-in-out hover:text-amber-500`}
             >
               {l.name}
             </span>
           </Link>
         ))}
       </div>
-      <div className="col-span-1 grid justify-center items-center">
-        <FontAwesomeIcon icon={icon} size="2x" className="unblur" onClick={changeIcon} />
+      <div className="col-span-1 flex justify-center items-center">
+        {/* <FontAwesomeIcon icon={icon} className="unblur" onClick={changeIcon} /> */}
       </div>
     </div>
   );

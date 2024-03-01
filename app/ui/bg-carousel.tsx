@@ -16,7 +16,7 @@ export default function BackgroundCarousel({ images }: { images: Photo[] }) {
   }, [images.length]);
 
   return (
-    <div className="relative h-full overflow-hidden rounded-sm">
+    <div className="relative w-full h-full overflow-hidden rounded-sm">
       {images.map((p, i) => {
         return (
           <Image

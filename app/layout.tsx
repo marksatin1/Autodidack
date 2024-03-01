@@ -15,17 +15,19 @@ export default function RootLayout({
 }>) {
   const pathname = usePathname();
 
+  let gridRows = pathname === "/" ? "grid-rows-layout-2" : "grid-rows-layout-3";
+
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} grid ${gridRows} min-h-screen`}>
         {pathname !== "/" && pathname !== "/entrance" && (
-          <header className="w-full grid justify-center p-4 mb-8">
-            <Logo fontSize="48px" />
+          <header className="bgg w-full grid justify-center items-center p-4">
+            <Logo fontSize="1.5rem" />
           </header>
         )}
-        <div>{children}</div>
+        <div className="bgy">{children}</div>
         {pathname !== "/entrance" && (
-          <footer className="fixed bottom-0 w-full">
+          <footer className="bgb w-full">
             <NavBar />
           </footer>
         )}
