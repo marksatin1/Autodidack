@@ -7,27 +7,48 @@ import {
   faDrumSteelpan,
   faMicrophone,
   faMicrophoneSlash,
+  faAngleUp,
+  faAngleDown,
 } from "@fortawesome/free-solid-svg-icons";
+import Logo from "./ui/logo";
+import NavBar from "./ui/nav-bar";
 
-library.add(faMusic, faDrumSteelpan, faMicrophone, faMicrophoneSlash);
+library.add(faMusic, faDrumSteelpan, faMicrophone, faMicrophoneSlash, faAngleUp, faAngleDown);
 
 export default async function Home() {
   const homePhotos = await getHomePhotos();
 
   return (
-    <main className="grid-stack-outer w-full h-full">
-      <div className="grid-stack-inner z-0 w-full h-full">
+    <main className="relative w-screen h-screen p-4">
+      <div className="relative z-0 w-full h-full">
         {homePhotos && <BackgroundCarousel images={homePhotos} />}
       </div>
-      <div className="relative w-full h-full grid-stack-inner z-10 p-6 appear">
-        <div className="relative w-full h-full">
-          <Image
-            src="/Autodidack-Collage_stroke.webp"
-            layout="fill"
-            objectFit="contain"
-            alt="Collage of people taken from street style photographs"
-          />
+
+      <div className="grid grid-rows-fixed-ends w-full h-full relative z-10 *:relative *:z-10">
+        <div className="bsg">
+          <Logo fontSize="1rem" />
         </div>
+
+        <div className="bsr w-full h-full">
+          <div className="bsp p-4 w-full h-full">
+            <Image
+              src="/Autodidack-Collage_stroke.webp"
+              // width={2500}
+              // height={1671}
+              fill
+              style={{
+                objectFit: "contain",
+                maxWidth: "1000px",
+              }}
+              alt="Collage of people taken from street style photographs"
+              className="appear-small"
+            />
+          </div>
+        </div>
+
+        <footer className="bso w-full">
+          <NavBar />
+        </footer>
       </div>
     </main>
   );

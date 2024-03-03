@@ -105,3 +105,11 @@ export async function getGalleryPhotos(galleryId: number) {
     });
   }
 }
+
+export async function submitContactForm(e: any) {
+  e.preventDefault();
+
+  // Email contact form info to my email address
+
+  // return some trigger to display success message
+}

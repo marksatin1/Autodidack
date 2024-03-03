@@ -28,7 +28,7 @@ export default function NavBar() {
         {navLinks.map(l => (
           <Link key={l.name} href={l.href}>
             <span
-              className={`${perm.className} text-2xl lg:text-6xl stroke-base font-extrabold unblur fade-in-out hover:text-amber-500`}
+              className={`${perm.className} text-2xl lg:text-6xl lg:font-extrabold unblur fade-in-out hover:text-amber-500 stroke-base`}
             >
               {l.name}
             </span>

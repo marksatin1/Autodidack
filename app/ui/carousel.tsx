@@ -13,16 +13,16 @@ export default function Carousel({ slides }: { slides: Photo[] }) {
     current === slides.length - 1 ? setCurrent(0) : setCurrent(prev => prev + 1);
 
   return (
-    <div className="w-1/4 object-contain mx-auto overflow-hidden">
+    <div className="mx-auto">
       <div
-        className="flex object-contain transition ease-out duration-400"
+        className="transition ease-out duration-400"
         style={{
           transform: `translateX(-${current * 100}%)`,
         }}
       >
         {slides.map(p => {
           return (
-            <Image key={p.id} src={p.url} width={p.width} height={p.height} alt={p.description} />
+            <Image key={p.id} src={p.url} layout="fill" objectFit="contain" alt={p.description} />
           );
         })}
       </div>

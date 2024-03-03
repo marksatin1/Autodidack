@@ -4,7 +4,7 @@ const shimmer =
 
 export function GallerySkeleton() {
   return (
-    <div className="grid justify-center">
+    <div className="grid w-full h-screen justify-center">
       <div className="w-96 h-96 bg-gray-200 rounded-md shadow-3xl animate-pulse" />
       <div className="w-96 h-8 my-4 bg-gray-200 rounded-md shadow-3xl animate-pulse" />
     </div>

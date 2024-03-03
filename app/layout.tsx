@@ -15,22 +15,35 @@ export default function RootLayout({
 }>) {
   const pathname = usePathname();
 
-  let gridRows = pathname === "/" ? "grid-rows-layout-2" : "grid-rows-layout-3";
+  let gridRows = pathname === "/" ? "grid-rows-layout-3" : "grid-rows-layout-3";
 
   return (
+    // <html lang="en">
+    //   <body className={`${inter.className} h-screen`}>
+    //     {/* {pathname === "/" && (
+    //       <header className="w-full sticky top-0 grid justify-center items-center p-4">
+    //         <Logo fontSize="1.5rem" />
+    //       </header>
+    //     )} */}
+    //     <div className="h-full">{children}</div>
+    //     <footer className="w-full sticky bottom-0 appear-large">
+    //       <NavBar />
+    //     </footer>
+    //   </body>
+    // </html>
     <html lang="en">
-      <body className={`${inter.className} grid ${gridRows} min-h-screen`}>
-        {pathname !== "/" && pathname !== "/entrance" && (
-          <header className="bgg w-full grid justify-center items-center p-4">
+      <body className={`${inter.className}`}>
+        {/* {pathname !== "/entrance" && (
+          <header className="w-full sticky top-0 grid justify-center items-center p-4">
             <Logo fontSize="1.5rem" />
           </header>
-        )}
-        <div className="bgy">{children}</div>
-        {pathname !== "/entrance" && (
-          <footer className="bgb w-full">
+        )} */}
+        <div>{children}</div>
+        {/* {pathname !== "/entrance" && (
+          <footer className="w-full sticky bottom-0 rounded-lg ">
             <NavBar />
           </footer>
-        )}
+        )} */}
       </body>
     </html>
   );

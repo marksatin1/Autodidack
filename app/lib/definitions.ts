@@ -24,3 +24,12 @@ export type Section = {
   title: string;
   content: string;
 };
+
+export type ToggleStates = {
+  [key: string]: boolean;
+};
+
+export type ToggleAction = {
+  type: string;
+  section: string;
+};
