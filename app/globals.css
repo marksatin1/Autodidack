@@ -53,6 +53,7 @@
 
 .logo-effect {
   text-shadow: -14px 14px 0 #000, 14px 14px 0 #000, 14px -14px 0 #000, -14px -14px 0 #000;
+  transition: 1s;
 }
 
 .logo-effect:hover {
@@ -149,11 +150,11 @@
   }
 }
 
-.grid-rows-layout-2 {
-  grid-template-rows: 1fr auto;
+.grid-rows-layout {
+  grid-template-rows: auto 1fr auto;
 }
 
-.grid-rows-layout-3 {
+.grid-rows-equal {
   grid-template-rows: 1fr 1fr 1fr;
 }
 
@@ -195,15 +196,12 @@
   border: 4px solid orange;
 }
 
-.trackLetters:hover {
-  animation: letterTracking 1s forwards ease-out;
+.trackLetters {
+  letter-spacing: 0rem;
+  transition: 5s;
 }
 
-@keyframes letterTracking {
-  from {
-    letter-spacing: 0rem;
-  }
-  to {
-    letter-spacing: 1rem;
-  }
+.trackLetters:hover {
+  letter-spacing: 6rem;
+  margin-left: 110px;
 }

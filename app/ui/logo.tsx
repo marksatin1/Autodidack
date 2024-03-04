@@ -7,7 +7,7 @@ export default function Logo() {
   return (
     <Link href="/">
       <h1
-        className={`${inconsolata.className} text-white text-xl md:text-3xl lg:text-4xl trackLetters logo-effect hover:text-amber-500`}
+        className={`${inconsolata.className} text-white text-xl md:text-3xl lg:text-4xl trackLetters logo-effect unblur hover:text-amber-500`}
       >
         Autodidack
       </h1>
