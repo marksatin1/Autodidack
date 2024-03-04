@@ -198,10 +198,46 @@
 
 .trackLetters {
   letter-spacing: 0rem;
-  transition: 5s;
+  transition: 3s;
 }
 
 .trackLetters:hover {
-  letter-spacing: 6rem;
-  margin-left: 110px;
+  letter-spacing: 1rem;
+  margin-left: 20px;
+}
+
+@media (min-width: 768px) {
+  .trackLetters {
+    letter-spacing: 0rem;
+    transition: 4s;
+  }
+
+  .trackLetters:hover {
+    letter-spacing: 3rem;
+    margin-left: 50px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .trackLetters {
+    letter-spacing: 0rem;
+    transition: 5s;
+  }
+
+  .trackLetters:hover {
+    letter-spacing: 5rem;
+    margin-left: 110px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .trackLetters {
+    letter-spacing: 0rem;
+    transition: 5s;
+  }
+
+  .trackLetters:hover {
+    letter-spacing: 6rem;
+    margin-left: 110px;
+  }
 }
