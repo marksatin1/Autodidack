@@ -189,12 +189,15 @@ export default function Page() {
         )}
       </section>
       <section>
-        <form action={submitContactForm} className="border-2 border-amber-500 rounded-lg mt-6 p-6 text-lg text-center">
+        <form
+          action={submitContactForm}
+          className="border-2 border-amber-500 rounded-lg mt-6 p-6 text-lg text-center"
+        >
           <h3 className="text-3xl font-bold text-green-700 m-4">Get In Touch!</h3>
           <p>
             Have a question about the site? <br /> Interested in working together? <br /> Just want
             to connect? <br />
-            <br /> <span className="font-bold">I'd love to hear from you!</span> <br />
+            <br /> <span className="font-bold">I&apos;d love to hear from you!</span> <br />
             <br />
           </p>
           <div className="flex flex-col items-center">

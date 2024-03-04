@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React, { useState, useCallback, useRef } from "react";
 
@@ -45,7 +45,7 @@ export default function Draggable() {
       onMouseUp={onMouseUp}
       onMouseLeave={onMouseUp}
     >
-      I'm draggable
+      Draggable
     </div>
   );
 }
