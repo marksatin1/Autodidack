@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .text-title {
-  @apply text-3xl my-3 lg:text-6xl lg:font-extrabold;
+  @apply text-2xl my-2 lg:text-6xl lg:font-extrabold;
 }
 
 .text-content {
