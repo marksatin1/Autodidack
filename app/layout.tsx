@@ -29,7 +29,7 @@ export default function RootLayout({
             <Logo />
           </header>
           <div className="overflow-auto">{children}</div>
-          <footer>
+          <footer className="p-4">
             <NavBar />
           </footer>
         </body>
