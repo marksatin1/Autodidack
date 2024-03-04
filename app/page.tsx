@@ -20,33 +20,28 @@ export default async function Home() {
 
   return (
     <main className="relative w-screen h-screen p-4">
-      <div className="relative z-0 w-full h-full">
+      <div className="absolute top-0 left-0 z-0 w-full h-full">
         {homePhotos && <BackgroundCarousel images={homePhotos} />}
       </div>
 
-      <div className="grid grid-rows-fixed-ends w-full h-full relative z-10 *:relative *:z-10">
-        <div className="bsg">
-          <Logo fontSize="1rem" />
+      <div className="grid grid-rows-fixed-ends w-full h-full absolute top-0 left-0 z-10 overflow-hidden lg:grid-rows-layout-3">
+        <div className="grid justify-center items-end lg:items-center appear-out">
+          <Logo />
         </div>
 
-        <div className="bsr w-full h-full">
-          <div className="bsp p-4 w-full h-full">
+        <div className="w-full h-full p-4">
+          <div className="w-full h-full flex justify-center items-center appear-in">
             <Image
               src="/Autodidack-Collage_stroke.webp"
-              // width={2500}
-              // height={1671}
-              fill
-              style={{
-                objectFit: "contain",
-                maxWidth: "1000px",
-              }}
+              width={2500}
+              height={1671}
               alt="Collage of people taken from street style photographs"
-              className="appear-small"
+              className="w-full h-full object-contain sm:max-w-[90%] md:max-w-[80%] lg:max-w-[80%] xl:max-w-[65%]"
             />
           </div>
         </div>
 
-        <footer className="bso w-full">
+        <footer className="w-full appear-out">
           <NavBar />
         </footer>
       </div>

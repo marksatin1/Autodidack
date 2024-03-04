@@ -11,9 +11,8 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Permanent_Marker } from "next/font/google";
 import { useState } from "react";
-import Image from "next/image";
 
-const perm = Permanent_Marker({ weight: "400", subsets: ["latin"] });
+const marker = Permanent_Marker({ weight: "400", subsets: ["latin"] });
 
 export default function NavBar() {
   const [icon, setIcon] = useState(faMicrophone);
@@ -23,12 +22,12 @@ export default function NavBar() {
   }
 
   return (
-    <div className="p-4 grid grid-cols-4">
-      <div className="col-start-2 col-span-2 gap-8 flex justify-center items-center lg:gap-24">
+    <div className="grid grid-cols-4">
+      <div className="col-start-2 col-span-2 gap-8 h-full flex justify-center items-center lg:gap-24">
         {navLinks.map(l => (
           <Link key={l.name} href={l.href}>
             <span
-              className={`${perm.className} text-2xl lg:text-6xl lg:font-extrabold unblur fade-in-out hover:text-amber-500 stroke-base`}
+              className={`${marker.className} text-3xl md:text-4xl xl:text-6xl lg:font-extrabold unblur fade-in-out hover:text-amber-500 stroke-base`}
             >
               {l.name}
             </span>
