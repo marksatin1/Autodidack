@@ -20,12 +20,12 @@ export default async function Home() {
 
   return (
     <main className="relative w-screen h-screen">
-      <div className="absolute top-0 left-0 z-0 w-full h-full p-2">
+      <div className="absolute top-0 left-0 z-0 w-full h-full p-1">
         {homePhotos && <BackgroundCarousel images={homePhotos} />}
       </div>
 
-      <div className="grid grid-rows-fixed-ends w-full h-full absolute top-0 left-0 z-10 overflow-hidden lg:grid-rows-layout-3">
-        <div className="grid justify-center items-end lg:items-center appear-out">
+      <div className="grid grid-rows-fixed-ends w-full h-full absolute top-0 left-0 z-10 overflow-hidden lg:grid-rows-equal">
+        <div className="grid justify-center items-end lg:items-center lg:mt-8 appear-out">
           <Logo />
         </div>
 
