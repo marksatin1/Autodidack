@@ -19,8 +19,8 @@ export default async function Home() {
   const homePhotos = await getHomePhotos();
 
   return (
-    <main className="relative w-screen h-screen p-4">
-      <div className="absolute top-0 left-0 z-0 w-full h-full">
+    <main className="relative w-screen h-screen">
+      <div className="absolute top-0 left-0 z-0 w-full h-full p-2">
         {homePhotos && <BackgroundCarousel images={homePhotos} />}
       </div>
 

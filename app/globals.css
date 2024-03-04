@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  box-sizing: border-box;
-}
-
 .text-title {
   @apply text-3xl my-3 lg:text-6xl lg:font-extrabold;
 }
