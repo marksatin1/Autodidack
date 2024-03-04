@@ -14,7 +14,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const pathname = usePathname();
-  // let gridRows = pathname !== "/" ? "grid-rows-layout" : "";
 
   return (
     <html lang="en" className={inter.className}>
