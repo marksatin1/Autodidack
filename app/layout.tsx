@@ -14,37 +14,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const pathname = usePathname();
-
-  let gridRows = pathname === "/" ? "grid-rows-layout-3" : "grid-rows-layout-3";
+  // let gridRows = pathname !== "/" ? "grid-rows-layout" : "";
 
   return (
-    // <html lang="en">
-    //   <body className={`${inter.className} h-screen`}>
-    //     {/* {pathname === "/" && (
-    //       <header className="w-full sticky top-0 grid justify-center items-center p-4">
-    //         <Logo fontSize="1.5rem" />
-    //       </header>
-    //     )} */}
-    //     <div className="h-full">{children}</div>
-    //     <footer className="w-full sticky bottom-0 appear-large">
-    //       <NavBar />
-    //     </footer>
-    //   </body>
-    // </html>
-    <html lang="en">
-      <body className={`${inter.className}`}>
-        {/* {pathname !== "/entrance" && (
-          <header className="w-full sticky top-0 grid justify-center items-center p-4">
-            <Logo fontSize="1.5rem" />
+    <html lang="en" className={inter.className}>
+      {pathname === "/" && (
+        <body>
+          <div>{children}</div>
+        </body>
+      )}
+
+      {pathname !== "/" && (
+        <body className="h-screen grid grid-rows-layout overflow-hidden">
+          <header className="w-full grid justify-center items-center p-4">
+            <Logo />
           </header>
-        )} */}
-        <div>{children}</div>
-        {/* {pathname !== "/entrance" && (
-          <footer className="w-full sticky bottom-0 rounded-lg ">
+          <div className="overflow-auto">{children}</div>
+          <footer>
             <NavBar />
           </footer>
-        )} */}
-      </body>
+        </body>
+      )}
     </html>
   );
 }
