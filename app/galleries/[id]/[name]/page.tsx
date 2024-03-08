@@ -1,4 +1,3 @@
-import Stack from "@/app/ui/stack";
 import { getGalleryPhotos } from "@/app/lib/actions";
 import Carousel from "@/app/ui/carousel";
 

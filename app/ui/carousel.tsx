@@ -1,26 +1,40 @@
 "use client";
 
-import { MouseEventHandler, useState } from "react";
-import Image from "next/image";
+import { useState, useRef, useEffect, KeyboardEvent } from "react";
 import { Photo } from "../lib/definitions";
+import Image from "next/image";
 
 export default function Carousel({ slides }: { slides: Photo[] }) {
-  const [current, setCurrent] = useState<number>(0);
+  const [currentIdx, setCurrentIdx] = useState<number>(0);
+  const mainRef = useRef<HTMLDivElement>(null);
 
-  let prevSlide: MouseEventHandler<HTMLButtonElement> = () =>
-    current === 0 ? setCurrent(slides.length - 1) : setCurrent(prev => prev - 1);
-  let nextSlide: MouseEventHandler<HTMLButtonElement> = () =>
-    current === slides.length - 1 ? setCurrent(0) : setCurrent(prev => prev + 1);
+  // Focus to <main> when component mounts
+  useEffect(() => {
+    mainRef.current?.focus();
+  }, []);
+
+  function handleKeyDown(e: KeyboardEvent) {
+    switch (e.key) {
+      case "ArrowLeft":
+        setCurrentIdx(prev => (prev - 1 + slides.length) % slides.length);
+        break;
+      case "ArrowRight":
+        setCurrentIdx(prev => (prev + 1) % slides.length);
+        break;
+      default:
+        console.log("Some other key was pressed.");
+    }
+  }
 
   return (
-    <div className="mx-auto">
-      <div
-        className="transition ease-out duration-400"
-        style={{
-          transform: `translateX(-${current * 100}%)`,
-        }}
-      >
-        {slides.map(p => {
+    <main
+      tabIndex={0} // makes <main> focusable
+      onKeyDown={handleKeyDown}
+      ref={mainRef}
+      className="bsr p-4 outline-none w-full h-full flex items-center justify-center"
+    >
+      <div className="relative w-full h-full flex items-center justify-center">
+        {slides.map((p: Photo, i: number) => {
           return (
             <Image
               key={p.id}
@@ -28,19 +42,14 @@ export default function Carousel({ slides }: { slides: Photo[] }) {
               width={p.width}
               height={p.height}
               alt={p.description}
-              className="object-contain layout-responsive"
+              className={`absolute object-contain layout-responsive w-full max-h-full max-w-full ${
+                i === currentIdx ? "opacity-100" : "opacity-0"
+              } duration-[4s]`}
+              priority={i === 0}
             />
           );
         })}
       </div>
-      <div className="grid grid-cols-2 ">
-        <button onClick={prevSlide} className="text-xl">
-          Previous
-        </button>
-        <button onClick={nextSlide} className="text-xl">
-          Next
-        </button>
-      </div>
-    </div>
+    </main>
   );
 }
