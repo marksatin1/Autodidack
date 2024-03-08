@@ -31,7 +31,7 @@ export default function Carousel({ slides }: { slides: Photo[] }) {
       tabIndex={0} // makes <main> focusable
       onKeyDown={handleKeyDown}
       ref={mainRef}
-      className="bsr p-4 outline-none w-full h-full flex items-center justify-center"
+      className="p-4 outline-none w-full h-full flex items-center justify-center"
     >
       <div className="relative w-full h-full flex items-center justify-center">
         {slides.map((p: Photo, i: number) => {
@@ -44,7 +44,7 @@ export default function Carousel({ slides }: { slides: Photo[] }) {
               alt={p.description}
               className={`absolute object-contain layout-responsive w-full max-h-full max-w-full ${
                 i === currentIdx ? "opacity-100" : "opacity-0"
-              } duration-[4s]`}
+              } duration-[3s]`}
               priority={i === 0}
             />
           );
