@@ -22,7 +22,14 @@ export default function Carousel({ slides }: { slides: Photo[] }) {
       >
         {slides.map(p => {
           return (
-            <Image key={p.id} src={p.url} layout="fill" objectFit="contain" alt={p.description} />
+            <Image
+              key={p.id}
+              src={p.url}
+              width={p.width}
+              height={p.height}
+              alt={p.description}
+              className="object-contain layout-responsive"
+            />
           );
         })}
       </div>
