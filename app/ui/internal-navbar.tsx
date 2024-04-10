@@ -1,7 +1,7 @@
-import { InternalNavLink } from "../lib/definitions";
+import { NavLink } from "../lib/definitions";
 import Link from "next/link";
 
-export default function InternalNavbar({ links }: { links: InternalNavLink[] }) {
+export default function InternalNavbar({ links }: { links: NavLink[] }) {
   return (
     <nav>
       <ul className="flex items-center justify-center space-x-32">
