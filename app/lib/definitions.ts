@@ -1,8 +1,20 @@
 export type NavLink = {
+  id: number;
   name: string;
   href: string;
+  image?: Image;
 };
 
+export type Image = {
+  id: number;
+  path: string;
+  width?: number;
+  height?: number;
+  description: string;
+};
+
+// mark for deletion
+// refactor to Image def first
 export type Photo = {
   id: number;
   description: string;

@@ -1,11 +1,68 @@
-import { Gallery, NavLink, Photo } from "./definitions";
+import { NavLink, Photo } from "./definitions";
 
-export const navLinks: NavLink[] = [
+export const internalNavLinks: NavLink[] = [
   {
-    name: "Galleries",
-    href: "/galleries",
+    id: 1,
+    name: "Web",
+    href: "/web",
   },
-  { name: "About", href: "/about" },
+  {
+    id: 2,
+    name: "Photo",
+    href: "/photo",
+  },
+  { id: 3, name: "About", href: "/about" },
+];
+
+export const externalNavLinks: NavLink[] = [
+  {
+    id: 1,
+    name: "Instagram",
+    href: "https://www.instagram.com/the_unforecasted_storm/",
+    image: {
+      id: 1,
+      path: "/icons/2x/128/Instagram.png",
+      width: 32,
+      height: 32,
+      description: "Color icon of the Instagram logo",
+    },
+  },
+  {
+    id: 2,
+    name: "GitHub",
+    href: "https://github.com/marksatin1",
+    image: {
+      id: 2,
+      path: "/icons/2x/128/GitHub.png",
+      width: 32,
+      height: 32,
+      description: "Color icon of the GitHub logo",
+    },
+  },
+  {
+    id: 3,
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/marksatin/",
+    image: {
+      id: 3,
+      path: "/icons/2x/128/LinkedIn.png",
+      width: 32,
+      height: 32,
+      description: "Color icon of the LinkedIn logo",
+    },
+  },
+  {
+    id: 4,
+    name: "Upwork",
+    href: "https://www.upwork.com/freelancers/~01e472c9e11ddcf814",
+    image: {
+      id: 4,
+      path: "/icons/2x/128/Upwork.png",
+      width: 32,
+      height: 32,
+      description: "Color icon of the Upwork logo",
+    },
+  },
 ];
 
 export const slides: Photo[] = [
