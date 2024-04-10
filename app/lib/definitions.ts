@@ -13,6 +13,16 @@ export type Image = {
   description: string;
 };
 
+export type CollageImage = {
+  id: number;
+  path: string;
+  width: number;
+  height: number;
+  description: string;
+  xCoord: number;
+  yCoord: number;
+};
+
 // mark for deletion
 // refactor to Image def first
 export type Photo = {
