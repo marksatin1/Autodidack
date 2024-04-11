@@ -2,10 +2,10 @@ export type NavLink = {
   id: number;
   name: string;
   href: string;
-  image?: Image;
+  image?: ImageType;
 };
 
-export type Image = {
+export type ImageType = {
   id: number;
   path: string;
   width?: number;
@@ -21,16 +21,6 @@ export type CollageImage = {
   description: string;
   xCoord: number;
   yCoord: number;
-};
-
-// mark for deletion
-// refactor to Image def first
-export type Photo = {
-  id: number;
-  description: string;
-  url: string;
-  width: number;
-  height: number;
 };
 
 export type Gallery = {
