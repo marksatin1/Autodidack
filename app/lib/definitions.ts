@@ -23,25 +23,11 @@ export type CollageImage = {
   yCoord: number;
 };
 
-export type Gallery = {
+export type GalleryCover = {
   id: number;
   name: string;
-  cover_url: string;
-  cover_width_px: number;
-  cover_height_px: number;
+  path: string;
+  width: number;
+  height: number;
   description: string;
-};
-
-export type Section = {
-  title: string;
-  content: string;
-};
-
-export type ToggleStates = {
-  [key: string]: boolean;
-};
-
-export type ToggleAction = {
-  type: string;
-  section: string;
 };

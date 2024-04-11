@@ -1,4 +1,4 @@
-import { CollageImage, NavLink, ImageType } from "./definitions";
+import { CollageImage, NavLink } from "./definitions";
 
 export const internalNavLinks: NavLink[] = [
   {
@@ -362,17 +362,4 @@ export const collageImages: CollageImage[] = [
   },
 ];
 
-export const sections = [
-  {
-    title: "About The Site",
-    content: "Description about me",
-  },
-  {
-    title: "About The Photography",
-    content: "Description about the photography",
-  },
-  {
-    title: "About The Site",
-    content: "Description about the web site",
-  },
-];
+

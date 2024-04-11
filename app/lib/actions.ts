@@ -1,7 +1,7 @@
 "use server";
 
 import { createClient } from "@supabase/supabase-js";
-import { Gallery } from "./definitions";
+import { GalleryCover } from "./definitions";
 
 const supabase = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_KEY!);
 
@@ -64,14 +64,14 @@ export async function getGalleriesPagePhotos() {
   }
 
   if (galleries && galleries.length > 0) {
-    return galleries.map((g: Gallery) => {
-      const { id, name, cover_url, cover_width_px, cover_height_px, description } = g;
+    return galleries.map((g: GalleryCover) => {
+      const { id, name, path, width, height, description } = g;
       return {
         id,
         name,
-        cover_url,
-        cover_width_px,
-        cover_height_px,
+        path,
+        width,
+        height,
         description,
       };
     });
