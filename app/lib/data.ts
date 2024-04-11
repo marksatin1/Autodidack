@@ -22,8 +22,8 @@ export const externalNavLinks: NavLink[] = [
     image: {
       id: 1,
       path: "/icons/2x/128/Instagram.png",
-      width: 32,
-      height: 32,
+      width: 24,
+      height: 24,
       description: "Color icon of the Instagram logo",
     },
   },
@@ -34,8 +34,8 @@ export const externalNavLinks: NavLink[] = [
     image: {
       id: 2,
       path: "/icons/2x/128/GitHub.png",
-      width: 32,
-      height: 32,
+      width: 24,
+      height: 24,
       description: "Color icon of the GitHub logo",
     },
   },
@@ -46,8 +46,8 @@ export const externalNavLinks: NavLink[] = [
     image: {
       id: 3,
       path: "/icons/2x/128/LinkedIn.png",
-      width: 32,
-      height: 32,
+      width: 24,
+      height: 24,
       description: "Color icon of the LinkedIn logo",
     },
   },
@@ -58,8 +58,8 @@ export const externalNavLinks: NavLink[] = [
     image: {
       id: 4,
       path: "/icons/2x/128/Upwork.png",
-      width: 32,
-      height: 32,
+      width: 24,
+      height: 24,
       description: "Color icon of the Upwork logo",
     },
   },
