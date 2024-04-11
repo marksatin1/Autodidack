@@ -8,7 +8,7 @@ export default function InternalNavbar({ links }: { links: NavLink[] }) {
         {links.map(l => {
           return (
             <li key={l.id}>
-              <Link href={l.href} className="text-5xl drop-shadow-md">
+              <Link href={l.href} className="text-5xl">
                 {l.name}
               </Link>
             </li>
