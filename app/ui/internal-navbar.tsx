@@ -8,7 +8,7 @@ export default function InternalNavbar({ links }: { links: NavLink[] }) {
         {links.map(l => {
           return (
             <li key={l.id}>
-              <Link href={l.href} className="text-5xl hover:text-slate-400">
+              <Link href={l.href} className="text-4xl hover:text-slate-400">
                 {l.name}
               </Link>
             </li>
