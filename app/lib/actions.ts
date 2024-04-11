@@ -1,7 +1,6 @@
 "use server";
 
 import { createClient } from "@supabase/supabase-js";
-import { Photo } from "./definitions";
 import { Gallery } from "./definitions";
 
 const supabase = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_KEY!);
@@ -39,11 +38,11 @@ export async function getHomePhotos() {
 
   if (data && data.length > 0) {
     return data.map((p: any) => {
-      const { id, description, url, width_px, height_px } = p;
+      const { id, description, path, width_px, height_px } = p;
       return {
         id,
         description,
-        url,
+        path,
         width: width_px,
         height: height_px,
       };
