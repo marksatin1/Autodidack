@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+image:hover {
+  transform: rotate(1deg);
+}
+
 .text-title {
   @apply text-2xl my-2 lg:text-6xl lg:font-extrabold;
 }
@@ -150,9 +154,9 @@
   }
 }
 
-.grid-rows-layout {
+/* .grid-rows-layout {
   grid-template-rows: auto 1fr auto;
-}
+} */
 
 .grid-rows-equal {
   grid-template-rows: 1fr 1fr 1fr;
