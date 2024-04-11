@@ -7,12 +7,12 @@ import Image from "next/image";
 import { useState } from "react";
 
 export default function Footer() {
-  const [audioIconPath, setAudioIconPath] = useState<string>("/icons/2x/128/Quiet.svg");
+  const [audioIconPath, setAudioIconPath] = useState<string>("/icons/2x/128/Quiet.png");
 
   function updateAudioIcon() {
-    audioIconPath === "/icons/2x/128/Quiet.svg"
-      ? setAudioIconPath("/icons/2x/128/Listening.svg")
-      : setAudioIconPath("/icons/2x/128/Quiet.svg");
+    audioIconPath === "/icons/2x/128/Quiet.png"
+      ? setAudioIconPath("/icons/2x/128/Listening.png")
+      : setAudioIconPath("/icons/2x/128/Quiet.png");
   }
 
   return (
