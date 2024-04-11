@@ -1,7 +1,9 @@
-export default function Header({ title }: { title: string }) {
+import Logo from "./logo";
+
+export default function Header() {
   return (
-    <header className="w-full py-4">
-      <h1 className="text-5xl text-center">{title}</h1>
+    <header className="w-full py-5 text-center">
+      <Logo />
     </header>
   );
 }
