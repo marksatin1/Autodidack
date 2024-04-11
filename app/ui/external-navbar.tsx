@@ -7,7 +7,7 @@ export default function ExternalNavbar({ links }: { links: NavLink[] }) {
       <ul className="flex items-center justify-center space-x-8">
         {links.map(l => {
           return (
-            <li key={l.id}>
+            <li key={l.id} className="hover:scale-125 duration-700">
               <a href={l.href} target="_blank" rel="noopener noreferrer">
                 <Image
                   src={l.image!.path}

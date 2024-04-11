@@ -1,7 +1,12 @@
 import "./globals.css";
-import Logo from "./ui/logo";
 import Footer from "./ui/footer";
 import Header from "./ui/header";
+import { Kreon } from "next/font/google";
+
+const kreon = Kreon({
+  subsets: ["latin"],
+  weight: "400",
+});
 
 export default function RootLayout({
   children,
@@ -9,8 +14,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="h-screen grid grid-rows-layout">
+    <html lang="en" className={kreon.className}>
+      <body className="h-screen">
         <Header title="Autodidack" />
         <main className="overflow-hidden">{children}</main>
         <Footer />

@@ -8,8 +8,8 @@ export type NavLink = {
 export type ImageType = {
   id: number;
   path: string;
-  width?: number;
-  height?: number;
+  width: number;
+  height: number;
   description: string;
 };
 

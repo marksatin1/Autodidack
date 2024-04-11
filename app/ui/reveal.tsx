@@ -1,12 +1,12 @@
 "use client";
 
-import { Photo } from "../lib/definitions";
+import { ImageType } from "../lib/definitions";
 import { useRef, useEffect, useState } from "react";
 import { MouseEvent } from "react";
 import { checkTransparency } from "../lib/utils";
 import Image from "next/image";
 
-export default function ImageReveal({ image }: { image: Photo }) {
+export default function ImageReveal({ image }: { image: ImageType }) {
   const topRef = useRef<HTMLCanvasElement>(null);
   const [canvasContext, setCanvasContext] = useState<CanvasRenderingContext2D | null>(null);
   const [animation, setAnimation] = useState<string>("");
@@ -25,7 +25,7 @@ export default function ImageReveal({ image }: { image: Photo }) {
     topCtx.fillRect(0, 0, image.width, image.height);
     setCanvasContext(topCtx);
     setImageLoading(false);
-  }, [image.width, image.height, image.url]);
+  }, [image.width, image.height, image.path]);
 
   const revealImage = (e: MouseEvent) => {
     let { offsetX: x, offsetY: y } = e.nativeEvent;
@@ -42,7 +42,7 @@ export default function ImageReveal({ image }: { image: Photo }) {
     <div className={`flex items-center justify-center h-screen ${animation}`}>
       <div className="relative w-screen h-full">
         <Image
-          src={image.url}
+          src={image.path}
           width={image.width}
           height={image.height}
           alt={image.description}
