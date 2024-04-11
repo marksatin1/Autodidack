@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={kreon.className}>
-      <body className="h-screen">
+      <body className="h-screen grid grid-rows-[1fr_auto_1fr]">
         <Header />
         <main className="overflow-hidden">{children}</main>
         <Footer />
