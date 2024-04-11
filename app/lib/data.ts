@@ -1,4 +1,4 @@
-import { CollageImage, NavLink, Photo } from "./definitions";
+import { CollageImage, NavLink, ImageType } from "./definitions";
 
 export const internalNavLinks: NavLink[] = [
   {
@@ -65,6 +65,7 @@ export const externalNavLinks: NavLink[] = [
   },
 ];
 
+// order based on stacking order
 export const collageImages: CollageImage[] = [
   {
     id: 1,
@@ -93,15 +94,7 @@ export const collageImages: CollageImage[] = [
     xCoord: 169,
     yCoord: 665,
   },
-  {
-    id: 4,
-    path: "/collage-images/_0003_Mark.png",
-    width: 659,
-    height: 444,
-    description: "A man with shorts and a backwards baseball cap lying on his stomach",
-    xCoord: 1081,
-    yCoord: 1341,
-  },
+
   {
     id: 5,
     path: "/collage-images/_0004_Blue-Jacket.png",
@@ -166,33 +159,6 @@ export const collageImages: CollageImage[] = [
     yCoord: 742,
   },
   {
-    id: 12,
-    path: "/collage-images/_0011_Sleeping-Guy.png",
-    width: 865,
-    height: 544,
-    description: "A homeless man sleeping on a cement block",
-    xCoord: 108,
-    yCoord: 1244,
-  },
-  {
-    id: 13,
-    path: "/collage-images/_0012_Leon.png",
-    width: 288,
-    height: 465,
-    description: "A man smoking a cigarette and talking on the phone",
-    xCoord: 790,
-    yCoord: 633,
-  },
-  {
-    id: 14,
-    path: "/collage-images/_0013_Garbage-Bin.png",
-    width: 506,
-    height: 395,
-    description: "A green industrial garbage bin with a skull graffiti",
-    xCoord: 790,
-    yCoord: 633,
-  },
-  {
     id: 15,
     path: "/collage-images/_0014_Cops.png",
     width: 684,
@@ -213,16 +179,6 @@ export const collageImages: CollageImage[] = [
     yCoord: 134,
   },
   {
-    id: 17,
-    path: "/collage-images/_0016_Bike-Boy.png",
-    width: 510,
-    height: 644,
-    description:
-      "A man with a neon lime green sweatshirt and a brown vest walking away from the viewer",
-    xCoord: 106,
-    yCoord: 123,
-  },
-  {
     id: 18,
     path: "/collage-images/_0017_Orange-Jacket.png",
     width: 349,
@@ -231,15 +187,7 @@ export const collageImages: CollageImage[] = [
     xCoord: 440,
     yCoord: 164,
   },
-  {
-    id: 19,
-    path: "/collage-images/_0018_Tire-Man.png",
-    width: 1041,
-    height: 676,
-    description: "A man placing a car tire onto a pile of other car tires",
-    xCoord: 1561,
-    yCoord: 1114,
-  },
+
   {
     id: 20,
     path: "/collage-images/_0019_Blue-Shoes-Runner.png",
@@ -331,22 +279,22 @@ export const collageImages: CollageImage[] = [
     yCoord: 794,
   },
   {
+    id: 31,
+    path: "/collage-images/_0030_Sign.png",
+    width: 402,
+    height: 469,
+    description: "A sign reading ADVERTISE HERE!",
+    xCoord: 2208,
+    yCoord: 79,
+  },
+  {
     id: 30,
     path: "/collage-images/_0029_Color-Mex-Men.png",
     width: 261,
     height: 380,
     description: "Two men in hats and sweatshirts walking",
     xCoord: 2100,
-    yCoord: 79,
-  },
-  {
-    id: 31,
-    path: "/collage-images/_0030_Sign.png",
-    width: 402,
-    height: 469,
-    description: "A sign reading ADVERTISE HERE!",
-    xCoord: 2100,
-    yCoord: 79,
+    yCoord: 352,
   },
   {
     id: 32,
@@ -357,43 +305,60 @@ export const collageImages: CollageImage[] = [
     xCoord: 1417,
     yCoord: 126,
   },
-];
-
-export const slides: Photo[] = [
-  {
-    id: 1,
-    url: "/1.jpg",
-    width: 500,
-    height: 500,
-    description: "Test",
-  },
-  {
-    id: 2,
-    url: "/2.jpg",
-    width: 500,
-    height: 500,
-    description: "Test",
-  },
-  {
-    id: 3,
-    url: "/3.jpg",
-    width: 500,
-    height: 500,
-    description: "Test",
-  },
   {
     id: 4,
-    url: "/4.jpg",
-    width: 500,
-    height: 500,
-    description: "Test",
+    path: "/collage-images/_0003_Mark.png",
+    width: 659,
+    height: 444,
+    description: "A man with shorts and a backwards baseball cap lying on his stomach",
+    xCoord: 1081,
+    yCoord: 1341,
   },
   {
-    id: 5,
-    url: "/5.jpg",
-    width: 500,
-    height: 500,
-    description: "Test",
+    id: 12,
+    path: "/collage-images/_0011_Sleeping-Guy.png",
+    width: 865,
+    height: 544,
+    description: "A homeless man sleeping on a cement block",
+    xCoord: 108,
+    yCoord: 1244,
+  },
+  {
+    id: 14,
+    path: "/collage-images/_0013_Garbage-Bin.png",
+    width: 506,
+    height: 395,
+    description: "A green industrial garbage bin with a skull graffiti",
+    xCoord: 790,
+    yCoord: 885,
+  },
+  {
+    id: 13,
+    path: "/collage-images/_0012_Leon.png",
+    width: 288,
+    height: 465,
+    description: "A man smoking a cigarette and talking on the phone",
+    xCoord: 1033,
+    yCoord: 633,
+  },
+  {
+    id: 17,
+    path: "/collage-images/_0016_Bike-Boy.png",
+    width: 510,
+    height: 644,
+    description:
+      "A man with a neon lime green sweatshirt and a brown vest walking away from the viewer",
+    xCoord: 106,
+    yCoord: 123,
+  },
+  {
+    id: 19,
+    path: "/collage-images/_0018_Tire-Man.png",
+    width: 1041,
+    height: 676,
+    description: "A man placing a car tire onto a pile of other car tires",
+    xCoord: 1561,
+    yCoord: 1114,
   },
 ];
 
