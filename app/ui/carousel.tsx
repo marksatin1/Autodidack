@@ -1,10 +1,10 @@
 "use client";
 
 import { useState, useRef, useEffect, KeyboardEvent } from "react";
-import { Photo } from "../lib/definitions";
+import { ImageType } from "../lib/definitions";
 import Image from "next/image";
 
-export default function Carousel({ slides }: { slides: Photo[] }) {
+export default function Carousel({ slides }: { slides: ImageType[] }) {
   const [currentIdx, setCurrentIdx] = useState<number>(0);
   const mainRef = useRef<HTMLDivElement>(null);
 
@@ -34,11 +34,11 @@ export default function Carousel({ slides }: { slides: Photo[] }) {
       className="p-4 outline-none w-full h-full flex items-center justify-center"
     >
       <div className="relative w-full h-full flex items-center justify-center">
-        {slides.map((p: Photo, i: number) => {
+        {slides.map((p: ImageType, i: number) => {
           return (
             <Image
               key={p.id}
-              src={p.url}
+              src={p.path}
               width={p.width}
               height={p.height}
               alt={p.description}
