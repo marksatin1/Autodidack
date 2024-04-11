@@ -16,14 +16,14 @@ export default function Footer() {
   }
 
   return (
-    <footer className="appear-in flex flex-col justify-center items-center space-y-4 px-6 py-4">
+    <footer className="appear-in flex flex-col justify-center items-center space-y-3 px-6 py-4">
       <InternalNavbar links={internalNavLinks} />
       <hr className="w-1/4 border-slate-500" />
       <div className="w-full grid grid-cols-3">
         <div className="justify-self-start self-end">
           <ExternalNavbar links={externalNavLinks} />
         </div>
-        <div className="flex flex-col justify-center items-center space-y-0.5 text-slate-500">
+        <div className="flex flex-col justify-center items-center text-slate-500">
           <p>Designed by Mark Satin</p>
           <p>&copy; 2024</p>
         </div>
