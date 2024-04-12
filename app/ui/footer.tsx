@@ -16,7 +16,7 @@ export default function Footer() {
   }
 
   return (
-    <footer className="appear-in flex flex-col justify-center items-center space-y-3 px-6 py-4">
+    <footer className="flex flex-col justify-center items-center space-y-3 px-6 py-4">
       <InternalNavbar links={internalNavLinks} />
       <hr className="w-1/4 border-slate-500" />
       <div className="w-full grid grid-cols-3">
