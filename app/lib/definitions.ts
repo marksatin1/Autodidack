@@ -11,6 +11,7 @@ export type ImageType = {
   width: number;
   height: number;
   description: string;
+  name?: string;
 };
 
 export type CollageImage = {
@@ -21,13 +22,4 @@ export type CollageImage = {
   description: string;
   xCoord: number;
   yCoord: number;
-};
-
-export type GalleryCover = {
-  id: number;
-  name: string;
-  path: string;
-  width: number;
-  height: number;
-  description: string;
 };
