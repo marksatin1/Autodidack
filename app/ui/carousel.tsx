@@ -31,25 +31,23 @@ export default function Carousel({ slides }: { slides: ImageType[] }) {
       tabIndex={0} // makes <main> focusable
       onKeyDown={handleKeyDown}
       ref={mainRef}
-      className="p-4 outline-none w-full h-full flex items-center justify-center"
+      className="bsg relative p-4 outline-none w-full h-full flex items-center justify-center"
     >
-      <div className="relative w-full h-full flex items-center justify-center">
-        {slides.map((p: ImageType, i: number) => {
-          return (
-            <Image
-              key={p.id}
-              src={p.path}
-              width={p.width}
-              height={p.height}
-              alt={p.description}
-              className={`absolute object-contain layout-responsive w-full max-h-full max-w-full ${
-                i === currentIdx ? "opacity-100" : "opacity-0"
-              } duration-[3s]`}
-              priority={i === 0}
-            />
-          );
-        })}
-      </div>
+      {slides.map((p: ImageType, i: number) => (
+        <div className="absolute w-1/2 h-auto flex items-center justify-center overflow-hidden">
+          <Image
+            key={p.id}
+            src={p.path}
+            width={p.width}
+            height={p.height}
+            alt={p.description}
+            className={`bso object-contain ${
+              i === currentIdx ? "opacity-100" : "opacity-0"
+            } duration-[3s]`}
+            priority={i === 0}
+          />
+        </div>
+      ))}
     </main>
   );
 }
