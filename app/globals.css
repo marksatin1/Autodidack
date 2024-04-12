@@ -6,6 +6,14 @@
   text-shadow: -2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+.link-selected, .link:hover {
+  color: #fafafa;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #a9a9a9;
+  filter: blur(1px);
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+}
+
 image:hover {
   transform: rotate(1deg);
   transition-duration: 400ms;
