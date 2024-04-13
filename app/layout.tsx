@@ -1,6 +1,6 @@
 import "./globals.css";
-import Footer from "./ui/footer";
-import Header from "./ui/header";
+import Footer from "./ui/layout/footer";
+import Header from "./ui/layout/header";
 import { Kreon } from "next/font/google";
 
 const kreon = Kreon({
