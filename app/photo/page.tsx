@@ -3,12 +3,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getGalleriesPagePhotos } from "../lib/actions";
-import { GalleryCover } from "../lib/definitions";
-import { useState, useEffect } from "react";
+import { ImageType } from "../lib/definitions";
+import { useState, useEffect, useRef, useContext } from "react";
+import { usePathname } from "next/navigation";
+import { AnimationContext } from "../lib/context/AnimationContext";
+
+const growthDuration = 2000;
 
 export default function Page() {
-  const [galleries, setGalleries] = useState<GalleryCover[]>([]);
+  const [galleries, setGalleries] = useState<ImageType[]>([]);
   const [hoveredImageId, setHoveredImageId] = useState<number | null>(null);
+  const pathname = usePathname();
+  const sectionRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     (async () => {
@@ -17,19 +23,15 @@ export default function Page() {
     })();
   }, []);
 
-  function handleNameDisplay(id: number) {
-    setHoveredImageId(id);
-  }
-
   return (
-    <section className="h-full">
-      <div className="grid grid-cols-4 gap-4 h-full p-4 overflow-scroll">
-        {galleries.map((g: GalleryCover, i: number) => {
+    <section ref={sectionRef} className="h-full">
+      <div className="grid grid-cols-4 gap-4 justify-items-center h-full p-4 overflow-scroll">
+        {galleries.map((g: ImageType) => {
           return (
             <Link
               key={g.id}
-              href={`/galleries/${g.id}/${g.name}`}
-              onMouseEnter={() => handleNameDisplay(g.id)}
+              href={`${pathname}/${g.id}/${g.name}`}
+              onMouseEnter={() => setHoveredImageId(g.id)}
               onMouseLeave={() => setHoveredImageId(null)}
               className="relative flex justify-center hover:scale-105 duration-700"
             >
@@ -38,7 +40,7 @@ export default function Page() {
                 width={g.width}
                 height={g.height}
                 alt={g.description}
-                priority={i === 0}
+                priority
                 className="shadow-gallerySm"
               />
               {hoveredImageId === g.id && (

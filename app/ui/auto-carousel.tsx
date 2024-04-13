@@ -25,9 +25,7 @@ export default function AutoCarousel({ images }: { images: ImageType[] }) {
             width={p.width}
             height={p.height}
             alt={p.description}
-            className={`absolute object-cover object-center ${
-              i === current ? "bg-fade" : "opacity-0"
-            }`}
+            className={`absolute ${i === current ? "bg-fade" : "opacity-0"}`}
             priority={i === 0}
           />
         );

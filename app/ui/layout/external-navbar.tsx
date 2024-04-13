@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { NavLink } from "../lib/definitions";
+import { NavLink } from "../../lib/definitions";
 
 export default function ExternalNavbar({ links }: { links: NavLink[] }) {
   return (

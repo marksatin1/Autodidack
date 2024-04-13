@@ -1,6 +1,6 @@
 import "./globals.css";
-import Footer from "./ui/footer";
-import Header from "./ui/header";
+import Footer from "./ui/layout/footer";
+import Header from "./ui/layout/header";
 import { Kreon } from "next/font/google";
 
 const kreon = Kreon({
@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={kreon.className}>
-      <body className="h-screen grid grid-rows-[1fr_auto_1fr]">
+      <body className="h-screen grid grid-rows-[auto_1fr_auto]">
         <Header />
         <main className="overflow-hidden">{children}</main>
         <Footer />

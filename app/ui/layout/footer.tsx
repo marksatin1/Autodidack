@@ -1,6 +1,6 @@
 "use client";
 
-import { externalNavLinks, internalNavLinks } from "../lib/data";
+import { externalNavLinks, internalNavLinks } from "../../lib/data";
 import ExternalNavbar from "./external-navbar";
 import InternalNavbar from "./internal-navbar";
 import Image from "next/image";

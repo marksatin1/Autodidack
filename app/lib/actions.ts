@@ -1,7 +1,7 @@
 "use server";
 
 import { createClient } from "@supabase/supabase-js";
-import { GalleryCover } from "./definitions";
+import { ImageType } from "./definitions";
 
 const supabase = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_KEY!);
 
@@ -14,7 +14,7 @@ export async function getEntrancePhoto() {
     // Display error handling to client
   }
 
-  if (data && data.length === 1) {
+  if (data?.length === 1) {
     const { id, description, url, width_px, height_px } = data[0];
     return {
       id,
@@ -36,15 +36,15 @@ export async function getHomePhotos() {
     // Display error handling to client
   }
 
-  if (data && data.length > 0) {
-    return data.map((p: any) => {
-      const { id, description, path, width_px, height_px } = p;
+  if (data?.length > 0) {
+    return data.map((p: ImageType) => {
+      const { id, description, path, width, height } = p;
       return {
         id,
         description,
         path,
-        width: width_px,
-        height: height_px,
+        width,
+        height,
       };
     });
   }
@@ -63,8 +63,8 @@ export async function getGalleriesPagePhotos() {
     // Display error handling to client
   }
 
-  if (galleries && galleries.length > 0) {
-    return galleries.map((g: GalleryCover) => {
+  if (galleries?.length > 0) {
+    return galleries.map((g: ImageType) => {
       const { id, name, path, width, height, description } = g;
       return {
         id,
@@ -91,15 +91,15 @@ export async function getGalleryPhotos(galleryId: number) {
     // Display error handling to client
   }
 
-  if (galleryPhotos && galleryPhotos.length > 0) {
-    return galleryPhotos.map((p: any) => {
-      const { id, description, url, width_px, height_px } = p;
+  if (galleryPhotos?.length > 0) {
+    return galleryPhotos.map((p: ImageType) => {
+      const { id, description, path, width, height } = p;
       return {
         id,
         description,
-        url,
-        width: width_px,
-        height: height_px,
+        path,
+        width,
+        height,
       };
     });
   }

@@ -362,4 +362,19 @@ export const collageImages: CollageImage[] = [
   },
 ];
 
-
+export const icons = {
+  download: {
+    id: 1,
+    path: "/icons/2x/128/Download.png",
+    width: 128,
+    height: 128,
+    description: "An arrow pointing down into an inbox",
+  },
+  submit: {
+    id: 1,
+    path: "/icons/2x/128/Submit.png",
+    width: 128,
+    height: 128,
+    description: "A paper plane tilted to the top right corner",
+  },
+};

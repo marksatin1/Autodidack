@@ -6,7 +6,12 @@
   text-shadow: -2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.link-selected, .link:hover {
+.text-content-shadow {
+  text-shadow: -3px 8px 2px rgba(0, 0, 0, 0.8);
+}
+
+.link-selected,
+.link:hover {
   color: #fafafa;
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: #a9a9a9;
