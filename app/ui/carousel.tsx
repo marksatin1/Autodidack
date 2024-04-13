@@ -34,9 +34,11 @@ export default function Carousel({ slides }: { slides: ImageType[] }) {
       className="bsg relative p-4 outline-none w-full h-full flex items-center justify-center"
     >
       {slides.map((p: ImageType, i: number) => (
-        <div className="absolute w-1/2 h-auto flex items-center justify-center overflow-hidden">
+        <div
+          key={p.id}
+          className="absolute w-1/2 h-auto flex items-center justify-center overflow-hidden"
+        >
           <Image
-            key={p.id}
             src={p.path}
             width={p.width}
             height={p.height}
