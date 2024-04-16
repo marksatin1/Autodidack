@@ -15,11 +15,11 @@ export async function getEntrancePhoto() {
   }
 
   if (data?.length === 1) {
-    const { id, description, url, width_px, height_px } = data[0];
+    const { id, description, path, width_px, height_px } = data[0];
     return {
       id,
       description,
-      url,
+      path,
       width: width_px,
       height: height_px,
     };
