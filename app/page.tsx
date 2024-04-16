@@ -1,16 +1,15 @@
-import AutoCarousel from "./ui/auto-carousel";
 import { getHomePhotos } from "./lib/actions";
+import AutoCarousel from "./ui/auto-carousel";
 import Collage from "./ui/collage";
 import { collageImages } from "./lib/data";
 
-export default async function Home() {
+export default async function Page() {
   const homePhotos = await getHomePhotos();
 
   return (
-    <section className="h-full">
-      {homePhotos && <AutoCarousel images={homePhotos} />}
-
-      <div className="appear-in h-full flex justify-center items-center">
+    <section className="relative w-full h-full">
+      <AutoCarousel images={homePhotos} />
+      <div className="appear-in absolute top-0 w-full h-full">
         <Collage images={collageImages} />
       </div>
     </section>

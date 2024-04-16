@@ -1,35 +1,43 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Image from "next/image";
 import { ImageType } from "../lib/definitions";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import { pageTransitionVariants } from "../lib/context/animate-context";
 
-export default function AutoCarousel({ images }: { images: ImageType[] }) {
-  const [current, setCurrent] = useState<number>(0);
+// LEVERS
+const FADE_INTERVAL = 15000;
+
+export default function AutoCarouselTest({ images }: { images: ImageType[] }) {
+  const [currentPage, setCurrentPage] = useState<number>(0);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent(prev => (prev + 1) % images.length);
-    }, 20000);
-
-    return () => clearInterval(timer);
-  }, [images.length]);
+    setTimeout(() => {
+      setCurrentPage(prev => (prev + 1) % images.length);
+    }, FADE_INTERVAL);
+  }, [currentPage]);
 
   return (
-    <div className="relative">
-      {images.map((p, i) => {
-        return (
-          <Image
-            key={p.id}
-            src={p.path}
-            width={p.width}
-            height={p.height}
-            alt={p.description}
-            className={`absolute ${i === current ? "bg-fade" : "opacity-0"}`}
-            priority={i === 0}
-          />
-        );
-      })}
-    </div>
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={images[currentPage].id}
+        initial="hidden"
+        animate="visible"
+        exit="hidden"
+        transition={{ ease: "easeInOut", duration: FADE_INTERVAL / 1000 }}
+        variants={pageTransitionVariants}
+        className="flex justify-center items-center w-full h-full"
+      >
+        <Image
+          src={images[currentPage].path}
+          width={images[currentPage].width}
+          height={images[currentPage].height}
+          alt={images[currentPage].description}
+          priority
+          className="w-full h-full object-contain"
+        />
+      </motion.div>
+    </AnimatePresence>
   );
 }
