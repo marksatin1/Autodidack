@@ -8,8 +8,6 @@ import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import PhotoPageAnimation from "./photo-page-animation";
 
-const growthDuration = 2000;
-
 export default function Page() {
   const [galleries, setGalleries] = useState<ImageType[]>([]);
   const [hoveredImageId, setHoveredImageId] = useState<number | null>(null);
@@ -28,9 +26,8 @@ export default function Page() {
       <div className="grid grid-cols-4 gap-4 justify-items-center h-full p-4 overflow-scroll">
         {galleries.map((g: ImageType) => {
           return (
-            <PhotoPageAnimation>
+            <PhotoPageAnimation key={g.id}>
               <Link
-                key={g.id}
                 href={`${pathname}/${g.id}/${g.name}`}
                 onMouseEnter={() => setHoveredImageId(g.id)}
                 onMouseLeave={() => setHoveredImageId(null)}
