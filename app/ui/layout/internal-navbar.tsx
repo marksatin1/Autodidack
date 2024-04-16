@@ -7,10 +7,10 @@ export default function InternalNavbar({ links }: { links: NavLink[] }) {
 
   return (
     <nav>
-      <ul className="flex items-center justify-center space-x-32 title-shadow">
+      <ul className="grid grid-cols-4 gap-32 items-center justify-center title-shadow">
         {links.map(l => {
           return (
-            <li key={l.id}>
+            <li key={l.id} className="text-center">
               <Link
                 href={l.href}
                 className={`${
