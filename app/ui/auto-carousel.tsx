@@ -13,10 +13,12 @@ export default function AutoCarouselTest({ images }: { images: ImageType[] }) {
   const [currentPage, setCurrentPage] = useState<number>(0);
 
   useEffect(() => {
-    setTimeout(() => {
+    let timer = setTimeout(() => {
       setCurrentPage(prev => (prev + 1) % images.length);
     }, FADE_INTERVAL);
-  }, [currentPage]);
+
+    return clearTimeout(timer);
+  }, [currentPage, images.length]);
 
   return (
     <AnimatePresence mode="wait">
