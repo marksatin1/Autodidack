@@ -3,15 +3,16 @@ import { CollageImage, NavLink } from "./definitions";
 export const internalNavLinks: NavLink[] = [
   {
     id: 1,
-    name: "Web",
-    href: "/web",
-  },
-  {
-    id: 2,
     name: "Photo",
     href: "/photo",
   },
+  {
+    id: 2,
+    name: "Web",
+    href: "/web",
+  },
   { id: 3, name: "About", href: "/about" },
+  { id: 4, name: "Store", href: "/store" },
 ];
 
 export const externalNavLinks: NavLink[] = [
@@ -371,10 +372,52 @@ export const icons = {
     description: "An arrow pointing down into an inbox",
   },
   submit: {
-    id: 1,
+    id: 2,
     path: "/icons/2x/128/Submit.png",
     width: 128,
     height: 128,
     description: "A paper plane tilted to the top right corner",
+  },
+  leftArrow: {
+    id: 3,
+    path: "/icons/2x/128/LeftArrow.png",
+    width: 128,
+    height: 254,
+    description: "Icon of an arrow pointing to the left",
+  },
+  rightArrow: {
+    id: 4,
+    path: "/icons/2x/128/RightArrow.png",
+    width: 128,
+    height: 254,
+    description: "Icon of an arrow pointing to the right",
+  },
+  rightArrowThin: {
+    id: 5,
+    path: "/icons/2x/128/ArrowThinRight.png",
+    width: 128,
+    height: 128,
+    description: "Icon of an arrow pointing to the right",
+  },
+  leftArrowThin: {
+    id: 6,
+    path: "/icons/2x/128/ArrowThinLeft.png",
+    width: 128,
+    height: 128,
+    description: "Icon of an arrow pointing to the right",
+  },
+  rightArrowThick: {
+    id: 7,
+    path: "/icons/2x/128/ArrowFatRight.png",
+    width: 128,
+    height: 128,
+    description: "Icon of an arrow pointing to the right",
+  },
+  leftArrowThick: {
+    id: 8,
+    path: "/icons/2x/128/ArrowFatLeft.png",
+    width: 128,
+    height: 128,
+    description: "Icon of an arrow pointing to the right",
   },
 };

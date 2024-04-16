@@ -3,23 +3,32 @@
 import { useState, useRef, useEffect, KeyboardEvent } from "react";
 import { ImageType } from "../lib/definitions";
 import Image from "next/image";
+import { icons } from "../lib/data";
 
 export default function Carousel({ slides }: { slides: ImageType[] }) {
   const [currentIdx, setCurrentIdx] = useState<number>(0);
-  const mainRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
-  // Focus to <main> when component mounts
+  // Focus to <section> when component mounts
   useEffect(() => {
-    mainRef.current?.focus();
+    sectionRef.current?.focus();
   }, []);
+
+  function handleNextImage() {
+    setCurrentIdx(prev => (prev + 1) % slides.length);
+  }
+
+  function handlePrevImage() {
+    setCurrentIdx(prev => (prev - 1 + slides.length) % slides.length);
+  }
 
   function handleKeyDown(e: KeyboardEvent) {
     switch (e.key) {
       case "ArrowLeft":
-        setCurrentIdx(prev => (prev - 1 + slides.length) % slides.length);
+        handlePrevImage();
         break;
       case "ArrowRight":
-        setCurrentIdx(prev => (prev + 1) % slides.length);
+        handleNextImage();
         break;
       default:
         console.log("Some other key was pressed.");
@@ -27,29 +36,46 @@ export default function Carousel({ slides }: { slides: ImageType[] }) {
   }
 
   return (
-    <main
-      tabIndex={0} // makes <main> focusable
+    <section
+      tabIndex={0} // makes <section> focusable
       onKeyDown={handleKeyDown}
-      ref={mainRef}
-      className="bsg relative p-4 outline-none w-full h-full flex items-center justify-center"
+      ref={sectionRef}
+      className="w-full h-full outline-none grid grid-rows-[1fr_auto]"
     >
-      {slides.map((p: ImageType, i: number) => (
-        <div
-          key={p.id}
-          className="absolute w-1/2 h-auto flex items-center justify-center overflow-hidden"
-        >
-          <Image
-            src={p.path}
-            width={p.width}
-            height={p.height}
-            alt={p.description}
-            className={`bso object-contain ${
-              i === currentIdx ? "opacity-100" : "opacity-0"
-            } duration-[3s]`}
-            priority={i === 0}
-          />
-        </div>
-      ))}
-    </main>
+      <div className="w-full h-full relative">
+        {slides.map((p: ImageType, i: number) => (
+          <div key={p.id} className="">
+            <Image
+              src={p.path}
+              width={p.width}
+              height={p.height}
+              alt={p.description}
+              className={`absolute w-full h-full object-contain ${
+                i === currentIdx ? "opacity-100" : "opacity-0"
+              } duration-[2s]`}
+              priority={i === 0}
+            />
+          </div>
+        ))}
+      </div>
+      <div className="flex justify-center gap-8 my-4">
+        <Image
+          src={icons.leftArrowThin.path}
+          width={icons.leftArrowThin.width}
+          height={icons.leftArrowThin.height}
+          alt={icons.leftArrowThin.description}
+          onClick={handlePrevImage}
+          className="w-[48px] cursor-pointer"
+        />
+        <Image
+          src={icons.rightArrowThin.path}
+          width={icons.rightArrowThin.width}
+          height={icons.rightArrowThin.height}
+          alt={icons.rightArrowThin.description}
+          onClick={handleNextImage}
+          className="w-[48px] cursor-pointer"
+        />
+      </div>
+    </section>
   );
 }
