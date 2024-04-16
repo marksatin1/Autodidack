@@ -14,6 +14,9 @@ const config: Config = {
         galleryLg: "-8px 8px 2px rgba(0, 0, 0, 1)",
         input: "1px 4px 4px rgba(0, 0, 0, 0.35)",
       },
+      colors: {
+        accent: "#f59e0b",
+      },
     },
   },
   plugins: [],

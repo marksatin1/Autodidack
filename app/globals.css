@@ -12,15 +12,15 @@
 
 .link-selected,
 .link:hover {
-  color: #fafafa;
-  -webkit-text-stroke-width: 2px;
+  color: #f59e0b;
+  -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #a9a9a9;
-  filter: blur(1px);
+  filter: blur(2px);
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
 }
 
 image:hover {
-  transform: rotate(1deg);
+  transform: rotate(-1deg);
   transition-duration: 400ms;
 }
 
@@ -42,7 +42,7 @@ image:hover {
 }
 
 .unblur:hover {
-  animation: unblur 1.5s;
+  animation: unblur 1s;
 }
 
 .appear-in {
@@ -50,7 +50,22 @@ image:hover {
 }
 
 .appear-out {
-  animation: appear-out 6s forwards;
+  animation: appear-out 2s forwards;
+}
+
+.page-transition-enter {
+  opacity: 0;
+}
+.page-transition-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+.page-transition-exit {
+  opacity: 1;
+}
+.page-transition-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
 }
 
 @keyframes full-fade {
@@ -186,3 +201,5 @@ image:hover {
     margin-left: 110px;
   }
 }
+
+/* ===== OTHER ===== */
