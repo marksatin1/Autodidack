@@ -1,4 +1,4 @@
-import { CollageImage, NavLink } from "./definitions";
+import { AudioFile, CollageImage, ImageType, NavLink } from "./definitions";
 
 export const internalNavLinks: NavLink[] = [
   {
@@ -22,9 +22,9 @@ export const externalNavLinks: NavLink[] = [
     href: "https://www.instagram.com/the_unforecasted_storm/",
     image: {
       id: 1,
-      path: "/icons/2x/128/Instagram.png",
-      width: 24,
-      height: 24,
+      path: "/icons/256/Instagram.png",
+      width: 256,
+      height: 256,
       description: "Color icon of the Instagram logo",
     },
   },
@@ -34,9 +34,9 @@ export const externalNavLinks: NavLink[] = [
     href: "https://github.com/marksatin1",
     image: {
       id: 2,
-      path: "/icons/2x/128/GitHub.png",
-      width: 24,
-      height: 24,
+      path: "/icons/256/GitHub.png",
+      width: 256,
+      height: 256,
       description: "Color icon of the GitHub logo",
     },
   },
@@ -46,9 +46,9 @@ export const externalNavLinks: NavLink[] = [
     href: "https://www.linkedin.com/in/marksatin/",
     image: {
       id: 3,
-      path: "/icons/2x/128/LinkedIn.png",
-      width: 24,
-      height: 24,
+      path: "/icons/256/LinkedIn.png",
+      width: 256,
+      height: 256,
       description: "Color icon of the LinkedIn logo",
     },
   },
@@ -58,9 +58,9 @@ export const externalNavLinks: NavLink[] = [
     href: "https://www.upwork.com/freelancers/~01e472c9e11ddcf814",
     image: {
       id: 4,
-      path: "/icons/2x/128/Upwork.png",
-      width: 24,
-      height: 24,
+      path: "/icons/256/Upwork.png",
+      width: 256,
+      height: 256,
       description: "Color icon of the Upwork logo",
     },
   },
@@ -205,7 +205,7 @@ export const collageImages: CollageImage[] = [
     height: 309,
     description: "Two men walking and looking at something offscreen",
     xCoord: 1280,
-    yCoord: 1176,
+    yCoord: 1190,
   },
   {
     id: 22,
@@ -366,58 +366,72 @@ export const collageImages: CollageImage[] = [
 export const icons = {
   download: {
     id: 1,
-    path: "/icons/2x/128/Download.png",
-    width: 128,
-    height: 128,
+    path: "/icons/256/Download.png",
+    width: 256,
+    height: 256,
     description: "An arrow pointing down into an inbox",
   },
   submit: {
     id: 2,
-    path: "/icons/2x/128/Submit.png",
-    width: 128,
-    height: 128,
+    path: "/icons/256/Submit.png",
+    width: 256,
+    height: 256,
     description: "A paper plane tilted to the top right corner",
   },
-  leftArrow: {
+  arrowLeftTilted: {
     id: 3,
-    path: "/icons/2x/128/LeftArrow.png",
-    width: 128,
+    path: "/icons/256/ArrowLeftTilted.png",
+    width: 256,
     height: 254,
     description: "Icon of an arrow pointing to the left",
   },
-  rightArrow: {
+  arrowRightTilted: {
     id: 4,
-    path: "/icons/2x/128/RightArrow.png",
-    width: 128,
+    path: "/icons/256/ArrowRightTilted.png",
+    width: 256,
     height: 254,
     description: "Icon of an arrow pointing to the right",
   },
-  rightArrowThin: {
+  arrowRightThin: {
     id: 5,
-    path: "/icons/2x/128/ArrowThinRight.png",
-    width: 128,
-    height: 128,
+    path: "/icons/256/ArrowRightThin.png",
+    width: 256,
+    height: 256,
     description: "Icon of an arrow pointing to the right",
   },
-  leftArrowThin: {
+  arrowLeftThin: {
     id: 6,
-    path: "/icons/2x/128/ArrowThinLeft.png",
-    width: 128,
-    height: 128,
+    path: "/icons/256/ArrowLeftThin.png",
+    width: 256,
+    height: 256,
     description: "Icon of an arrow pointing to the right",
   },
-  rightArrowThick: {
+  arrowRightThick: {
     id: 7,
-    path: "/icons/2x/128/ArrowFatRight.png",
-    width: 128,
-    height: 128,
+    path: "/icons/256/ArrowRightThick.png",
+    width: 256,
+    height: 256,
     description: "Icon of an arrow pointing to the right",
   },
-  leftArrowThick: {
+  arrowLeftThick: {
     id: 8,
-    path: "/icons/2x/128/ArrowFatLeft.png",
-    width: 128,
-    height: 128,
+    path: "/icons/256/ArrowLeftThick.png",
+    width: 256,
+    height: 256,
     description: "Icon of an arrow pointing to the right",
+  },
+  quiet: {
+    id: 9,
+    path: "/icons/256/Quiet.png",
+    width: 256,
+    height: 256,
+    description: "Icon of a person with their finger over their mouth indicating silence",
+  },
+  listening: {
+    id: 10,
+    path: "/icons/256/Listening.png",
+    width: 256,
+    height: 256,
+    description: "Icon of a person with their hand to their ear indicating listening",
   },
 };
