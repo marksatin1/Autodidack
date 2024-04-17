@@ -17,9 +17,9 @@ export default function InternalNavbar({ links }: { links: NavLink[] }) {
                 href={l.href}
                 className={`${
                   pathname.slice(1) === l.name.toLowerCase() && "link-selected"
-                } text-4xl link`}
+                } text-3xl link`}
               >
-                {l.name}
+                <h2 data-sound="/Composite-SFX.mp3">{l.name}</h2>
               </Link>
             </li>
           );
