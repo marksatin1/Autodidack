@@ -18,7 +18,7 @@ export default function AudioPlayer() {
   // must encapsulate async functionality because this is a Client Component
   useEffect(() => {
     (async () => {
-      const data = await getAudioFiles();
+      const data = await getAudioFiles(1);
       data && setPlaylist(data);
     })();
   }, []);
