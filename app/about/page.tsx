@@ -37,6 +37,7 @@ export default function Page() {
           width={1200}
           height={1788}
           alt="TBA"
+          priority
           className="shadow-galleryLg"
           style={{
             width: 500,

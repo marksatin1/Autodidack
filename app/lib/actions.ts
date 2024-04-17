@@ -3,10 +3,13 @@
 import { createClient } from "@supabase/supabase-js";
 import { AudioFile, ImageType } from "./definitions";
 
+// SETUP
 const supabase = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_KEY!);
 
-export async function getEntrancePhoto() {
-  const { data, error } = await supabase.from("photos").select("*").eq("page_id", 1);
+// API CALLS //
+//           //
+export async function getOnePhoto(photoID: number) {
+  const { data, error } = await supabase.from("photos").select("*").eq("id", photoID).limit(1);
 
   if (error) {
     console.error(error);
@@ -25,14 +28,19 @@ export async function getEntrancePhoto() {
   }
 }
 
-export async function getHomePhotos() {
-  // Remote Procedure Call stored in Supabase dashboard
-  // lists images I don't want
-  const { data, error } = await supabase.rpc("get_random_bg_photos").not("id", "eq", 108);
+// variable names must be lowercase to work with supabase rpc - annoying
+export async function getImagesInRandomOrder(galleryid?: number) {
+  // Remote Procedure Call built in Supabase
+  const { data, error } = await supabase
+    .rpc("get_random_images", {
+      galleryid,
+    })
+    .not("gallery_id", "eq", 7)
+    .not("id", "eq", 108);
 
   if (error) {
     console.error(error);
-    throw new Error("Error fetching homepage photos");
+    throw new Error("Error fetching random images.");
   }
 
   if (data.length > 0) {
@@ -49,11 +57,12 @@ export async function getHomePhotos() {
   }
 }
 
-export async function getGalleriesPagePhotos() {
+export async function getGalleryCoverPhotos() {
   const { data: galleries, error } = await supabase
-    .from("galleries")
+    .from("image_galleries")
     .select("*")
-    .not("id", "eq", 7);
+    .not("id", "eq", 7)
+    .not("id", "eq", 8);
 
   if (error) {
     console.error(error);
@@ -75,38 +84,15 @@ export async function getGalleriesPagePhotos() {
   }
 }
 
-export async function getGalleryPhotos(galleryId: number) {
-  const { data: galleryPhotos, error } = await supabase
-    .from("photos")
+export async function getAudioFiles(albumID: number) {
+  const { data: audioFiles, error } = await supabase
+    .from("audio")
     .select("*")
-    .eq("page_id", 3)
-    .eq("gallery_id", galleryId);
+    .eq("album_id", albumID);
 
   if (error) {
     console.error(error);
-    throw new Error(`Error fetching photos for Gallery #${galleryId}`);
-  }
-
-  if (galleryPhotos.length > 0) {
-    return galleryPhotos.map((p: ImageType) => {
-      const { id, description, path, width, height } = p;
-      return {
-        id,
-        description,
-        path,
-        width,
-        height,
-      };
-    });
-  }
-}
-
-export async function getAudioFiles() {
-  const { data: audioFiles, error } = await supabase.from("audio").select("*");
-
-  if (error) {
-    console.error(error);
-    throw new Error("Error fetching audio files");
+    throw new Error(`Error fetching audio files for Album ID ${albumID}.`);
   }
 
   if (audioFiles.length > 0) {
@@ -123,12 +109,4 @@ export async function getAudioFiles() {
       };
     });
   }
-}
-
-export async function submitContactForm(e: any) {
-  e.preventDefault();
-
-  // Email contact form info to my email address
-
-  // return some trigger to display success message
 }
