@@ -60,18 +60,18 @@ export default function Carousel({ slides }: { slides: ImageType[] }) {
       </div>
       <div className="flex justify-center gap-8 my-4">
         <Image
-          src={icons.leftArrowThin.path}
-          width={icons.leftArrowThin.width}
-          height={icons.leftArrowThin.height}
-          alt={icons.leftArrowThin.description}
+          src={icons.arrowLeftThin.path}
+          width={icons.arrowLeftThin.width}
+          height={icons.arrowLeftThin.height}
+          alt={icons.arrowLeftThin.description}
           onClick={handlePrevImage}
           className="w-[48px] cursor-pointer"
         />
         <Image
-          src={icons.rightArrowThin.path}
-          width={icons.rightArrowThin.width}
-          height={icons.rightArrowThin.height}
-          alt={icons.rightArrowThin.description}
+          src={icons.arrowRightThin.path}
+          width={icons.arrowRightThin.width}
+          height={icons.arrowRightThin.height}
+          alt={icons.arrowRightThin.description}
           onClick={handleNextImage}
           className="w-[48px] cursor-pointer"
         />
