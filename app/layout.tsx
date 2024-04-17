@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="en" className={merri.className}>
       <body className="w-screen h-screen grid grid-rows-[auto_1fr_auto]">
         <Header />
-        <main className="w-full max-h-[750px]">{children}</main>
+        <main className="w-full max-h-[775px]">{children}</main>
         <Footer />
       </body>
     </html>
