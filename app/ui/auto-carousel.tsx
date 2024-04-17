@@ -6,18 +6,16 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { pageTransitionVariants } from "../lib/context/animate-context";
 
-// LEVERS
-const FADE_INTERVAL = 15000;
+// LEVER
+const FADE_INTERVAL = 12000;
 
 export default function AutoCarouselTest({ images }: { images: ImageType[] }) {
   const [currentPage, setCurrentPage] = useState<number>(0);
 
   useEffect(() => {
-    let timer = setTimeout(() => {
+    setTimeout(() => {
       setCurrentPage(prev => (prev + 1) % images.length);
     }, FADE_INTERVAL);
-
-    return clearTimeout(timer);
   }, [currentPage, images.length]);
 
   return (

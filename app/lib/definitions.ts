@@ -23,3 +23,13 @@ export type CollageImage = {
   xCoord: number;
   yCoord: number;
 };
+
+export type AudioFile = {
+  id: number;
+  path: string;
+  type: string;
+  title: string;
+  artist: string;
+  year: number;
+  format: string;
+};

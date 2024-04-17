@@ -1,7 +1,7 @@
 "use server";
 
 import { createClient } from "@supabase/supabase-js";
-import { ImageType } from "./definitions";
+import { AudioFile, ImageType } from "./definitions";
 
 const supabase = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_KEY!);
 
@@ -11,32 +11,31 @@ export async function getEntrancePhoto() {
   if (error) {
     console.error(error);
     throw new Error("Error fetching entrance photo");
-    // Display error handling to client
   }
 
-  if (data?.length === 1) {
-    const { id, description, path, width_px, height_px } = data[0];
+  if (data.length === 1) {
+    const { id, description, path, width, height }: ImageType = data[0];
     return {
       id,
       description,
       path,
-      width: width_px,
-      height: height_px,
+      width,
+      height,
     };
   }
 }
 
 export async function getHomePhotos() {
   // Remote Procedure Call stored in Supabase dashboard
-  const { data, error } = await supabase.rpc("get_random_bg_photos");
+  // lists images I don't want
+  const { data, error } = await supabase.rpc("get_random_bg_photos").not("id", "eq", 108);
 
   if (error) {
     console.error(error);
     throw new Error("Error fetching homepage photos");
-    // Display error handling to client
   }
 
-  if (data?.length > 0) {
+  if (data.length > 0) {
     return data.map((p: ImageType) => {
       const { id, description, path, width, height } = p;
       return {
@@ -51,7 +50,6 @@ export async function getHomePhotos() {
 }
 
 export async function getGalleriesPagePhotos() {
-  // not() prevents the "none" gallery from being included
   const { data: galleries, error } = await supabase
     .from("galleries")
     .select("*")
@@ -60,10 +58,9 @@ export async function getGalleriesPagePhotos() {
   if (error) {
     console.error(error);
     throw new Error("Error fetching Galleries page photos");
-    // Display error handling to client
   }
 
-  if (galleries?.length > 0) {
+  if (galleries.length > 0) {
     return galleries.map((g: ImageType) => {
       const { id, name, path, width, height, description } = g;
       return {
@@ -88,10 +85,9 @@ export async function getGalleryPhotos(galleryId: number) {
   if (error) {
     console.error(error);
     throw new Error(`Error fetching photos for Gallery #${galleryId}`);
-    // Display error handling to client
   }
 
-  if (galleryPhotos?.length > 0) {
+  if (galleryPhotos.length > 0) {
     return galleryPhotos.map((p: ImageType) => {
       const { id, description, path, width, height } = p;
       return {
@@ -100,6 +96,30 @@ export async function getGalleryPhotos(galleryId: number) {
         path,
         width,
         height,
+      };
+    });
+  }
+}
+
+export async function getAudioFiles() {
+  const { data: audioFiles, error } = await supabase.from("audio").select("*");
+
+  if (error) {
+    console.error(error);
+    throw new Error("Error fetching audio files");
+  }
+
+  if (audioFiles.length > 0) {
+    return audioFiles.map((f: AudioFile) => {
+      const { id, path, type, title, artist, year, format } = f;
+      return {
+        id,
+        path,
+        type,
+        title,
+        artist,
+        year,
+        format,
       };
     });
   }
