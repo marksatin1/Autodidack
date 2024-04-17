@@ -5,7 +5,7 @@ export default function Collage({ images }: { images: CollageImage[] }) {
     <svg
       viewBox="0 0 2700 1900"
       xmlns="http://www.w3.org/2000/svg"
-      className="object-contain w-3/4 h-full m-auto"
+      className="object-contain w-1/2 h-full m-auto"
     >
       {images.map((i: CollageImage) => {
         return (
