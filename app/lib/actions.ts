@@ -9,7 +9,7 @@ const supabase = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_KE
 // API CALLS //
 //           //
 export async function getOnePhoto(photoID: number) {
-  const { data, error } = await supabase.from("photos").select("*").eq("id", photoID).limit(1);
+  const { data, error } = await supabase.from("images").select("*").eq("id", photoID).limit(1);
 
   if (error) {
     console.error(error);
@@ -35,9 +35,6 @@ export async function getImagesInRandomOrder(galleryid?: number) {
   const { data, error } = await supabase.rpc("get_images_in_random_order", {
     galleryid,
   });
-  // .not("gallery_id", "eq", 9)
-  // .not("id", "eq", 108)
-  // .select("*");
 
   if (error) {
     console.error(error);
