@@ -16,12 +16,15 @@ export type ImageType = {
 
 export type CollageImage = {
   id: number;
+  description: string;
   path: string;
   width: number;
   height: number;
-  description: string;
-  xCoord: number;
-  yCoord: number;
+  x_coord: number;
+  y_coord: number;
+  audio_id: number;
+  audio_path: string;
+  audio_type: string;
 };
 
 export type AudioFile = {

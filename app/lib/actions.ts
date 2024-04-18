@@ -1,7 +1,7 @@
 "use server";
 
 import { createClient } from "@supabase/supabase-js";
-import { AudioFile, ImageType } from "./definitions";
+import { AudioFile, CollageImage, ImageType } from "./definitions";
 
 // SETUP
 const supabase = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_KEY!);
@@ -28,15 +28,16 @@ export async function getOnePhoto(photoID: number) {
   }
 }
 
+// returns all photos in random order OR all photos of specific gallery in random order
 // variable names must be lowercase to work with supabase rpc - annoying
 export async function getImagesInRandomOrder(galleryid?: number) {
   // Remote Procedure Call built in Supabase
-  const { data, error } = await supabase
-    .rpc("get_random_images", {
-      galleryid,
-    })
-    .not("gallery_id", "eq", 7)
-    .not("id", "eq", 108);
+  const { data, error } = await supabase.rpc("get_images_in_random_order", {
+    galleryid,
+  });
+  // .not("gallery_id", "eq", 9)
+  // .not("id", "eq", 108)
+  // .select("*");
 
   if (error) {
     console.error(error);
@@ -44,14 +45,30 @@ export async function getImagesInRandomOrder(galleryid?: number) {
   }
 
   if (data.length > 0) {
-    return data.map((p: ImageType) => {
-      const { id, description, path, width, height } = p;
+    return data.map((p: CollageImage) => {
+      const {
+        id,
+        description,
+        path,
+        width,
+        height,
+        x_coord,
+        y_coord,
+        audio_id,
+        audio_path,
+        audio_type,
+      } = p;
       return {
         id,
         description,
         path,
         width,
         height,
+        x_coord,
+        y_coord,
+        audio_id,
+        audio_path,
+        audio_type,
       };
     });
   }
