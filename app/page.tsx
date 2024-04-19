@@ -1,10 +1,10 @@
-import { getImagesInRandomOrder } from "./lib/actions";
+import { getImagesInSequentialOrder, getImagesInRandomOrder } from "./lib/actions";
 import AutoCarousel from "./ui/auto-carousel";
 import Collage from "./ui/collage";
 
 export default async function Page() {
   const backgroundPhotos = await getImagesInRandomOrder(8);
-  const collagePhotos = await getImagesInRandomOrder(7);
+  const collagePhotos = await getImagesInSequentialOrder(7);
 
   return (
     <section className="relative w-full h-full">

@@ -52,7 +52,7 @@ export default function Collage({ images }: { images: CollageImage[] }) {
       </svg>
       {images.map((_, idx: number) => (
         <audio key={idx} ref={audioRefs[idx]} loop preload="auto">
-          <source src="/_E.mp3" type="audio/mpeg" />
+          <source src="" type="audio/mpeg" />
         </audio>
       ))}
     </article>

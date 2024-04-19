@@ -9,7 +9,7 @@ const supabase = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_KE
 // API CALLS //
 //           //
 export async function getOnePhoto(photoID: number) {
-  const { data, error } = await supabase.from("photos").select("*").eq("id", photoID).limit(1);
+  const { data, error } = await supabase.from("images").select("*").eq("id", photoID).limit(1);
 
   if (error) {
     console.error(error);
@@ -28,6 +28,47 @@ export async function getOnePhoto(photoID: number) {
   }
 }
 
+export async function getImagesInSequentialOrder(galleryid?: number) {
+  // Remote Procedure Call built in Supabase
+  const { data, error } = await supabase.rpc("get_images_in_sequential_order", {
+    galleryid,
+  });
+
+  if (error) {
+    console.error(error);
+    throw new Error("Error fetching images in sequential order.");
+  }
+
+  if (data.length > 0) {
+    return data.map((p: CollageImage) => {
+      const {
+        id,
+        description,
+        path,
+        width,
+        height,
+        x_coord,
+        y_coord,
+        audio_id,
+        audio_path,
+        audio_type,
+      } = p;
+      return {
+        id,
+        description,
+        path,
+        width,
+        height,
+        x_coord,
+        y_coord,
+        audio_id,
+        audio_path,
+        audio_type,
+      };
+    });
+  }
+}
+
 // returns all photos in random order OR all photos of specific gallery in random order
 // variable names must be lowercase to work with supabase rpc - annoying
 export async function getImagesInRandomOrder(galleryid?: number) {
@@ -35,9 +76,6 @@ export async function getImagesInRandomOrder(galleryid?: number) {
   const { data, error } = await supabase.rpc("get_images_in_random_order", {
     galleryid,
   });
-  // .not("gallery_id", "eq", 9)
-  // .not("id", "eq", 108)
-  // .select("*");
 
   if (error) {
     console.error(error);
@@ -79,7 +117,8 @@ export async function getGalleryCoverPhotos() {
     .from("image_galleries")
     .select("*")
     .not("id", "eq", 7)
-    .not("id", "eq", 8);
+    .not("id", "eq", 8)
+    .not("id", "eq", 9);
 
   if (error) {
     console.error(error);
