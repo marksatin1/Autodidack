@@ -4,7 +4,7 @@ import { ImageType } from "../lib/definitions";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { pageTransitionVariants } from "../lib/context/animate-context";
+import { autoCarouselVariants } from "../lib/context/animate-context";
 
 // LEVER
 const FADE_INTERVAL = 12000;
@@ -25,8 +25,11 @@ export default function AutoCarouselTest({ images }: { images: ImageType[] }) {
         initial="hidden"
         animate="visible"
         exit="hidden"
-        transition={{ ease: "easeInOut", duration: FADE_INTERVAL / 1000 }}
-        variants={pageTransitionVariants}
+        transition={{
+          ease: "easeInOut",
+          duration: FADE_INTERVAL / 1000,
+        }}
+        variants={autoCarouselVariants}
         className="flex justify-center items-center w-full h-full"
       >
         <Image
