@@ -2,8 +2,9 @@
 
 import { motion } from "framer-motion";
 import { pageTransitionVariants } from "./lib/context/animate-context";
+import { ReactNode } from "react";
 
-export default function Template({ children }: { children: React.ReactNode }) {
+export default function Template({ children }: { children: ReactNode }) {
   return (
     <motion.div
       initial="hidden"
