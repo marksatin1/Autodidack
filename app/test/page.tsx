@@ -1,11 +1,9 @@
-import LowerDiv from "../ui/lower-div";
+import Loading from "../loading";
 
-export default async function Page() {
-
+export default function Page() {
   return (
-    <div className="bsr w-full h-full overflow-hidden">
-      <div className="bso w-full h-full">UPPER DIV</div>
-      <LowerDiv />
+    <div className="w-full h-full">
+      <Loading />
     </div>
   );
 }
