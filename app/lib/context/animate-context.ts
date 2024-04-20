@@ -1,4 +1,4 @@
-export const autoCarouselVariants = {
+export const homeBackgroundVariants = {
   hidden: {
     opacity: 0,
   },
@@ -40,5 +40,17 @@ export const carouselVariants = {
   },
   animate: {
     height: "90vh",
+  },
+};
+
+export const loadingVariants = {
+  initial: {
+    width: "20%",
+    height: "0rem"
+  },
+  grow: {
+    width: "100%",
+    height: "10rem",
+    scaleX: 3,
   },
 };
