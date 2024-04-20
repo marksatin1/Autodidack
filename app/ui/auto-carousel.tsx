@@ -4,18 +4,22 @@ import { ImageType } from "../lib/definitions";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { autoCarouselVariants } from "../lib/context/animate-context";
 
-// LEVER
-const FADE_INTERVAL = 12000;
-
-export default function AutoCarouselTest({ images }: { images: ImageType[] }) {
+export default function AutoCarousel({
+  images,
+  fadeInterval,
+  variants
+}: {
+  images: ImageType[];
+  fadeInterval: number;
+  variants: {}
+}) {
   const [currentPage, setCurrentPage] = useState<number>(0);
 
   useEffect(() => {
     setTimeout(() => {
       setCurrentPage(prev => (prev + 1) % images.length);
-    }, FADE_INTERVAL);
+    }, fadeInterval);
   }, [currentPage, images.length]);
 
   return (
@@ -27,9 +31,9 @@ export default function AutoCarouselTest({ images }: { images: ImageType[] }) {
         exit="hidden"
         transition={{
           ease: "easeInOut",
-          duration: FADE_INTERVAL / 1000,
+          duration: fadeInterval / 1000,
         }}
-        variants={autoCarouselVariants}
+        variants={variants}
         className="flex justify-center items-center w-full h-full"
       >
         <Image

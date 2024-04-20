@@ -5,9 +5,9 @@
 
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
-import { icons } from "@/app/lib/data";
-import { getAudioFiles } from "@/app/lib/actions";
-import { AudioFile } from "@/app/lib/definitions";
+import { icons } from "@/lib/data";
+import { getAudioFiles } from "@/lib/actions";
+import { AudioFile } from "@/lib/definitions";
 
 export default function AudioPlayer() {
   const [audioIconPath, setAudioIconPath] = useState<string>(icons.quiet.path);
