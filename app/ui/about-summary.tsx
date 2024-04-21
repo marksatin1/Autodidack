@@ -1,6 +1,6 @@
 export default function AboutSummary() {
   return (
-    <p className="absolute top-0 left-0 right-0 px-5 py-2 text-lg text-center text-white text-content-shadow">
+    <p className="px-5 py-2 text-lg text-center text-white text-content-shadow">
       My name is Mark Satin.
       <br />
       <br />

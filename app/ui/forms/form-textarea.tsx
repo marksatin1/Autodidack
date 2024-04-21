@@ -2,10 +2,12 @@ export default function FormTextarea({
   name,
   rows,
   cols,
+  className,
 }: {
   name: string;
   rows: number;
   cols: number;
+  className: string;
 }) {
   return (
     <textarea
@@ -13,7 +15,7 @@ export default function FormTextarea({
       placeholder={name}
       rows={rows}
       cols={cols}
-      className="px-3 py-2 shadow-input rounded text-black"
+      className={`${className} px-3 py-2 shadow-input rounded text-black`}
     />
   );
 }
