@@ -31,6 +31,7 @@ export type Gallery = {
   id: number;
   name: string;
   description: string;
+  keywords: string[];
   image_path: string;
   image_width: number;
   image_height: number;

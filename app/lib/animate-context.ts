@@ -1,4 +1,4 @@
-export const homeBackgroundVariants = {
+export const dissolveVariants = {
   hidden: {
     opacity: 0,
   },

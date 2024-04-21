@@ -3,7 +3,7 @@
 import { ImageType } from "../lib/definitions";
 import { useRef, useEffect, useState } from "react";
 import { MouseEvent } from "react";
-import { checkTransparency } from "../lib/utils";
+import { isTransparent } from "../lib/utils";
 import Image from "next/image";
 
 export default function ImageReveal({
@@ -23,7 +23,7 @@ export default function ImageReveal({
     const top = topRef.current as HTMLCanvasElement;
 
     /* willReadFrequently creates canvas powered by CPU rather than GPU ->
-       better performance when constantly reading values w/ checkTransparencyFunction */
+       better performance when constantly reading values w/ isTransparentFunction */
     const topCtx = top.getContext("2d", { willReadFrequently: true });
     if (!topCtx) return;
 
@@ -38,7 +38,7 @@ export default function ImageReveal({
     const eraserSize = image.width * eraserSizeFactor;
 
     canvasContext?.clearRect(x - eraserSize / 2, y - eraserSize / 2, eraserSize, eraserSize);
-    if (checkTransparency(canvasContext, image.width, image.height)) {
+    if (isTransparent(canvasContext, image.width, image.height)) {
       setAnimation("transitionTest");
       setHideCanvas(true);
     }
@@ -51,7 +51,7 @@ export default function ImageReveal({
         width={image.width}
         height={image.height}
         alt={image.description}
-        className={`relative z-0 w-auto max-h-[1150px]`}
+        className={`${animation} relative z-0 w-auto max-h-[1150px]`}
         hidden={imageLoading}
         priority
       />
@@ -59,10 +59,8 @@ export default function ImageReveal({
         width={image.width}
         height={image.height}
         ref={topRef}
-        className="absolute z-50 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
-          "
+        className={`${hideCanvas && "hidden"} absolute z-50 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`}
         onMouseMove={revealImage}
-        hidden={hideCanvas}
       >
         A white rectangle
       </canvas>

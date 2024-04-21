@@ -5,7 +5,7 @@ import { ImageType } from "../lib/definitions";
 import Image from "next/image";
 import { icons } from "../lib/data";
 import { AnimatePresence, motion } from "framer-motion";
-import { carouselVariants } from "../lib/context/animate-context";
+import { carouselVariants } from "../lib/animate-context";
 
 export default function Carousel({ slides }: { slides: ImageType[] }) {
   const [currentIdx, setCurrentIdx] = useState<number>(0);
@@ -65,7 +65,7 @@ export default function Carousel({ slides }: { slides: ImageType[] }) {
             />
           ))}
         </div>
-        <div className="flex justify-center gap-8 my-4">
+        <div className="flex justify-center my-4">
           <Image
             src={icons.arrowLeftThin.path}
             width={icons.arrowLeftThin.width}

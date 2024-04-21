@@ -29,11 +29,11 @@ export default function Collage({ images }: { images: CollageImage[] }) {
   }
 
   return (
-    <article className="w-full h-full">
+    <article className="w-full h-full xl:w-2/3 2xl:w-1/2">
       <svg
         viewBox="0 0 2700 1900"
         xmlns="http://www.w3.org/2000/svg"
-        className="object-contain w-1/2 h-full m-auto"
+        className="object-contain w-full h-full"
       >
         {images.map((i: CollageImage, idx: number) => {
           return (
