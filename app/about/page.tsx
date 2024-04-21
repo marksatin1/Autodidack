@@ -67,7 +67,7 @@ export default async function Page() {
                   />
                 )}
               </div>
-              <div className="text-3xl text-center scale-y-[2] p-2 flex flex-col justify-center">
+              <div className="text-3xl text-center p-2 flex flex-col justify-center scale-y-[1.5]">
                 <h4>
                   Web Developer <span className="text-4xl">&#x2022;</span> Photographer
                 </h4>

@@ -20,8 +20,8 @@
   text-shadow: 0 3px 2px rgb(57, 66, 74), 0 0px 8px white;
 }
 
-.button-shadow {
-  
+.button-shadow:hover {
+  box-shadow: 0 3px 2px rgba(0, 0, 0, 0.5);
 }
 
 .link-selected {
