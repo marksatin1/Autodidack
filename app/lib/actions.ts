@@ -112,8 +112,10 @@ export async function getImagesInRandomOrder(galleryid?: number) {
   }
 }
 
-export async function getGalleriesData() {
-  const { data: galleryData, error } = await supabase.rpc("get_galleries_data");
+export async function getGalleriesData(galleryid?: number) {
+  const { data: galleryData, error } = await supabase.rpc("get_galleries_data", {
+    galleryid,
+  });
 
   if (error) {
     console.error(error);
@@ -122,11 +124,21 @@ export async function getGalleriesData() {
 
   if (galleryData.length > 0) {
     return galleryData.map((g: Gallery) => {
-      const { id, name, description, image_path, image_width, image_height, image_description } = g;
+      const {
+        id,
+        name,
+        description,
+        keywords,
+        image_path,
+        image_width,
+        image_height,
+        image_description,
+      } = g;
       return {
         id,
         name,
         description,
+        keywords,
         image_path,
         image_width,
         image_height,

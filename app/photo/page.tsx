@@ -1,53 +1,22 @@
-"use client";
-
-import Image from "next/image";
-import Link from "next/link";
 import { getGalleriesData } from "../lib/actions";
-import { ImageType, Gallery } from "../lib/definitions";
-import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
-import PhotoPageAnimation from "./photo-page-animation";
-import { motion } from "framer-motion";
-import { galleryTitleVariants } from "../lib/context/animate-context";
+import { Gallery as ImageGallery } from "../lib/definitions";
+import { Metadata } from "next";
+import Gallery from "../ui/gallery";
 
-export default function Page() {
-  const [galleries, setGalleries] = useState<Gallery[]>([]);
-  const pathname = usePathname();
+export const metadata: Metadata = {
+  title: "Photo",
+  description:
+    "The photo galleries of Mark Satin featuring analog film photography in 6x7 and 35mm formats.",
+  metadataBase: new URL("https://autodidack.com"),
+};
 
-  // must encapsulate async functionality because this is a Client Component
-  useEffect(() => {
-    (async () => {
-      const data = await getGalleriesData();
-      data && setGalleries(data);
-    })();
-  }, []);
+export default async function Page() {
+  const galleries = await getGalleriesData();
 
   return (
-    <section className="grid gap-y-6 h-full overflow-y-auto overscroll-y-contain snap-mandatory snap-y">
-      {galleries.map((g: Gallery) => {
-        return (
-          <PhotoPageAnimation key={g.id} className="snap-always snap-center px-12">
-            <Link href={`${pathname}/${g.id}/${g.name}`}>
-              <Image
-                src={g.image_path}
-                width={g.image_width}
-                height={g.image_height}
-                alt={g.image_description}
-                priority
-                className="w-full max-h-[75vh]"
-              />
-              <motion.h2
-                initial="hidden"
-                whileInView="visible"
-                transition={{ duration: 0.75 }}
-                variants={galleryTitleVariants}
-                className="w-fit h-full p-4 text-white font-extrabold text-content-shadow text-[12rem] leading-[8rem] text-wrap break-all overflow-clip"
-              >
-                {g.name.replace("-", "  ")}
-              </motion.h2>
-            </Link>
-          </PhotoPageAnimation>
-        );
+    <section className="grid gap-y-6 w-full h-full overflow-x-hidden overflow-y-auto overscroll-y-contain snap-mandatory snap-y">
+      {galleries?.map((g: ImageGallery) => {
+        return <Gallery key={g.id} gallery={g} />;
       })}
     </section>
   );
