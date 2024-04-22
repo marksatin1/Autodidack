@@ -1,17 +1,20 @@
-import { getOnePhoto } from "../lib/actions";
+import { getOnePhoto, getPageMetadata } from "../lib/actions";
 import CardTilt from "../ui/card-tilt";
 import Image from "next/image";
 import ContactForm from "../ui/forms/contact-form";
 import AboutSummary from "../ui/about-summary";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Autodidack | About",
-  description:
-    "Learn more about Mark Satin, his photography and web portfolio, and reach out through the contact form.",
-  keywords: "",
-  metadataBase: new URL("https://autodidack.com"),
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const aboutPage = await getPageMetadata(18);
+
+  return {
+    title: `Autodidack | ${aboutPage[0].name.toUpperCase().replace("-", " ")}`,
+    description: aboutPage[0].description,
+    keywords: aboutPage[0].keywords,
+    metadataBase: new URL("https://autodidack.com"),
+  };
+}
 
 export default async function Page() {
   const waterfallOriginal = await getOnePhoto(298);
@@ -67,7 +70,7 @@ export default async function Page() {
                   />
                 )}
               </div>
-              <div className="text-3xl text-center scale-y-[2] p-2 flex flex-col justify-center">
+              <div className="text-3xl text-center p-2 flex flex-col justify-center scale-y-[1.5]">
                 <h4>
                   Web Developer <span className="text-4xl">&#x2022;</span> Photographer
                 </h4>

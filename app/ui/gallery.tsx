@@ -3,10 +3,14 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { dissolveVariants, galleryTitleVariants, pageTransitionVariants } from "../lib/animate-context";
-import { Gallery as ImageGallery } from "../lib/definitions";
+import {
+  dissolveVariants,
+  galleryTitleVariants,
+  pageTransitionVariants,
+} from "../lib/animate-context";
+import { GalleryType } from "../lib/definitions";
 
-export default function Gallery({ gallery }: { gallery: ImageGallery }) {
+export default function Gallery({ gallery }: { gallery: GalleryType }) {
   return (
     <motion.div
       initial="hidden"

@@ -5,7 +5,7 @@
 :root {
   --primary: #f59e0b;
   --accent-dark: #64748b;
-  --accent-light: #a9a9a9; 
+  --accent-light: #a9a9a9;
 }
 
 .title-shadow {
@@ -13,16 +13,42 @@
 }
 
 .text-content-shadow {
-  text-shadow: -3px 8px 2px rgba(0, 0, 0, 0.8);
+  text-shadow: -1px 5px 4px rgba(0, 0, 0, 0.8);
 }
 
-.link-selected,
-.link:hover {
-  color: var(--primary);
+.occupation-shadow {
+  text-shadow: 0 3px 2px rgb(57, 66, 74), 0 0px 8px white;
+}
+
+.button-shadow:hover {
+  box-shadow: 0 3px 2px rgba(0, 0, 0, 0.5);
+}
+
+.link-selected {
+  color: black;
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: var(--accent-light);
+  -webkit-text-stroke-color: #a9a9a9;
+  filter: blur(1px);
+}
+
+.link-selected:hover {
+  color: #f59e0b;
   animation: unblur 1.5s;
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+}
+
+.link {
+  color: #f59e0b;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #a9a9a9;
+  filter: blur(2px);
+  animation: unblur 1.5s;
+  transition-duration: 500ms;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+}
+
+.link:hover {
+  color: black;
 }
 
 image:hover {
@@ -31,7 +57,14 @@ image:hover {
 }
 
 .transitionTest {
-  animation: spin-shrink 17.97s ease-in-out forwards, disappear 0.03s ease-in 18.05s forwards;
+  /* animation: spin-shrink 17.97s ease-in-out forwards, disappear 0.03s ease-in 18.05s forwards; */
+  animation: rotate 8s ease-in-out forwards;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(45deg);
+  }
 }
 
 .bg-fade {
@@ -106,7 +139,7 @@ image:hover {
     filter: blur(4px);
   }
   to {
-    filter: blur(0);
+    filter: blur(0px);
   }
 }
 

@@ -1,5 +1,5 @@
 import Carousel from "../../../ui/carousel";
-import { getGalleriesData, getImagesInRandomOrder } from "../../../lib/actions";
+import { getGalleryMetadata, getImagesInRandomOrder } from "../../../lib/actions";
 import { Metadata } from "next";
 
 export async function generateMetadata({
@@ -8,12 +8,12 @@ export async function generateMetadata({
   params: { id: number; name: string };
 }): Promise<Metadata> {
   const { id: galleryID, name: galleryName } = params;
-  const gallery = await getGalleriesData(Number(galleryID));
+  const gallery = await getGalleryMetadata(Number(galleryID));
 
   return {
-    title: `Autodidack | ${galleryName.toUpperCase().replace("-", " ")}`,
-    description: gallery.description,
-    keywords: gallery.keywords,
+    title: `Autodidack | ${galleryName[0].toUpperCase().replace("-", " ")}`,
+    description: gallery[0].description,
+    keywords: gallery[0].keywords,
     metadataBase: new URL("https://autodidack.com"),
   };
 }

@@ -27,16 +27,6 @@ export type CollageImage = {
   audio_type: string;
 };
 
-export type Gallery = {
-  id: number;
-  name: string;
-  description: string;
-  image_path: string;
-  image_width: number;
-  image_height: number;
-  image_description: string;
-};
-
 export type AudioFile = {
   id: number;
   path: string;
@@ -45,4 +35,22 @@ export type AudioFile = {
   artist: string;
   year: number;
   format: string;
+};
+
+export type PageType = {
+  id: number;
+  name: string;
+  description: string;
+  keywords: string[];
+};
+
+export type GalleryType = {
+  id: number;
+  name: string;
+  description: string;
+  keywords: string[];
+  image_path: string;
+  image_width: number;
+  image_height: number;
+  image_description: string;
 };

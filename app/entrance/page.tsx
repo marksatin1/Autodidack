@@ -1,20 +1,24 @@
 import ImageReveal from "../ui/image-reveal";
-import { getOnePhoto } from "../lib/actions";
+import { getOnePhoto, getPageMetadata } from "../lib/actions";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Autodidack | ENTER",
-  description:
-    "The one and only way into Autodidack, the photography and webdev portfolio of Mark Satin.",
-  metadataBase: new URL("https://autodidack.com"),
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const entrancePage = await getPageMetadata(16);
+
+  return {
+    title: `Autodidack | ${entrancePage[0].name.toUpperCase().replace("-", " ")}`,
+    description: entrancePage[0].description,
+    keywords: entrancePage[0].keywords,
+    metadataBase: new URL("https://autodidack.com"),
+  };
+}
 
 export default async function Page() {
   const entrancePhoto = await getOnePhoto(283);
 
   return (
     <div className="w-full h-full">
-      {entrancePhoto && <ImageReveal image={entrancePhoto} eraserSizeFactor={0.3} />}
+      <ImageReveal image={entrancePhoto!} eraserSizeFactor={0.3} />
     </div>
   );
 }

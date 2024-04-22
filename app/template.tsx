@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { pageTransitionVariants } from "./lib/context/animate-context";
+import { pageTransitionVariants } from "./lib/animate-context";
 import { ReactNode } from "react";
 
 export default function Template({ children }: { children: ReactNode }) {

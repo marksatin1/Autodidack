@@ -434,6 +434,13 @@ export const icons = {
     height: 256,
     description: "Icon of a person with their hand to their ear indicating listening",
   },
+  handshake: {
+    id: 11,
+    path: "/icons/256/Handshake.png",
+    width: 256,
+    height: 256,
+    description: "Icon of two hands shaking",
+  },
 };
 
 export const flags: ImageType[] = [

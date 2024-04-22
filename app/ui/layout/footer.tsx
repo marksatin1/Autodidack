@@ -7,7 +7,7 @@ import InternalNavbar from "./internal-navbar";
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
-import { footerVariants } from "@/app/lib/context/animate-context";
+import { footerVariants } from "../../lib/animate-context";
 
 // LEVER
 const animationDuration = 2000;
