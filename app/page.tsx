@@ -1,14 +1,19 @@
 import { Metadata } from "next";
-import { getImagesInSequentialOrder, getImagesInRandomOrder } from "./lib/actions";
+import { getImagesInSequentialOrder, getImagesInRandomOrder, getPageMetadata } from "./lib/actions";
 import { dissolveVariants } from "./lib/animate-context";
 import AutoCarousel from "./ui/auto-carousel";
 import Collage from "./ui/collage";
 
-export const metadata: Metadata = {
-  title: "Autodidack | Home",
-  description: "Welcome to Autodidack, the photography and webdev portfolio of Mark Satin.",
-  metadataBase: new URL("https://autodidack.com"),
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const homePage = await getPageMetadata(17);
+
+  return {
+    title: `Autodidack | ${homePage[0].name.toUpperCase().replace("-", " ")}`,
+    description: homePage[0].description,
+    keywords: homePage[0].keywords,
+    metadataBase: new URL("https://autodidack.com"),
+  };
+}
 
 export default async function Page() {
   const backgroundPhotos = await getImagesInRandomOrder(8);

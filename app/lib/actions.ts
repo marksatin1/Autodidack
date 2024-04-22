@@ -1,7 +1,7 @@
 "use server";
 
 import { createClient } from "@supabase/supabase-js";
-import { AudioFile, CollageImage, ImageType, Gallery } from "./definitions";
+import { AudioFile, CollageImage, ImageType, GalleryType, PageType } from "./definitions";
 
 // SETUP
 const supabase = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_KEY!);
@@ -112,18 +112,41 @@ export async function getImagesInRandomOrder(galleryid?: number) {
   }
 }
 
-export async function getGalleriesData(galleryid?: number) {
-  const { data: galleryData, error } = await supabase.rpc("get_galleries_data", {
+export async function getPageMetadata(pageid?: number) {
+  const { data, error } = await supabase.rpc("get_page_metadata", {
+    pageid,
+  });
+
+  if (error) {
+    console.error(error);
+    throw new Error("Error fetching page metadata.");
+  }
+
+  if (data.length > 0) {
+    return data.map((p: PageType) => {
+      const { id, name, description, keywords } = p;
+      return {
+        id,
+        name,
+        description,
+        keywords,
+      };
+    });
+  }
+}
+
+export async function getGalleryMetadata(galleryid?: number) {
+  const { data: galleryData, error } = await supabase.rpc("get_gallery_metadata", {
     galleryid,
   });
 
   if (error) {
     console.error(error);
-    throw new Error("Error fetching Galleries page photos");
+    throw new Error("Error fetching galleries metadata.");
   }
 
   if (galleryData.length > 0) {
-    return galleryData.map((g: Gallery) => {
+    return galleryData.map((g: GalleryType) => {
       const {
         id,
         name,
