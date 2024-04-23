@@ -15,7 +15,6 @@ export default function ImageReveal({
 }) {
   const topRef = useRef<HTMLCanvasElement>(null);
   const [canvasContext, setCanvasContext] = useState<CanvasRenderingContext2D | null>(null);
-  const [animation, setAnimation] = useState<string>("");
   const [imageLoading, setImageLoading] = useState<boolean>(true);
   const [hideCanvas, setHideCanvas] = useState<boolean>(false);
 
@@ -39,31 +38,33 @@ export default function ImageReveal({
 
     canvasContext?.clearRect(x - eraserSize / 2, y - eraserSize / 2, eraserSize, eraserSize);
     if (isTransparent(canvasContext, image.width, image.height)) {
-      setAnimation("transitionTest");
       setHideCanvas(true);
     }
   };
 
   return (
-    <div className="relative w-full h-full flex justify-center items-center">
-      <Image
-        src={image.path}
-        width={image.width}
-        height={image.height}
-        alt={image.description}
-        className={`${animation} relative z-0 w-auto max-h-[1150px]`}
-        hidden={imageLoading}
-        priority
-      />
-      <canvas
-        width={image.width}
-        height={image.height}
-        ref={topRef}
-        className={`${hideCanvas && "hidden"} absolute z-50 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`}
-        onMouseMove={revealImage}
-      >
-        A white rectangle
-      </canvas>
+    <div className="w-full h-full">
+      <div className="relative w-full h-full">
+        <img
+          src={image.path}
+          width={image.width}
+          height={image.height}
+          alt={image.description}
+          hidden={imageLoading}
+          // priority
+          className="bsg w-auto h-full relative z-0"
+        />
+        <canvas
+          width={image.width}
+          height={image.height}
+          ref={topRef}
+          className={`${hideCanvas && "hidden"} bsb w-auto h-full absolute top-0 z-20`}
+          onMouseMove={revealImage}
+          // hidden
+        >
+          A white rectangle
+        </canvas>
+      </div>
     </div>
   );
 }
