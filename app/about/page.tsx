@@ -23,7 +23,7 @@ export default async function Page() {
   return (
     <div className="w-full h-full flex justify-center px-16">
       <section className="relative w-full h-full flex justify-center items-center gap-x-24">
-        <CardTilt className="relative">
+        <CardTilt className="relative no-bar">
           {waterfallReversed && (
             <Image
               src={waterfallReversed.path}
