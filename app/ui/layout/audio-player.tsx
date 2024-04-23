@@ -6,7 +6,7 @@
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import { icons } from "../../lib/data";
-import { getAudioFiles } from "../../lib/actions";
+import { getAudioInRandomOrder } from "../../lib/actions";
 import { AudioFile } from "../../lib/definitions";
 
 export default function AudioPlayer() {
@@ -18,7 +18,7 @@ export default function AudioPlayer() {
   // must encapsulate async functionality because this is a Client Component
   useEffect(() => {
     (async () => {
-      const data = await getAudioFiles(1);
+      const data = await getAudioInRandomOrder(1);
       data && setPlaylist(data);
     })();
   }, []);
@@ -57,7 +57,7 @@ export default function AudioPlayer() {
         width={256}
         height={256}
         onClick={handlePlayPauseAudio}
-        className="w-[24px] h-[24px]"
+        className="w-[24px] h-[24px] hover:scale-x-[3]"
       />
     </div>
   );
