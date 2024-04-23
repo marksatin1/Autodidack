@@ -10,7 +10,6 @@ export async function generateMetadata(): Promise<Metadata> {
     title: `Autodidack | ${photoPage[0].name.replace("-", " ")}`,
     description: photoPage[0].description,
     keywords: photoPage[0].keywords,
-    metadataBase: new URL("https://autodidack.com"),
   };
 }
 

@@ -14,7 +14,6 @@ export async function generateMetadata({
     title: `Autodidack | ${galleryName.replace("-", " ")}`,
     description: gallery[0].description,
     keywords: gallery[0].keywords,
-    metadataBase: new URL("https://autodidack.com"),
   };
 }
 

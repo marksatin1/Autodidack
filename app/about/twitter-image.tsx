@@ -12,7 +12,7 @@ export default async function Image({ params }: { params: { name: string } }) {
     new ImageResponse(
       (
         <img
-          src={`/pages/${params.name.toLowerCase().replace(" ", "-")}.png`}
+          src={`/pages/${params?.name.toLowerCase().replace(" ", "-")}.png`}
           width={size.width}
           height={size.height}
           alt={alt}
