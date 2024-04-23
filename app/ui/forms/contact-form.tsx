@@ -17,7 +17,7 @@ export default function ContactForm({ className }: { className: string }) {
         />
         <FormTextarea name="Message" rows={4} cols={4} className={className} />
       </div>
-      <Button name="Let's Connect" icon={icons.handshake} />
+      <Button name="Let's Connect" icon={icons.handshake} disabled />
     </article>
   );
 }

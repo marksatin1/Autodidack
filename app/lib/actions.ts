@@ -8,8 +8,8 @@ const supabase = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_KE
 
 // API CALLS //
 //           //
-export async function getOnePhoto(photoID: number) {
-  const { data, error } = await supabase.from("images").select("*").eq("id", photoID).limit(1);
+export async function getOnePhoto(photoid: number) {
+  const { data, error } = await supabase.from("images").select("*").eq("id", photoid).limit(1);
 
   if (error) {
     console.error(error);
@@ -171,20 +171,17 @@ export async function getGalleryMetadata(galleryid?: number) {
   }
 }
 
-export async function getAudioFiles(albumID: number) {
-  const { data: audioFiles, error } = await supabase
-    .from("audio")
-    .select("*")
-    .eq("album_id", albumID);
+export async function getAudioInRandomOrder(albumid?: number) {
+  const { data: audioFiles, error } = await supabase.rpc("get_audio_in_random_order", { albumid });
 
   if (error) {
     console.error(error);
-    throw new Error(`Error fetching audio files for Album ID ${albumID}.`);
+    throw new Error(`Error fetching audio files for Album id ${albumid}.`);
   }
 
   if (audioFiles.length > 0) {
-    return audioFiles.map((f: AudioFile) => {
-      const { id, path, type, title, artist, year, format } = f;
+    return audioFiles.map((a: AudioFile) => {
+      const { id, path, type, title, artist, year } = a;
       return {
         id,
         path,
@@ -192,7 +189,6 @@ export async function getAudioFiles(albumID: number) {
         title,
         artist,
         year,
-        format,
       };
     });
   }
