@@ -15,7 +15,7 @@ const animationDuration = 2000;
 export default function Footer() {
   const pathCheck = new RegExp("/[A-Za-z0-9]+/[0-9]+/[A-Za-z]+");
   const pathname = usePathname();
-  const currentPathsMatch = useMemo(() => pathCheck.test(pathname), [pathCheck, pathname]);
+  const currentPathsMatch = useMemo(() => pathCheck.test(pathname), [pathname]);
   const [hideTrigger, setHideTrigger] = useState<boolean>(false);
 
   useEffect(() => {
