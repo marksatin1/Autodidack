@@ -41,7 +41,6 @@ export default function AutoCarousel({
           width={images[currentPage].width}
           height={images[currentPage].height}
           alt={images[currentPage].description}
-          priority
           className="w-full h-full object-contain"
         />
       </motion.div>
