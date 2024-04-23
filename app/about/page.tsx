@@ -5,16 +5,16 @@ import ContactForm from "../ui/forms/contact-form";
 import AboutSummary from "../ui/about-summary";
 import { Metadata } from "next";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const aboutPage = await getPageMetadata(18);
+// export async function generateMetadata(): Promise<Metadata> {
+//   const aboutPage = await getPageMetadata(18);
 
-  return {
-    title: `Autodidack | ${aboutPage[0].name.toUpperCase().replace("-", " ")}`,
-    description: aboutPage[0].description,
-    keywords: aboutPage[0].keywords,
-    metadataBase: new URL("https://autodidack.com"),
-  };
-}
+//   return {
+//     title: `Autodidack | ${aboutPage[0].name.toUpperCase().replace("-", " ")}`,
+//     description: aboutPage[0].description,
+//     keywords: aboutPage[0].keywords,
+//     metadataBase: new URL("https://autodidack.com"),
+//   };
+// }
 
 export default async function Page() {
   const waterfallOriginal = await getOnePhoto(298);
