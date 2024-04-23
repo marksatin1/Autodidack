@@ -7,10 +7,17 @@ export const size = {
   height: 690,
 };
 
-export default function Image({ params }: { params: { name: string } }) {
+export default function Image({ pathname }: { pathname: string }) {
   return (
     new ImageResponse(
-      <img src="/pages/photo.png" width={size.width} height={size.height} alt={alt} />
+      (
+        <img
+          src={`/pages/${pathname.toLowerCase().replace(" ", "-")}.png`}
+          width={size.width}
+          height={size.height}
+          alt={alt}
+        />
+      )
     ),
     { ...size }
   );

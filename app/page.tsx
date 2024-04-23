@@ -11,7 +11,6 @@ export async function generateMetadata(): Promise<Metadata> {
     title: `Autodidack | ${homePage[0].replace("-", " ")}`,
     description: homePage[0].description,
     keywords: homePage[0].keywords,
-    metadataBase: new URL("https://autodidack.com"),
   };
 }
 
