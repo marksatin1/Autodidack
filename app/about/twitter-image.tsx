@@ -10,14 +10,7 @@ export const size = {
 export default async function Image({ params }: { params: { name: string } }) {
   return (
     new ImageResponse(
-      (
-        <img
-          src={`/pages/${params?.name.toLowerCase().replace(" ", "-")}.png`}
-          width={size.width}
-          height={size.height}
-          alt={alt}
-        />
-      )
+      <img src="/pages/about.png" width={size.width} height={size.height} alt={alt} />
     ),
     { ...size }
   );
