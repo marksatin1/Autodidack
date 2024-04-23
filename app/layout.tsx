@@ -1,12 +1,10 @@
+"use client";
+
 import Header from "./ui/layout/header";
 import Footer from "./ui/layout/footer";
 import { Lora, Merriweather } from "next/font/google";
-import { Metadata } from "next";
+import { usePathname } from "next/navigation";
 import "./globals.css";
-
-export const metadata: Metadata = {
-  metadataBase: new URL("https://autodidack.com"),
-};
 
 const lora = Lora({
   subsets: ["latin"],
@@ -23,12 +21,21 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = usePathname();
+  const showHeaderFooter = pathname !== "/entrance";
+
   return (
     <html lang="en" className={merri.className}>
       <body className="overflow-hidden w-screen h-screen grid grid-rows-[auto_1fr_auto]">
-        <Header />
-        <main className="w-full max-h-[1150px] overflow-hidden">{children}</main>
-        <Footer />
+        {showHeaderFooter && <Header />}
+        <main
+          className={
+            showHeaderFooter ? "w-full max-h-[1150px] overflow-hidden" : "w-screen h-screen"
+          }
+        >
+          {children}
+        </main>
+        {showHeaderFooter && <Footer />}
       </body>
     </html>
   );

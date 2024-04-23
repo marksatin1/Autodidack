@@ -1,13 +1,13 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Autodidack | Gallery";
+export const alt = "Autodidack | About";
 export const contentType = "image/png";
 export const size = {
   width: 1200,
   height: 690,
 };
 
-export default function Image({ params }: { params: { name: string } }) {
+export default async function Image({ params }: { params: { name: string } }) {
   return (
     new ImageResponse(
       (
