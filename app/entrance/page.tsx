@@ -2,15 +2,15 @@ import ImageReveal from "../ui/image-reveal";
 import { getOnePhoto, getPageMetadata } from "../lib/actions";
 import { Metadata } from "next";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const entrancePage = await getPageMetadata(16);
+// export async function generateMetadata(): Promise<Metadata> {
+//   const entrancePage = await getPageMetadata(16);
 
-  return {
-    title: `Autodidack | ${entrancePage[0].name.replace("-", " ")}`,
-    description: entrancePage[0].description,
-    keywords: entrancePage[0].keywords,
-  };
-}
+//   return {
+//     title: `Autodidack | ${entrancePage[0].name.replace("-", " ")}`,
+//     description: entrancePage[0].description,
+//     keywords: entrancePage[0].keywords,
+//   };
+// }
 
 export default async function Page() {
   const entrancePhoto = await getOnePhoto(283);

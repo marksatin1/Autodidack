@@ -3,15 +3,15 @@ import { GalleryType } from "../lib/definitions";
 import { Metadata } from "next";
 import Gallery from "../ui/gallery";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const photoPage = await getPageMetadata(19);
+// export async function generateMetadata(): Promise<Metadata> {
+//   const photoPage = await getPageMetadata(19);
 
-  return {
-    title: `Autodidack | ${photoPage[0].name.replace("-", " ")}`,
-    description: photoPage[0].description,
-    keywords: photoPage[0].keywords,
-  };
-}
+//   return {
+//     title: `Autodidack | ${photoPage[0].name.replace("-", " ")}`,
+//     description: photoPage[0].description,
+//     keywords: photoPage[0].keywords,
+//   };
+// }
 
 export default async function Page() {
   const galleries = await getGalleryMetadata();
