@@ -17,6 +17,7 @@ import Collage from "./ui/collage";
 export default async function Page() {
   const backgroundPhotos = await getImagesInRandomOrder(8);
   const collagePhotos = await getImagesInSequentialOrder(7);
+  console.log(backgroundPhotos);
 
   return (
     <section className="relative w-full h-full">
