@@ -52,7 +52,7 @@ export default function Carousel({ slides }: { slides: ImageType[] }) {
       >
         <div className="relative w-full h-full">
           {slides.map((p: ImageType, i: number) => (
-            <Image
+            <img
               key={p.id}
               src={p.path}
               width={p.width}
@@ -61,7 +61,6 @@ export default function Carousel({ slides }: { slides: ImageType[] }) {
               className={`absolute w-full h-full object-contain ${
                 i === currentIdx ? "opacity-100" : "opacity-0"
               } duration-[2s]`}
-              priority={i === 0}
             />
           ))}
         </div>
