@@ -5,11 +5,6 @@ import { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: {
-    template: "%s",
-    default: "Autodidack",
-  },
-  description: "Welcome to Autodidack, the photography and webdev portfolio of Mark Satin.",
   metadataBase: new URL("https://autodidack.com"),
 };
 
