@@ -36,13 +36,13 @@ export default function AutoCarousel({
         variants={variants}
         className="flex justify-center items-center w-full h-full"
       >
-        <Image
+        <img
           src={images[currentPage].path}
           width={images[currentPage].width}
           height={images[currentPage].height}
           alt={images[currentPage].description}
           className="w-full h-full object-contain"
-          priority
+          // priority
         />
       </motion.div>
     </AnimatePresence>
