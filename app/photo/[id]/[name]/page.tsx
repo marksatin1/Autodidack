@@ -11,7 +11,7 @@ export async function generateMetadata({
   const gallery = await getGalleryMetadata(Number(galleryID));
 
   return {
-    title: `Autodidack | ${galleryName[0].toUpperCase().replace("-", " ")}`,
+    title: `Autodidack | ${galleryName.replace("-", " ")}`,
     description: gallery[0].description,
     keywords: gallery[0].keywords,
     metadataBase: new URL("https://autodidack.com"),

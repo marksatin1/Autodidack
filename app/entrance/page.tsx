@@ -6,7 +6,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const entrancePage = await getPageMetadata(16);
 
   return {
-    title: `Autodidack | ${entrancePage[0].name.toUpperCase().replace("-", " ")}`,
+    title: `Autodidack | ${entrancePage[0].name.replace("-", " ")}`,
     description: entrancePage[0].description,
     keywords: entrancePage[0].keywords,
     metadataBase: new URL("https://autodidack.com"),
@@ -18,7 +18,7 @@ export default async function Page() {
 
   return (
     <div className="w-full h-full">
-      <ImageReveal image={entrancePhoto!} eraserSizeFactor={0.3} />
+      <ImageReveal image={entrancePhoto!} eraserSizeFactor={0.2} />
     </div>
   );
 }

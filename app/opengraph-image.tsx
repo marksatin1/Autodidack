@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Autodidack | Gallery";
+export const alt = "Autodidack | Home";
 export const contentType = "image/png";
 export const size = {
   width: 1200,

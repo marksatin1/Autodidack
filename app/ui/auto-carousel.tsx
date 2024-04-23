@@ -8,11 +8,11 @@ import Image from "next/image";
 export default function AutoCarousel({
   images,
   fadeInterval,
-  variants
+  variants,
 }: {
   images: ImageType[];
   fadeInterval: number;
-  variants: {}
+  variants: {};
 }) {
   const [currentPage, setCurrentPage] = useState<number>(0);
 
@@ -20,7 +20,7 @@ export default function AutoCarousel({
     setTimeout(() => {
       setCurrentPage(prev => (prev + 1) % images.length);
     }, fadeInterval);
-  }, [currentPage, images.length]);
+  }, [currentPage, images.length, fadeInterval]);
 
   return (
     <AnimatePresence mode="wait">
