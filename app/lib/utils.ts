@@ -4,11 +4,9 @@ export function isTransparent(ctx: CanvasRenderingContext2D | null, width: numbe
 
     for (let i = 0; i < data.length; i += 4) {
       if (data[i] !== 0) {
-        console.log("IN IF STATEMENT");
-        return false;
+        break;
       }
     }
-    console.log("TRUE STATEMENT");
     return true;
   }
   return false;
