@@ -69,9 +69,10 @@ export default async function Page() {
                   />
                 )}
               </div>
-              <div className="text-3xl text-center p-2 flex flex-col justify-center scale-y-[1.5]">
+              <div className="w-full text-3xl text-center my-2 tracking-[.1rem]">
+                <h4 className="tracking-[.5rem]">Software Engineer</h4>
                 <h4>
-                  Web Developer <span className="text-4xl">&#x2022;</span> Photographer
+                  Designer <span className="text-2xl">&#x2022;</span> Photographer
                 </h4>
               </div>
             </article>
