@@ -42,6 +42,7 @@ export default function AutoCarousel({
           height={images[currentPage].height}
           alt={images[currentPage].description}
           className="w-full h-full object-contain"
+          priority
         />
       </motion.div>
     </AnimatePresence>
