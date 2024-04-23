@@ -7,9 +7,18 @@ export const size = {
   height: 692,
 };
 
-export default async function Image() {
+export default function Image() {
   return (
-    new ImageResponse(<img src="/pages/about" width={size.width} height={size.height} alt={alt} />),
+    new ImageResponse(
+      (
+        <img
+          src="https://autodidack.com/pages/about"
+          width={size.width}
+          height={size.height}
+          alt={alt}
+        />
+      )
+    ),
     { ...size }
   );
 }
