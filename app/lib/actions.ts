@@ -12,8 +12,9 @@ export async function getOnePhoto(photoid: number) {
   const { data, error } = await supabase.from("images").select("*").eq("id", photoid).limit(1);
 
   if (error) {
-    console.error(error);
-    throw new Error("Error fetching entrance photo");
+    throw new Error(
+      `${error.code}: Error while trying to access Photo ID# ${photoid}: ${error.message}`
+    );
   }
 
   if (data.length === 1) {
@@ -29,14 +30,14 @@ export async function getOnePhoto(photoid: number) {
 }
 
 export async function getImagesInSequentialOrder(galleryid?: number) {
-  // Remote Procedure Call built in Supabase
   const { data, error } = await supabase.rpc("get_images_in_sequential_order", {
     galleryid,
   });
 
   if (error) {
-    console.error(error);
-    throw new Error("Error fetching images in sequential order.");
+    throw new Error(
+      `${error.code}: Error while trying to access images in sequential order: ${error.message}`
+    );
   }
 
   if (data.length > 0) {
@@ -72,14 +73,14 @@ export async function getImagesInSequentialOrder(galleryid?: number) {
 // returns all photos in random order OR all photos of specific gallery in random order
 // variable names must be lowercase to work with supabase rpc - annoying
 export async function getImagesInRandomOrder(galleryid?: number) {
-  // Remote Procedure Call built in Supabase
   const { data, error } = await supabase.rpc("get_images_in_random_order", {
     galleryid,
   });
 
   if (error) {
-    console.error(error);
-    throw new Error("Error fetching random images.");
+    throw new Error(
+      `${error.code}: Error while trying to access images in random order: ${error.message}`
+    );
   }
 
   if (data.length > 0) {
@@ -119,7 +120,7 @@ export async function getPageMetadata(pageid?: number) {
 
   if (error) {
     console.error(error);
-    throw new Error("Error fetching page metadata.");
+    throw new Error(`${error.code}: Error while trying to access page metadata: ${error.message}`);
   }
 
   if (data.length > 0) {
@@ -141,8 +142,7 @@ export async function getGalleryMetadata(galleryid?: number) {
   });
 
   if (error) {
-    console.error(error);
-    throw new Error("Error fetching galleries metadata.");
+    throw new Error(`Error while trying to access galleries metadata: ${error}`);
   }
 
   if (galleryData.length > 0) {
@@ -175,8 +175,7 @@ export async function getAudioInRandomOrder(albumid?: number) {
   const { data: audioFiles, error } = await supabase.rpc("get_audio_in_random_order", { albumid });
 
   if (error) {
-    console.error(error);
-    throw new Error(`Error fetching audio files for Album id ${albumid}.`);
+    throw new Error(`Error while trying to access audio in random order: ${error}`);
   }
 
   if (audioFiles.length > 0) {

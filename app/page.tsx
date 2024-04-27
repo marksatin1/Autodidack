@@ -20,7 +20,7 @@ export default async function Page() {
 
   return (
     <section className="relative w-full h-full">
-      <AutoCarousel images={backgroundPhotos} fadeInterval={12000} variants={dissolveVariants} />
+      <AutoCarousel images={backgroundPhotos} fadeInterval={15000} variants={dissolveVariants} />
       <div className="appear-in absolute top-0 w-full h-full flex justify-center items-center">
         <Collage images={collagePhotos} />
       </div>
