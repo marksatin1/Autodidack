@@ -37,16 +37,18 @@ export const footerVariants = {
 export const carouselVariants = {
   initial: {
     height: "fit-content",
+    opacity: 0,
   },
   animate: {
     height: "90vh",
+    opacity: 1,
   },
 };
 
 export const loadingVariants = {
   initial: {
     width: "20%",
-    height: "0rem"
+    height: "0rem",
   },
   grow: {
     width: "100%",
