@@ -13,10 +13,12 @@ const tiltEffectSettings = {
 
 export default function CardTilt({
   children,
-  className,
+  scrollbar,
+  tilt,
 }: {
   children: ReactNode;
-  className: string;
+  scrollbar: boolean;
+  tilt: boolean;
 }) {
   const [glareXY, setGlareXY] = useState<number[]>([0, 0]);
 
@@ -68,9 +70,9 @@ export default function CardTilt({
 
   return (
     <div
-      onMouseEnter={handleMouseEnter}
-      onMouseMove={handleMouseMove}
-      className={`${className} glare`}
+      onMouseEnter={tilt ? handleMouseEnter : undefined}
+      onMouseMove={tilt ? handleMouseMove : undefined}
+      className={`relative ${scrollbar && "no-scrollbar"}`}
     >
       {children}
     </div>

@@ -4,6 +4,7 @@ import Image from "next/image";
 import ContactForm from "../ui/forms/contact-form";
 import AboutSummary from "../ui/about-summary";
 import { Metadata } from "next";
+import { useEffect } from "react";
 
 // export async function generateMetadata(): Promise<Metadata> {
 //   const aboutPage = await getPageMetadata(18);
@@ -21,9 +22,9 @@ export default async function Page() {
   const profileBanner = await getOnePhoto(300);
 
   return (
-    <div className="w-full h-full flex justify-center px-16">
-      <section className="relative w-full h-full flex justify-center items-center gap-x-24">
-        <CardTilt className="relative no-bar">
+    <div className="w-full h-full flex justify-center px-8 sm:px-16">
+      <section className="relative w-full h-full flex flex-col gap-8 overflow-scroll sm:flex-row justify-start items-center gap-x-24">
+        <CardTilt tilt={true} scrollbar={false}>
           {waterfallReversed && (
             <Image
               src={waterfallReversed.path}
@@ -39,7 +40,7 @@ export default async function Page() {
             </div>
           </div>
         </CardTilt>
-        <CardTilt className="relative">
+        <CardTilt tilt={true} scrollbar={false}>
           {waterfallOriginal && (
             <Image
               src={waterfallOriginal.path}

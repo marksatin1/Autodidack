@@ -12,7 +12,7 @@
   display: none;
 }
 
-.no-bar {
+.no-scrollbar {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
