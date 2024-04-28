@@ -1,15 +1,15 @@
 export default function FormDropdown({
-  name,
+  id,
   options,
   className,
 }: {
-  name: string;
+  id: string;
   options: string[];
   className: string;
 }) {
   return (
     <select
-      name={name.toLowerCase()}
+      name={id.toLowerCase()}
       defaultValue={options[0]}
       className={`${className} px-3 py-2 shadow-input rounded text-black`}
     >

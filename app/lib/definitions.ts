@@ -53,3 +53,17 @@ export type GalleryType = {
   image_height: number;
   image_description: string;
 };
+
+export type Visitor = {
+  name: string;
+  email: string;
+  reason: string;
+  message: string;
+}
+
+export type FormButton = {
+  id: string;
+  type: "submit" | "reset" | "button" | undefined;
+  icon: ImageType;
+  disabled: boolean;
+};
