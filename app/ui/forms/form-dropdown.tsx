@@ -9,6 +9,7 @@ export default function FormDropdown({
 }) {
   return (
     <select
+      required
       name={id.toLowerCase()}
       defaultValue={options[0]}
       className={`${className} px-3 py-2 shadow-input rounded text-black`}

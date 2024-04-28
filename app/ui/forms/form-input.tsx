@@ -9,6 +9,7 @@ export default function FormInput({
 }) {
   return (
     <input
+      required
       type={type}
       name={id.toLowerCase()}
       placeholder={id}
