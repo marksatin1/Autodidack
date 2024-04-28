@@ -1,7 +1,7 @@
 "use server";
 
 import { createClient } from "@supabase/supabase-js";
-import { AudioFile, CollageImage, ImageType, GalleryType, PageType } from "./definitions";
+import { AudioFile, CollageImage, ImageType, GalleryType, PageType, Visitor } from "./definitions";
 
 // SETUP
 const supabase = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_KEY!);
@@ -190,5 +190,26 @@ export async function getAudioInRandomOrder(albumid?: number) {
         year,
       };
     });
+  }
+}
+
+export default async function addVisitorData(formData: FormData) {
+  try {
+    const { name, email, reason, message } = Object.fromEntries(formData);
+
+    const { data } = await supabase
+      .from("visitor_contacts")
+      .insert([{ name, email, reason, message }])
+      .select();
+
+    if (data) {
+      console.log("New visitor data was successfully updated in the database.");
+      return data[0].name;
+    }
+    
+  } catch (error: any) {
+    throw new Error(
+      `${error.code}: ${error.name} was thrown while trying to add visitor data to the backend: ${error.message}`
+    );
   }
 }

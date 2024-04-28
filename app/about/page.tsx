@@ -76,7 +76,9 @@ export default async function Page() {
                 </h4>
               </div>
             </article>
-            <ContactForm className="bg-slate-200" />
+            <div className="overflow-y-scroll">
+              <ContactForm className="bg-slate-200" />
+            </div>
           </div>
         </CardTilt>
       </section>
