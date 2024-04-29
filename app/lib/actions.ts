@@ -2,9 +2,10 @@
 
 import { createClient } from "@supabase/supabase-js";
 import { AudioFile, CollageImage, ImageType, GalleryType, PageType, Visitor } from "./definitions";
+import axios from "axios";
 
 // SETUP
-const supabase = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_KEY!);
+const supabase = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_API_KEY!);
 
 // API CALLS //
 //           //
@@ -206,7 +207,6 @@ export default async function addVisitorData(formData: FormData) {
       console.log("New visitor data was successfully updated in the database.");
       return data[0].name;
     }
-    
   } catch (error: any) {
     throw new Error(
       `${error.code}: ${error.name} was thrown while trying to add visitor data to the backend: ${error.message}`
