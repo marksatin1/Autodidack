@@ -29,7 +29,7 @@ export default function Collage({ images }: { images: CollageImage[] }) {
   }
 
   return (
-    <article className="w-full h-full xl:w-2/3 2xl:w-1/2">
+    <article className="h-full w-[90%] lg:w-[80%] xl:w-[65%] 2xl:w-[50%]">
       <svg
         viewBox="0 0 2700 1900"
         xmlns="http://www.w3.org/2000/svg"

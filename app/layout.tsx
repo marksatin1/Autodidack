@@ -26,15 +26,9 @@ export default function RootLayout({
 
   return (
     <html lang="en" className={merri.className}>
-      <body className="overflow-hidden w-screen h-screen grid grid-rows-[auto_1fr_auto]">
+      <body className="overflow-hidden w-screen h-screen flex flex-col">
         {showHeaderFooter && <Header />}
-        <main
-          className={
-            showHeaderFooter ? "w-full max-h-[1150px] overflow-hidden" : "w-screen h-screen"
-          }
-        >
-          {children}
-        </main>
+        <main className="w-full h-full overflow-hidden">{children}</main>
         {showHeaderFooter && <Footer />}
       </body>
     </html>

@@ -34,17 +34,17 @@ export default function Footer() {
         animate={currentPathsMatch ? "hidden" : "visible"}
         transition={{ duration: animationDuration / 1000 }}
         variants={footerVariants}
-        className={`${
+        className={`grow ${
           hideTrigger ? "hidden" : "block"
-        } flex flex-col justify-center items-center space-y-3 px-6 py-4`}
+        } flex flex-col justify-end items-center space-y-3 px-6 py-4`}
       >
         <InternalNavbar links={internalNavLinks} />
-        <hr className="w-1/4 border-slate-500" />
+        <hr className="w-3/4 lg:w-1/4 border-slate-500" />
         <div className="w-full grid grid-cols-3">
           <div className="justify-self-start self-end">
             <ExternalNavbar links={externalNavLinks} />
           </div>
-          <div className="flex flex-col justify-center items-center text-slate-500">
+          <div className="flex flex-col justify-center items-center text-center text-slate-500">
             <small>Designed by Mark Satin</small>
             <small>&copy; 2024</small>
           </div>
