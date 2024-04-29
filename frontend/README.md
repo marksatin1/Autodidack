@@ -1,3 +1,0 @@
-# AUTODIDACK
-
-Photo Portfolio Website
