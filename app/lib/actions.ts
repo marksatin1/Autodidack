@@ -2,9 +2,10 @@
 
 import { createClient } from "@supabase/supabase-js";
 import { AudioFile, CollageImage, ImageType, GalleryType, PageType, Visitor } from "./definitions";
+import axios from "axios";
 
 // SETUP
-const supabase = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_SECRET_API_KEY!);
+const supabase = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_API_KEY!);
 
 // API CALLS //
 //           //
