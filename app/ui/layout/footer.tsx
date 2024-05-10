@@ -2,22 +2,23 @@
 
 import { externalNavLinks, internalNavLinks } from "../../lib/data";
 import AudioPlayer from "./audio-player";
-import ExternalNavbar from "./external-navbar";
+import SocialsNavbar from "./socials-navbar";
 import InternalNavbar from "./internal-navbar";
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { footerVariants } from "../../lib/animate-context";
+import Image from "next/image";
 
-// LEVER
-const animationDuration = 2000;
+const pathCheck = new RegExp("/[A-Za-z0-9]+/[0-9]+/[A-Za-z]+");
 
-export default function Footer() {
-  const pathCheck = new RegExp("/[A-Za-z0-9]+/[0-9]+/[A-Za-z]+");
+export default function Footer({ animationDuration }: { animationDuration: number }) {
   const pathname = usePathname();
   const currentPathsMatch = useMemo(() => pathCheck.test(pathname), [pathname]);
+
   const [hideTrigger, setHideTrigger] = useState<boolean>(false);
 
+  // Footer hide/show animation control
   useEffect(() => {
     currentPathsMatch &&
       setTimeout(() => {
@@ -34,23 +35,27 @@ export default function Footer() {
         animate={currentPathsMatch ? "hidden" : "visible"}
         transition={{ duration: animationDuration / 1000 }}
         variants={footerVariants}
-        className={`grow ${
+        className={`w-full grow ${
           hideTrigger ? "hidden" : "block"
-        } flex flex-col justify-end items-center space-y-3 px-6 py-4`}
+        } flex flex-col justify-end items-center space-y-3 py-3`}
       >
-        <InternalNavbar links={internalNavLinks} />
-        <hr className="w-3/4 lg:w-1/4 border-slate-500" />
-        <div className="w-full grid grid-cols-3">
-          <div className="justify-self-start self-end">
-            <ExternalNavbar links={externalNavLinks} />
-          </div>
-          <div className="flex flex-col justify-center items-center text-center text-slate-500">
-            <small>Designed by Mark Satin</small>
-            <small>&copy; 2024</small>
-          </div>
-          <div className="justify-self-end self-end">
+        <article className="hidden sm:block">
+          <InternalNavbar links={internalNavLinks} />
+        </article>
+        <div className="w-full px-8 flex flex-col justify-center items-center sm:items-end gap-3 sm:grid sm:grid-cols-3 sm:justify-between">
+          <article className="justify-self-start">
+            <SocialsNavbar links={externalNavLinks} />
+          </article>
+          <article className="">
+            <hr className="my-3 border-slate-500" />
+            <div className="flex flex-col justify-center items-center text-slate-500">
+              <small>Designed by Mark Satin</small>
+              <small>&copy; 2024</small>
+            </div>
+          </article>
+          <article className="hidden sm:block sm:justify-self-end">
             <AudioPlayer />
-          </div>
+          </article>
         </div>
       </motion.footer>
     </AnimatePresence>

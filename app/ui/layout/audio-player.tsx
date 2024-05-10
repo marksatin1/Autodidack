@@ -50,14 +50,13 @@ export default function AudioPlayer() {
           <source src={playlist![currentSongIdx].path} type={playlist![currentSongIdx].type} />
         </audio>
       )}
-
       <Image
-        src={audioIconPath}
+        src="/icons/svg/Quiet.svg"
         alt="Black and white icon signalling audio status"
         width={256}
         height={256}
         onClick={handlePlayPauseAudio}
-        className="w-[24px] h-[24px] hover:scale-x-[3]"
+        className="w-6 hover:scale-x-[2] cursor-pointer"
       />
     </div>
   );
