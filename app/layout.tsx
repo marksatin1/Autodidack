@@ -29,7 +29,7 @@ export default function RootLayout({
       <body className="overflow-hidden w-screen h-screen flex flex-col">
         {showHeaderFooter && <Header />}
         <main className="w-full h-full overflow-hidden">{children}</main>
-        {showHeaderFooter && <Footer />}
+        {showHeaderFooter && <Footer animationDuration={2000} />}
       </body>
     </html>
   );
