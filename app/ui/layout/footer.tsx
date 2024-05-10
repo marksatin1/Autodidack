@@ -17,7 +17,6 @@ export default function Footer({ animationDuration }: { animationDuration: numbe
   const currentPathsMatch = useMemo(() => pathCheck.test(pathname), [pathname]);
 
   const [hideTrigger, setHideTrigger] = useState<boolean>(false);
-  const [showMenu, setShowMenu] = useState<boolean>(false);
 
   // Footer hide/show animation control
   useEffect(() => {
@@ -36,29 +35,27 @@ export default function Footer({ animationDuration }: { animationDuration: numbe
         animate={currentPathsMatch ? "hidden" : "visible"}
         transition={{ duration: animationDuration / 1000 }}
         variants={footerVariants}
-        className={`grow ${
+        className={`w-full grow ${
           hideTrigger ? "hidden" : "block"
         } flex flex-col justify-end items-center space-y-3 py-3`}
       >
-        {showMenu && <InternalNavbar links={internalNavLinks} />}
-        <div className="w-full flex flex-col justify-center items-center gap-3">
-          <SocialsNavbar links={externalNavLinks} />
-          <hr className="w-3/4 lg:w-1/4 border-slate-500" />
-          <article className="flex flex-col justify-center items-center text-center text-slate-500">
-            <small>Designed by Mark Satin</small>
-            <small>&copy; 2024</small>
+        <article className="hidden sm:block">
+          <InternalNavbar links={internalNavLinks} />
+        </article>
+        <div className="w-full px-8 flex flex-col justify-center items-center sm:items-end gap-3 sm:grid sm:grid-cols-3 sm:justify-between">
+          <article className="justify-self-start">
+            <SocialsNavbar links={externalNavLinks} />
           </article>
-          <div className="justify-self-end self-end">
+          <article className="">
+            <hr className="my-3 border-slate-500" />
+            <div className="flex flex-col justify-center items-center text-slate-500">
+              <small>Designed by Mark Satin</small>
+              <small>&copy; 2024</small>
+            </div>
+          </article>
+          <article className="hidden sm:block sm:justify-self-end">
             <AudioPlayer />
-            <Image
-              src="/icons/svg/HamburgerRight.svg"
-              width={64}
-              height={64}
-              alt="Hamburger menu"
-              onClick={() => setShowMenu(!showMenu)}
-              className="w-8"
-            />
-          </div>
+          </article>
         </div>
       </motion.footer>
     </AnimatePresence>
