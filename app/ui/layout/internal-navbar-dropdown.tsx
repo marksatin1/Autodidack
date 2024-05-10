@@ -8,7 +8,7 @@ export default function InternalNavbarDropdown({ links }: { links: NavLink[] }) 
 
   return (
     <nav className="w-full">
-      <ul className="absolute z-50 top-20 left-0 border-2 bg-gradient-to-tr from-white via-amber-200 to-white rounded-sm shadow-xl w-screen p-4 flex justify-between gap-6 sm:gap-16 lg:gap-32 items-end">
+      <ul className="absolute z-50 top-20 left-0 border-2 bg-gradient-to-tr from-white via-amber-400 to-white rounded-sm shadow-xl w-screen p-4 flex justify-between gap-6 sm:gap-16 lg:gap-32 items-end">
         <div className="flex items-center gap-6">
           {links.map(l => {
             const disabled = l.name === "Web" || l.name === "Store";
