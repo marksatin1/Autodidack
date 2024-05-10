@@ -56,7 +56,7 @@
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
 }
 
-.link:hover {
+.link-selected:hover {
   color: black;
 }
 
