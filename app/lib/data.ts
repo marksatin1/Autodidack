@@ -12,7 +12,6 @@ export const internalNavLinks: NavLink[] = [
     href: "/web",
   },
   { id: 3, name: "About", href: "/about" },
-  { id: 4, name: "Store", href: "/store" },
 ];
 
 export const externalNavLinks: NavLink[] = [
