@@ -2,9 +2,9 @@ import Image from "next/image";
 import { NavLink } from "../../lib/definitions";
 import Link from "next/link";
 
-export default function ExternalNavbar({ links }: { links: NavLink[] }) {
+export default function SocialsNavbar({ links }: { links: NavLink[] }) {
   return (
-    <nav className="">
+    <nav className="h-fit">
       <ul className="flex items-center justify-center gap-x-4 lg:gap-x-8">
         {links.map(l => {
           return (
@@ -15,7 +15,7 @@ export default function ExternalNavbar({ links }: { links: NavLink[] }) {
                   alt={l.image!.description}
                   width={l.image!.width}
                   height={l.image!.height}
-                  className="w-[20px] h-[20px] md:w-[24px] md:h-[24px]"
+                  className="w-6 md:w-[24px] md:h-[24px]"
                 />
               </Link>
             </li>
