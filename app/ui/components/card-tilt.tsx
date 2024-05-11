@@ -11,15 +11,7 @@ const tiltEffectSettings = {
   easing: "cubic-bezier(.03,.98,.52,.99)", // easing (transition-timing-function) of the enter/exit transition
 };
 
-export default function CardTilt({
-  children,
-  scrollbar,
-  tilt,
-}: {
-  children: ReactNode;
-  scrollbar: boolean;
-  tilt: boolean;
-}) {
+export default function CardTilt({ children }: { children: ReactNode }) {
   const [glareXY, setGlareXY] = useState<number[]>([0, 0]);
 
   // -------------------- //
@@ -69,11 +61,7 @@ export default function CardTilt({
   }
 
   return (
-    <div
-      onMouseEnter={tilt ? handleMouseEnter : undefined}
-      onMouseMove={tilt ? handleMouseMove : undefined}
-      className={`relative ${scrollbar && "no-scrollbar"}`}
-    >
+    <div onMouseEnter={handleMouseEnter} onMouseMove={handleMouseMove}>
       {children}
     </div>
   );

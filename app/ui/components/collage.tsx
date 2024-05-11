@@ -1,6 +1,6 @@
 "use client";
 
-import { CollageImage } from "../lib/definitions";
+import { CollageImage } from "../../lib/definitions";
 import { RefObject, createRef, useEffect, useState } from "react";
 
 export default function Collage({ images }: { images: CollageImage[] }) {
@@ -29,7 +29,7 @@ export default function Collage({ images }: { images: CollageImage[] }) {
   }
 
   return (
-    <article className="h-full w-[90%] lg:w-[80%] xl:w-[65%] 2xl:w-[50%]">
+    <article className="h-full w-[90%] lg:w-[75%] xl:w-[60%] 2xl:w-[45%]">
       <svg
         viewBox="0 0 2700 1900"
         xmlns="http://www.w3.org/2000/svg"
