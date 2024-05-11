@@ -1,7 +1,7 @@
 import { getPageMetadata, getGalleryMetadata } from "../lib/actions";
 import { GalleryType } from "../lib/definitions";
 import { Metadata } from "next";
-import Gallery from "../ui/gallery";
+import Gallery from "../ui/components/gallery";
 
 // export async function generateMetadata(): Promise<Metadata> {
 //   const photoPage = await getPageMetadata(19);

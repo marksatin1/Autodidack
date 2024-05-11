@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 import { getImagesInSequentialOrder, getImagesInRandomOrder, getPageMetadata } from "./lib/actions";
 import { dissolveVariants } from "./lib/animate-context";
-import AutoCarousel from "./ui/auto-carousel";
-import Collage from "./ui/collage";
+import AutoCarousel from "./ui/components/auto-carousel";
+import Collage from "./ui/components/collage";
 
 // export async function generateMetadata(): Promise<Metadata> {
 //   const homePage = await getPageMetadata(17);
