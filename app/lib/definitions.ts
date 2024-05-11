@@ -2,6 +2,7 @@ export type NavLink = {
   id: number;
   name: string;
   href: string;
+  disabled: boolean;
   image?: ImageType;
 };
 
@@ -59,7 +60,7 @@ export type Visitor = {
   email: string;
   reason: string;
   message: string;
-}
+};
 
 export type FormButton = {
   id: string;
