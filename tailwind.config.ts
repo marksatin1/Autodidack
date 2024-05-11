@@ -15,7 +15,10 @@ const config: Config = {
         input: "1px 4px 4px rgba(0, 0, 0, 0.35)",
       },
       colors: {
-        accent: "#f59e0b",
+        accent: {
+          DEFAULT: "#f59e0b",
+          dark: "#C56528",
+        },
       },
     },
   },
