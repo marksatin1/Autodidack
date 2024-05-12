@@ -6,10 +6,10 @@ export default function Button({ id, type, ariaLabel, icon, disabled }: FormButt
     <button
       id={id}
       type={type}
-      aria-label={ariaLabel}    
+      aria-label={ariaLabel}
       className={`${
         disabled ? "hover:cursor-help" : "cursor-pointer"
-      } button-shadow px-3 py-1 sm:px-5 sm:py-2 flex justify-around items-center gap-2 rounded-full border-black border hover:bg-slate-200 duration-500`}
+      } hover:shadow-[0_3px_2px] hover:shadow-black/50 px-3 py-1 sm:px-5 sm:py-2 flex justify-around items-center gap-2 rounded-full border-black border hover:bg-slate-200 duration-500`}
     >
       <p className="font-black text-xs sm:text-lg lg:text-xl hover:text-accent-dark duration-500">
         {id}
