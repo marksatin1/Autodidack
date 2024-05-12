@@ -9,15 +9,22 @@ export default function InternalNavbar({ links }: { links: NavLink[] }) {
     <nav className="w-full h-full flex flex-col items-center justify-center">
       <ul className="w-full py-4 flex flex-col sm:flex-row gap-24 lg:gap-32 xl:gap-64">
         {links.map(l => {
-          const disabled = l.name === "Web" || l.name === "Store";
           return (
             <li key={l.id}>
-              <h2 className="text-center title-shadow tracking-widest text-3xl lg:text-4xl">
+              <h2
+                className={
+                  l.disabled
+                    ? "link-disabled cursor-help"
+                    : "text-center title-shadow tracking-widest text-3xl lg:text-4xl"
+                }
+              >
                 <Link
-                  href={disabled ? "" : l.href}
-                  className={`${
-                    pathname.slice(1) === l.name.toLowerCase() ? "link-selected" : "link"
-                  } ${disabled && "line-through decoration-[#f59e0b] decoration-wavy cursor-help"}`}
+                  href={l.disabled ? "" : l.href}
+                  className={`${pathname.slice(1) === l.name.toLowerCase() && "text-accent-dark"} ${
+                    l.disabled
+                      ? "link-disabled cursor-help"
+                      : "title-shadow hover:text-accent-dark hover:drop-shadow-lg duration-500"
+                  }`}
                 >
                   {l.name}
                 </Link>
