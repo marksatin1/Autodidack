@@ -9,6 +9,8 @@ import { carouselVariants } from "../../lib/animate-context";
 
 export default function Carousel({ slides }: { slides: ImageType[] }) {
   const [currentIdx, setCurrentIdx] = useState<number>(0);
+  const [touchStartX, setTouchStartX] = useState<number>(0);
+  const [touchEndX, setTouchEndX] = useState<number>(0);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   // Focus to <section> when component mounts
@@ -37,13 +39,21 @@ export default function Carousel({ slides }: { slides: ImageType[] }) {
     }
   }
 
+  function handleSwipe() {
+    touchEndX > touchStartX ? handleNextImage() : handlePrevImage();
+  }
+
   return (
     <AnimatePresence mode="wait">
       <motion.section
         tabIndex={0} // makes <section> focusable
         ref={sectionRef}
         onKeyDown={handleKeyDown}
-        onTouchMove={handleNextImage}
+        onTouchStart={(e: any) => {
+          setTouchStartX(e.touches[0].clientX);
+        }}
+        onTouchMove={(e: any) => setTouchEndX(e.touches[0].clientX)}
+        onTouchEnd={handleSwipe}
         layout
         initial="initial"
         animate="animate"
