@@ -59,6 +59,8 @@ export default function AudioPlayer() {
         width={256}
         height={256}
         onClick={handlePlayPauseAudio}
+        aria-label="toggle audio"
+        
         className="w-6 hover:scale-x-[2] cursor-pointer"
       />
     </div>

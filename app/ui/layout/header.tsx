@@ -19,6 +19,7 @@ export default function Header() {
           height={64}
           alt="Hamburger menu"
           onClick={() => setShowMenu(!showMenu)}
+          aria-label="main dropdown menu"
           className="w-6 cursor-pointer hover:scale-[1.2] duration-200"
         />
         {showMenu && <InternalNavbarDropdown links={internalNavLinks} />}

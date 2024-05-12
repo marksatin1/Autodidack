@@ -12,6 +12,7 @@ export default function FormDropdown({
       required
       name={id.toLowerCase()}
       defaultValue={options[0]}
+      aria-label={id}
       className={`${className} p-1 sm:px-3 sm:py-2 shadow-input rounded text-black`}
     >
       {options.map((value: string, i: number) => (

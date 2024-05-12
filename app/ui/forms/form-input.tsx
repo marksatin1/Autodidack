@@ -13,6 +13,7 @@ export default function FormInput({
       type={type}
       name={id.toLowerCase()}
       placeholder={id}
+      aria-label={id}
       className={`${className} p-1 sm:px-3 sm:py-2 shadow-input rounded`}
     />
   );

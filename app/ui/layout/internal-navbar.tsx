@@ -6,7 +6,7 @@ export default function InternalNavbar({ links }: { links: NavLink[] }) {
   const pathname = usePathname();
 
   return (
-    <nav className="w-full h-full flex flex-col items-center justify-center">
+    <nav aria-label="primary" className="w-full h-full flex flex-col items-center justify-center">
       <ul className="w-full py-4 flex flex-col sm:flex-row gap-24 lg:gap-32 xl:gap-64">
         {links.map(l => {
           return (

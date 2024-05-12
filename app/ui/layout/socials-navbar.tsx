@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function SocialsNavbar({ links }: { links: NavLink[] }) {
   return (
-    <nav className="h-fit">
+    <nav aria-label="secondary" className="h-fit">
       <ul className="flex items-center justify-center gap-x-8">
         {links.map(l => {
           return (
