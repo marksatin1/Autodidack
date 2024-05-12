@@ -9,7 +9,12 @@ export default function SocialsNavbar({ links }: { links: NavLink[] }) {
         {links.map(l => {
           return (
             <li key={l.id} className="hover:scale-125 duration-700">
-              <Link href={l.href} target="_blank" rel="noopener noreferrer">
+              <Link
+                href={l.href}
+                aria-label="opens in new tab"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Image
                   src={l.image!.path}
                   alt={l.image!.description}
