@@ -33,6 +33,7 @@ export default function InternalNavbarDropdown({ links }: { links: NavLink[] }) 
                   >
                     <Link
                       href={l.disabled ? "" : l.href}
+                      tabIndex={l.disabled ? -1 : 0}
                       className={`${pathname.slice(1) == l.name.toLowerCase() && ""} ${
                         l.disabled
                           ? "link-disabled cursor-help"
