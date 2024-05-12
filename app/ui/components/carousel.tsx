@@ -43,6 +43,7 @@ export default function Carousel({ slides }: { slides: ImageType[] }) {
         tabIndex={0} // makes <section> focusable
         ref={sectionRef}
         onKeyDown={handleKeyDown}
+        onTouchMove={handleNextImage}
         layout
         initial="initial"
         animate="animate"
