@@ -1,6 +1,6 @@
 export default function AboutSummary() {
   return (
-    <div className="px-5 py-2 text-lg text-justify text-white text-content-shadow">
+    <div className="sm:px-5 sm:py-2 text-sm sm:text-lg text-justify text-white text-content-shadow lg:text-xl">
       <aside>
         <p>
           Autodidack is a portmanteau of “autodidact” - a self-taught person - and “Adirondacks” -

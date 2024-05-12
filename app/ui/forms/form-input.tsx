@@ -13,7 +13,7 @@ export default function FormInput({
       type={type}
       name={id.toLowerCase()}
       placeholder={id}
-      className={`${className} px-3 py-2 shadow-input rounded`}
+      className={`${className} p-1 sm:px-3 sm:py-2 shadow-input rounded`}
     />
   );
 }

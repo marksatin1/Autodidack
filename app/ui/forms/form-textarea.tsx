@@ -15,7 +15,7 @@ export default function FormTextarea({
       placeholder={id}
       rows={rows}
       cols={cols}
-      className={`${className} px-3 py-2 shadow-input rounded text-black`}
+      className={`${className} p-1 sm:px-3 sm:py-2 shadow-input rounded text-black`}
     />
   );
 }

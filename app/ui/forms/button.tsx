@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { FormButton, ImageType } from "../../lib/definitions";
+import { FormButton } from "../../lib/definitions";
 
 export default function Button({ id, type, icon, disabled }: FormButton) {
   return (
@@ -8,7 +8,7 @@ export default function Button({ id, type, icon, disabled }: FormButton) {
       type={type}
       className={`${
         disabled ? "hover:cursor-help" : "cursor-pointer"
-      } button-shadow px-5 py-2 flex justify-around items-center font-black text-2xl gap-3 rounded-full border-black border hover:bg-slate-400 duration-500`}
+      } button-shadow px-3 py-2 sm:px-5 sm:py-2 flex justify-around items-center font-black text-xs sm:text-2xl gap-3 rounded-full border-black border hover:bg-slate-400 hover:text-accent-dark duration-500`}
     >
       <p>{id}</p>
       <Image
@@ -16,7 +16,7 @@ export default function Button({ id, type, icon, disabled }: FormButton) {
         width={icon.width}
         height={icon.height}
         alt={icon.description}
-        className="w-[32px] h-[32px]"
+        className="w-[16px] h-[16px] sm:w-[32px] sm:h-[32px]"
       />
     </button>
   );
