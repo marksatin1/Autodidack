@@ -46,6 +46,7 @@ export default function Collage({ images }: { images: CollageImage[] }) {
               y={i.y_coord + "px"}
               onMouseEnter={() => playImageAudio(idx)}
               onMouseLeave={() => pauseImageAudio(idx)}
+              role="presentation"
             />
           );
         })}

@@ -18,7 +18,7 @@ export default function ContactForm({ className }: { className: string }) {
         />
         <FormTextarea id="Message" rows={4} cols={4} className={className} />
       </section>
-      <Button id="Let's Connect" type="submit" icon={icons.handshake} disabled={false} />
+      <Button id="Let's Connect" type="submit" ariaLabel="submit contact info" icon={icons.handshake} disabled={false} />
     </form>
   );
 }

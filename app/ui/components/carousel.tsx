@@ -72,6 +72,9 @@ export default function Carousel({ slides }: { slides: ImageType[] }) {
             height={icons.arrowLeftThin.height}
             alt={icons.arrowLeftThin.description}
             onClick={handlePrevImage}
+            role="button"
+            aria-label="previous photo button"
+            tabIndex={0}
             className="w-[48px] cursor-pointer"
           />
           <Image
@@ -80,6 +83,9 @@ export default function Carousel({ slides }: { slides: ImageType[] }) {
             height={icons.arrowRightThin.height}
             alt={icons.arrowRightThin.description}
             onClick={handleNextImage}
+            role="button"
+            aria-label="next photo button"
+            tabIndex={0}
             className="w-[48px] cursor-pointer"
           />
         </div>

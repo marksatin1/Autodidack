@@ -6,7 +6,7 @@ export default function InternalNavbar({ links }: { links: NavLink[] }) {
   const pathname = usePathname();
 
   return (
-    <nav className="w-full h-full flex flex-col items-center justify-center">
+    <nav aria-label="primary" className="w-full h-full flex flex-col items-center justify-center">
       <ul className="w-full py-4 flex flex-col sm:flex-row gap-24 lg:gap-32 xl:gap-64">
         {links.map(l => {
           return (
@@ -20,10 +20,11 @@ export default function InternalNavbar({ links }: { links: NavLink[] }) {
               >
                 <Link
                   href={l.disabled ? "" : l.href}
-                  className={`${pathname.slice(1) === l.name.toLowerCase() && "text-accent-dark"} ${
+                  tabIndex={l.disabled ? -1 : 0}
+                  className={`${pathname.slice(1) === l.name.toLowerCase() && "text-accent"} ${
                     l.disabled
                       ? "link-disabled cursor-help"
-                      : "title-shadow hover:text-accent-dark hover:drop-shadow-lg duration-500"
+                      : "title-shadow hover:text-accent hover:drop-shadow-lg duration-400"
                   }`}
                 >
                   {l.name}

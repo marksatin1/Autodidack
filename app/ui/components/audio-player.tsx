@@ -59,6 +59,12 @@ export default function AudioPlayer() {
         width={256}
         height={256}
         onClick={handlePlayPauseAudio}
+        onKeyDown={(e: any) => {
+          e.key === "Enter" && handlePlayPauseAudio();
+        }}
+        role="button"
+        aria-label="toggle audio"
+        tabIndex={0}
         className="w-6 hover:scale-x-[2] cursor-pointer"
       />
     </div>

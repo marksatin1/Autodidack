@@ -65,6 +65,7 @@ export type Visitor = {
 export type FormButton = {
   id: string;
   type: "submit" | "reset" | "button" | undefined;
+  ariaLabel: string;
   icon: ImageType;
   disabled: boolean;
 };
