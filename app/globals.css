@@ -47,7 +47,6 @@
 }
 
 .link-disabled {
-  color: #f59e0b;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #a9a9a9;
   filter: blur(1.2px);
