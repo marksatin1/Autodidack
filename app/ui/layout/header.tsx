@@ -19,7 +19,12 @@ export default function Header() {
           height={64}
           alt="Hamburger menu"
           onClick={() => setShowMenu(!showMenu)}
+          onKeyDown={(e: any) => {
+            e.key === "Enter" && setShowMenu(!showMenu);
+          }}
+          role="button"
           aria-label="main dropdown menu"
+          tabIndex={0}
           className="w-6 cursor-pointer hover:scale-[1.2] duration-200"
         />
         {showMenu && <InternalNavbarDropdown links={internalNavLinks} />}
