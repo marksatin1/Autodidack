@@ -10,12 +10,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { id: galleryID, name: galleryName } = params;
   const gallery = await getGalleryMetadata(Number(galleryID));
+  console.log(gallery);
 
-  return {
-    title: `Autodidack | ${galleryName.replace("-", " ")}`,
-    description: gallery[0].description,
-    keywords: gallery[0].keywords,
-  };
+  return (
+    gallery && {
+      title: `Autodidack | ${galleryName.replace("-", " ")}`,
+      description: gallery[0].description,
+      keywords: gallery[0].keywords,
+    }
+  );
 }
 
 export default async function Page({ params }: { params: { id: number; name: string } }) {
