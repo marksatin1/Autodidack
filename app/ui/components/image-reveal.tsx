@@ -1,9 +1,9 @@
 "use client";
 
-import { ImageType } from "../lib/definitions";
+import { ImageType } from "../../lib/definitions";
 import { useRef, useEffect, useState } from "react";
 import { MouseEvent } from "react";
-import { isTransparent } from "../lib/utils";
+import { isTransparent } from "../../lib/utils";
 import Image from "next/image";
 
 export default function ImageReveal({

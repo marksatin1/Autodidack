@@ -7,8 +7,8 @@ import {
   dissolveVariants,
   galleryTitleVariants,
   pageTransitionVariants,
-} from "../lib/animate-context";
-import { GalleryType } from "../lib/definitions";
+} from "../../lib/animate-context";
+import { GalleryType } from "../../lib/definitions";
 
 export default function Gallery({ gallery }: { gallery: GalleryType }) {
   return (
@@ -19,7 +19,7 @@ export default function Gallery({ gallery }: { gallery: GalleryType }) {
       whileHover={{ scale: 1.02, transition: { duration: 0.25 } }}
       whileTap={{ scale: 0.75, transition: { duration: 0.75 } }}
       variants={pageTransitionVariants}
-      className="snap-always snap-center px-4 lg:px-12"
+      className="snap-always snap-center lg:px-12"
     >
       <Link href={`photo/${gallery.id}/${gallery.name}`}>
         <motion.div initial="hidden" animate="visible" variants={dissolveVariants}>
@@ -29,7 +29,7 @@ export default function Gallery({ gallery }: { gallery: GalleryType }) {
             height={gallery.image_height}
             alt={gallery.image_description}
             priority
-            className="w-full max-h-[75vh] object-fill"
+            className="w-full max-h-[65vh] md:max-h-[75vh] object-fill"
           />
         </motion.div>
         <motion.h2
@@ -37,7 +37,7 @@ export default function Gallery({ gallery }: { gallery: GalleryType }) {
           whileInView="visible"
           transition={{ duration: 0.75 }}
           variants={galleryTitleVariants}
-          className="w-fit h-fit px-2 pt-8 pb-24 text-slate-100 font-extrabold text-content-shadow text-[6rem] lg:text-[8rem] xl:text-[10rem] leading-[8rem] text-nowrap overflow-clip"
+          className="w-fit h-fit pl-4 sm:pl-8 pt-16 sm:pt-24 md:pt-8 lg:pt-4 xl:pt-0 text-slate-100 font-extrabold text-content-shadow text-4xl sm:text-5xl md:text-[6rem] lg:text-[8rem] xl:text-[10rem] leading-[8rem] text-nowrap overflow-clip"
         >
           {gallery.name.replace("-", "  ")}
         </motion.h2>

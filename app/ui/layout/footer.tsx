@@ -1,7 +1,7 @@
 "use client";
 
 import { externalNavLinks, internalNavLinks } from "../../lib/data";
-import AudioPlayer from "./audio-player";
+import AudioPlayer from "../components/audio-player";
 import SocialsNavbar from "./socials-navbar";
 import InternalNavbar from "./internal-navbar";
 import { AnimatePresence, motion } from "framer-motion";

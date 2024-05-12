@@ -5,6 +5,7 @@ import Footer from "./ui/layout/footer";
 import { Lora, Merriweather } from "next/font/google";
 import { usePathname } from "next/navigation";
 import "./globals.css";
+import { ReactNode } from "react";
 
 const lora = Lora({
   subsets: ["latin"],
@@ -19,7 +20,7 @@ const merri = Merriweather({
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   const pathname = usePathname();
   const showHeaderFooter = pathname !== "/entrance";

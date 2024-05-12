@@ -13,6 +13,7 @@ export default function AudioPlayer() {
   const [audioIconPath, setAudioIconPath] = useState<string>(icons.quiet.path);
   const [currentSongIdx, setCurrentSongIdx] = useState<number>(0);
   const [playlist, setPlaylist] = useState<AudioFile[] | null>(null);
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // must encapsulate async functionality because this is a Client Component
@@ -24,6 +25,8 @@ export default function AudioPlayer() {
   }, []);
 
   function handlePlayPauseAudio() {
+    setIsPlaying(prev => !prev);
+
     // handle audio playback
     audioIconPath === icons.listening.path ? audioRef.current?.pause() : audioRef.current?.play();
 
@@ -51,7 +54,7 @@ export default function AudioPlayer() {
         </audio>
       )}
       <Image
-        src="/icons/svg/Quiet.svg"
+        src={isPlaying ? "/icons/256/Listening.png" : "/icons/256/Quiet.png"}
         alt="Black and white icon signalling audio status"
         width={256}
         height={256}

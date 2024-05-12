@@ -1,4 +1,4 @@
-import Carousel from "../../../ui/carousel";
+import Carousel from "../../../ui/components/carousel";
 import { getGalleryMetadata, getImagesInRandomOrder } from "../../../lib/actions";
 import { Metadata } from "next";
 
@@ -20,5 +20,7 @@ export async function generateMetadata({
 export default async function Page({ params }: { params: { id: number } }) {
   const photos = await getImagesInRandomOrder(params.id);
 
-  return <div className="w-full h-full">{photos && <Carousel slides={photos} />}</div>;
+  return (
+    <div className="w-full h-full oveflow-y-scroll">{photos && <Carousel slides={photos} />}</div>
+  );
 }

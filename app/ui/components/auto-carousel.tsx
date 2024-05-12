@@ -1,6 +1,6 @@
 "use client";
 
-import { ImageType } from "../lib/definitions";
+import { ImageType } from "../../lib/definitions";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 

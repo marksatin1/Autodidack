@@ -1,11 +1,11 @@
 "use client";
 
 import { useState, useRef, useEffect, KeyboardEvent } from "react";
-import { ImageType } from "../lib/definitions";
+import { ImageType } from "../../lib/definitions";
 import Image from "next/image";
-import { icons } from "../lib/data";
+import { icons } from "../../lib/data";
 import { AnimatePresence, motion } from "framer-motion";
-import { carouselVariants } from "../lib/animate-context";
+import { carouselVariants } from "../../lib/animate-context";
 
 export default function Carousel({ slides }: { slides: ImageType[] }) {
   const [currentIdx, setCurrentIdx] = useState<number>(0);
@@ -50,7 +50,7 @@ export default function Carousel({ slides }: { slides: ImageType[] }) {
         variants={carouselVariants}
         className="w-full h-full outline-none grid grid-rows-[1fr_auto]"
       >
-        <div className="relative w-full h-full">
+        <div className="relative w-full h-[77%] sm:h-full">
           {slides.map((p: ImageType, i: number) => (
             <img
               key={p.id}
@@ -64,7 +64,7 @@ export default function Carousel({ slides }: { slides: ImageType[] }) {
             />
           ))}
         </div>
-        <div className="flex justify-center my-4">
+        <div className="hidden sm:flex sm:justify-center sm:my-4">
           <Image
             src={icons.arrowLeftThin.path}
             width={icons.arrowLeftThin.width}

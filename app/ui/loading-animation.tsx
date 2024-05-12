@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import AutoCarousel from "./auto-carousel";
+import AutoCarousel from "./components/auto-carousel";
 import { flags } from "../lib/data";
 import { loadingVariants } from "../lib/animate-context";
 

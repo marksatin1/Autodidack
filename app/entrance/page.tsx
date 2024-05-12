@@ -1,6 +1,7 @@
-import ImageReveal from "../ui/image-reveal";
+import ImageReveal from "../ui/components/image-reveal";
 import { getOnePhoto, getPageMetadata } from "../lib/actions";
 import { Metadata } from "next";
+import AboutCard from "../ui/components/about-card";
 
 // export async function generateMetadata(): Promise<Metadata> {
 //   const entrancePage = await getPageMetadata(16);
@@ -17,7 +18,7 @@ export default async function Page() {
 
   return (
     <div className="w-full h-full">
-      <ImageReveal image={entrancePhoto!} eraserSizeFactor={0.2} />
+      {/* <ImageReveal image={entrancePhoto!} eraserSizeFactor={0.2} /> */}
     </div>
   );
 }
