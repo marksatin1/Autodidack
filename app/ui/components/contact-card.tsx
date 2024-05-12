@@ -37,7 +37,7 @@ export default function ContactCard({
           animate="visible"
           transition={{ ease: "easeInOut", duration: 0.5 }}
           variants={dissolveVariants}
-          className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 font-bolder text-white text-2xl tracking-widest title-shadow md:hidden cursor-pointer"
+          className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 font-bolder text-white text-2xl tracking-widest title-shadow cursor-pointer"
         >
           Contact
         </motion.h3>
