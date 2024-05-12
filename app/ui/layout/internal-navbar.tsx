@@ -19,8 +19,9 @@ export default function InternalNavbar({ links }: { links: NavLink[] }) {
                 }
               >
                 <Link
-                  href={l.disabled ? "" : l.href}
+                  href={l.disabled ? "#" : l.href}
                   tabIndex={l.disabled ? -1 : 0}
+                  role={l.disabled ? "decoration" : ""}
                   className={`${pathname.slice(1) === l.name.toLowerCase() && "text-accent"} ${
                     l.disabled
                       ? "link-disabled cursor-help"
