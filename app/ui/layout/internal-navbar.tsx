@@ -20,10 +20,11 @@ export default function InternalNavbar({ links }: { links: NavLink[] }) {
               >
                 <Link
                   href={l.disabled ? "" : l.href}
-                  className={`${pathname.slice(1) === l.name.toLowerCase() && "text-accent-dark"} ${
+                  tabIndex={l.disabled ? -1 : 0}
+                  className={`${pathname.slice(1) === l.name.toLowerCase() && "text-accent"} ${
                     l.disabled
                       ? "link-disabled cursor-help"
-                      : "title-shadow hover:text-accent-dark hover:drop-shadow-lg duration-500"
+                      : "title-shadow hover:text-accent hover:drop-shadow-lg duration-400"
                   }`}
                 >
                   {l.name}
