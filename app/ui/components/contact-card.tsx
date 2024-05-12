@@ -48,20 +48,19 @@ export default function ContactCard({
           animate="visible"
           transition={{ ease: "easeInOut", duration: 1 }}
           variants={dissolveVariants}
-          className="absolute top-0 w-full h-full p-8 md:grid grid-rows-[auto_1fr] occupation-shadow overflow-y-scroll"
+          className="absolute top-0 w-full h-full p-4 sm:p-8 md:grid grid-rows-[auto_1fr] overflow-y-scroll"
         >
           <div className="overflow-y-scroll">
             <article className="flex flex-col gap-2">
-              <div className="flex flex-col sm:flex-row justify-between">
-                <h3 className="order-2 sm:order-1 text-xl sm:text-3xl font-extrabold">
+              <div className="flex flex-col justify-center items-center">
+                <h3 className="text-center text-3xl sm:text-4xl lg:text-5xl font-extrabold occupation-shadow">
                   Mark Satin
                 </h3>
-                <a
-                  href="/Software-Engineer-Resume_Mark-Satin.pdf"
-                  download="Mark-Satin-SWE-Resume"
-                  className="order-1 sm:order-2"
-                >
-                  <p className="text-right sm:text-left text-[.6rem] sm:text-lg underline cursor-pointer">
+                <a href="/Software-Engineer-Resume_Mark-Satin.pdf" download="Mark-Satin-SWE-Resume">
+                  <p
+                    role="button"
+                    className="text-gray-200 text-right sm:text-left text-[.8rem] sm:text- md:text-lg underline underline-offset-2 cursor-pointer hover:text-accent duration-1000 my-1"
+                  >
                     Download Resume
                   </p>
                 </a>
@@ -75,7 +74,7 @@ export default function ContactCard({
                   className="relative h-[250px] sm:h-[500px]"
                 />
               </div>
-              <div className="text-md w-full sm:text-xl text-center sm:tracking-widest lg:text-2xl xl:text-3xl xl:tracking-wide">
+              <div className="occupation-shadow text-md w-full sm:text-xl text-center sm:tracking-widest lg:text-2xl xl:text-3xl xl:tracking-wide">
                 <h4 className="tracking-wide">Software Engineer</h4>
                 <h4>
                   Designer <span className="md:text-2xl">&#x2022;</span> Photographer
