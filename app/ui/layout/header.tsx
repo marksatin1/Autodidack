@@ -1,7 +1,6 @@
 "use client";
 
-import AudioPlayer from "./audio-player";
-import Logo from "../logo";
+import Logo from "../components/logo";
 import Image from "next/image";
 import { useState } from "react";
 import InternalNavbarDropdown from "./internal-navbar-dropdown";
@@ -15,7 +14,7 @@ export default function Header() {
       <Logo />
       <article className="flex sm:hidden">
         <Image
-          src={showMenu ? "/icons/svg/CaretUp.svg" : "/icons/svg/CaretDown.svg"}
+          src={showMenu ? "/icons/svg/Mountain.svg" : "/icons/svg/Mountain-Upside-Down.svg"}
           width={64}
           height={64}
           alt="Hamburger menu"
