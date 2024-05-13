@@ -8,7 +8,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { footerVariants } from "../../lib/animate-context";
-import Image from "next/image";
 
 const pathCheck = new RegExp("/[A-Za-z0-9]+/[0-9]+/[A-Za-z]+");
 
@@ -42,7 +41,7 @@ export default function Footer({ animationDuration }: { animationDuration: numbe
         <article className="hidden sm:block">
           <InternalNavbar links={internalNavLinks} />
         </article>
-        <div className="w-full px-8 flex flex-col justify-center items-center sm:items-end gap-3 sm:grid sm:grid-cols-3 sm:justify-between">
+        <div className="w-full px-8 flex flex-col justify-center items-center sm:items-end sm:grid sm:grid-cols-3 sm:justify-between">
           <article className="justify-self-start">
             <SocialsNavbar links={externalNavLinks} />
           </article>
