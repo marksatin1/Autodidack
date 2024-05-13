@@ -31,6 +31,7 @@ export default async function Page() {
         />
         <meta property="og:author" name="author" content="Mark Satin" />
       </Head>
+
       <section className="relative w-full h-full">
         <AutoCarousel images={backgroundPhotos} fadeInterval={15000} variants={dissolveVariants} />
         <div className="appear-in absolute top-0 w-full h-full flex justify-center items-center">

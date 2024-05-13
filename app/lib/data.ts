@@ -1,4 +1,4 @@
-import { NavLink } from "./definitions";
+import { NavLink, ImageType } from "./definitions";
 
 export const internalNavLinks: NavLink[] = [
   {
@@ -150,3 +150,118 @@ export const icons = {
     description: "Icon of two hands shaking",
   },
 };
+
+export const flags: ImageType[] = [
+  {
+    id: 1,
+    path: "/load-flags/load-flag-1.AVIF",
+    width: 1400,
+    height: 936,
+    description: "A giant American flag blowing against candy blue storm clouds",
+    name: "load-flag-1",
+  },
+  {
+    id: 2,
+    path: "/load-flags/load-flag-2.AVIF",
+    width: 1400,
+    height: 936,
+    description: "A giant American flag blowing against candy blue storm clouds",
+    name: "load-flag-2",
+  },
+  {
+    id: 3,
+    path: "/load-flags/load-flag-3.AVIF",
+    width: 1400,
+    height: 936,
+    description: "A giant American flag blowing against candy blue storm clouds",
+    name: "load-flag-3",
+  },
+  {
+    id: 4,
+    path: "/load-flags/load-flag-4.AVIF",
+    width: 1400,
+    height: 936,
+    description: "A giant American flag blowing against candy blue storm clouds",
+    name: "load-flag-4",
+  },
+  {
+    id: 5,
+    path: "/load-flags/load-flag-5.AVIF",
+    width: 1400,
+    height: 936,
+    description: "A giant American flag blowing against candy blue storm clouds",
+    name: "load-flag-5",
+  },
+  {
+    id: 6,
+    path: "/load-flags/load-flag-6.AVIF",
+    width: 1400,
+    height: 936,
+    description: "A giant American flag blowing against candy blue storm clouds",
+    name: "load-flag-6",
+  },
+  {
+    id: 7,
+    path: "/load-flags/load-flag-7.AVIF",
+    width: 1400,
+    height: 936,
+    description: "A giant American flag blowing against candy blue storm clouds",
+    name: "load-flag-7",
+  },
+  {
+    id: 8,
+    path: "/load-flags/load-flag-8.AVIF",
+    width: 1400,
+    height: 936,
+    description: "A giant American flag blowing against candy blue storm clouds",
+    name: "load-flag-8",
+  },
+  {
+    id: 9,
+    path: "/load-flags/load-flag-9.AVIF",
+    width: 1400,
+    height: 936,
+    description: "A giant American flag blowing against candy blue storm clouds",
+    name: "load-flag-9",
+  },
+  {
+    id: 10,
+    path: "/load-flags/load-flag-10.AVIF",
+    width: 1400,
+    height: 936,
+    description: "A giant American flag blowing against candy blue storm clouds",
+    name: "load-flag-10",
+  },
+  {
+    id: 11,
+    path: "/load-flags/load-flag-11.AVIF",
+    width: 1400,
+    height: 936,
+    description: "A giant American flag blowing against candy blue storm clouds",
+    name: "load-flag-11",
+  },
+  {
+    id: 12,
+    path: "/load-flags/load-flag-12.AVIF",
+    width: 1400,
+    height: 936,
+    description: "A giant American flag blowing against candy blue storm clouds",
+    name: "load-flag-12",
+  },
+  {
+    id: 13,
+    path: "/load-flags/load-flag-13.AVIF",
+    width: 1400,
+    height: 936,
+    description: "A giant American flag blowing against candy blue storm clouds",
+    name: "load-flag-13",
+  },
+  {
+    id: 14,
+    path: "/load-flags/load-flag-14.AVIF",
+    width: 1400,
+    height: 936,
+    description: "A giant American flag blowing against candy blue storm clouds",
+    name: "load-flag-14",
+  },
+];

@@ -29,6 +29,7 @@ export default async function Page() {
         />
         <meta property="og:author" name="author" content="Mark Satin" />
       </Head>
+
       <section className="grid gap-y-6 w-full h-full overflow-x-hidden overflow-y-auto overscroll-y-contain snap-mandatory snap-y">
         {galleries.map((g: GalleryType) => {
           return <Gallery key={g.id} gallery={g} />;

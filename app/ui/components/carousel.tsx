@@ -35,7 +35,7 @@ export default function Carousel({ slides }: { slides: ImageType[] }) {
         handleNextImage();
         break;
       default:
-        console.log("Some other key was pressed.");
+        return;
     }
   }
 
@@ -63,7 +63,7 @@ export default function Carousel({ slides }: { slides: ImageType[] }) {
       >
         <div className="relative w-full h-[77%] sm:h-full">
           {slides.map((p: ImageType, i: number) => (
-            <img
+            <Image
               key={p.id}
               src={p.path}
               width={p.width}

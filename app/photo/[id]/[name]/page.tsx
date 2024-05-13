@@ -10,7 +10,6 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { id: galleryID, name: galleryName } = params;
   const gallery = await getGalleryMetadata(Number(galleryID));
-  console.log(gallery);
 
   return (
     gallery && {
@@ -36,7 +35,8 @@ export default async function Page({ params }: { params: { id: number; name: str
         />
         <meta property="og:author" name="author" content="Mark Satin" />
       </Head>
-      <section className="w-full h-full oveflow-y-scroll">
+
+      <section className="w-full h-full px-4 oveflow-y-scroll">
         {photos && <Carousel slides={photos} />}
       </section>
     </>
