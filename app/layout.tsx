@@ -6,6 +6,7 @@ import { Lora, Merriweather } from "next/font/google";
 import { usePathname } from "next/navigation";
 import "./globals.css";
 import { ReactNode } from "react";
+import Head from "next/head";
 
 const lora = Lora({
   subsets: ["latin"],
@@ -26,12 +27,17 @@ export default function RootLayout({
   const showHeaderFooter = pathname !== "/entrance";
 
   return (
-    <html lang="en" className={merri.className}>
-      <body className="overflow-hidden w-screen h-screen flex flex-col">
-        {showHeaderFooter && <Header />}
-        <main className="w-full h-full overflow-hidden">{children}</main>
-        {showHeaderFooter && <Footer animationDuration={2000} />}
-      </body>
-    </html>
+    <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+      </Head>
+      <html lang="en" className={merri.className}>
+        <body className="overflow-hidden w-screen h-[100svh] flex flex-col">
+          {showHeaderFooter && <Header />}
+          <main className="w-full h-full overflow-hidden">{children}</main>
+          {showHeaderFooter && <Footer animationDuration={2000} />}
+        </body>
+      </html>
+    </>
   );
 }
