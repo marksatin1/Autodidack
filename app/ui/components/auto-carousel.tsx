@@ -3,6 +3,7 @@
 import { ImageType } from "../../lib/definitions";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 export default function AutoCarousel({
   images,
@@ -33,15 +34,15 @@ export default function AutoCarousel({
           duration: fadeInterval / 1000,
         }}
         variants={variants}
-        className="flex justify-center items-center w-full h-full"
+        className="px-2 flex justify-center items-center w-full h-full"
       >
-        <img
+        <Image
           src={images[currentPage].path}
           width={images[currentPage].width}
           height={images[currentPage].height}
           alt={images[currentPage].description}
           className="w-full h-full object-contain"
-          // priority
+          loading="eager"
         />
       </motion.div>
     </AnimatePresence>
