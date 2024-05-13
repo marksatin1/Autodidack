@@ -10,9 +10,10 @@ import {
 } from "../../lib/animate-context";
 import { GalleryType } from "../../lib/definitions";
 
-export default function Gallery({ gallery }: { gallery: GalleryType }) {
+export default function Gallery({ key, gallery }: { key: number; gallery: GalleryType }) {
   return (
     <motion.div
+      key={key}
       initial="hidden"
       animate="visible"
       transition={{ ease: "easeInOut", duration: 0.75 }}
@@ -23,14 +24,16 @@ export default function Gallery({ gallery }: { gallery: GalleryType }) {
     >
       <Link href={`photo/${gallery.id}/${gallery.name}`}>
         <motion.div initial="hidden" animate="visible" variants={dissolveVariants}>
-          <Image
-            src={gallery.image_path}
-            width={gallery.image_width}
-            height={gallery.image_height}
-            alt={gallery.image_description}
-            priority
-            className="w-full max-h-[65vh] md:max-h-[75vh] object-fill"
-          />
+          {gallery.image_path && (
+            <Image
+              src={gallery.image_path}
+              width={gallery.image_width}
+              height={gallery.image_height}
+              alt={gallery.image_description}
+              priority
+              className="w-full max-h-[65vh] md:max-h-[75vh] object-fill"
+            />
+          )}
         </motion.div>
         <motion.h2
           initial="hidden"
