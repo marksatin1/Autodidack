@@ -19,7 +19,7 @@ export default function Gallery({ key, gallery }: { key: number; gallery: Galler
       whileHover={{ scale: 1.02, transition: { duration: 0.25 } }}
       whileTap={{ scale: 0.75, transition: { duration: 0.75 } }}
       variants={pageTransitionVariants}
-      className="snap-always snap-center lg:px-12"
+      className="snap-always snap-start pt-24 sm:pt-0 lg:px-12"
     >
       <Link href={`photo/${gallery.id}/${gallery.name}`}>
         <motion.div initial="hidden" animate="visible" variants={dissolveVariants}>
@@ -29,8 +29,7 @@ export default function Gallery({ key, gallery }: { key: number; gallery: Galler
               width={gallery.image_width}
               height={gallery.image_height}
               alt={gallery.image_description}
-              priority
-              className="w-full max-h-[65vh] md:max-h-[75vh] object-fill"
+              className="w-full h-full md:max-h-[75vh] object-cover"
             />
           )}
         </motion.div>
