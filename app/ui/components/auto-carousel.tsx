@@ -4,6 +4,7 @@ import { ImageType } from "../../lib/definitions";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Image from "next/image";
 
 export default function AutoCarousel({
   images,
@@ -24,7 +25,7 @@ export default function AutoCarousel({
 
   return (
     <AnimatePresence mode="wait">
-      <motion.div
+      <motion.article
         key={images[currentPage].id}
         initial="hidden"
         animate="visible"
@@ -37,14 +38,16 @@ export default function AutoCarousel({
         className="px-2 flex justify-center items-center w-full h-full"
       >
         <Image
+        <Image
           src={images[currentPage].path}
           width={images[currentPage].width}
           height={images[currentPage].height}
           alt={images[currentPage].description}
+          loading="eager"
           className="w-full h-full object-contain"
           loading="eager"
         />
-      </motion.div>
+      </motion.article>
     </AnimatePresence>
   );
 }
