@@ -12,8 +12,7 @@ import { GalleryType } from "../../lib/definitions";
 
 export default function Gallery({ key, gallery }: { key: number; gallery: GalleryType }) {
   return (
-    <motion.div
-      key={key}
+    <motion.article
       initial="hidden"
       animate="visible"
       transition={{ ease: "easeInOut", duration: 0.75 }}
@@ -45,6 +44,6 @@ export default function Gallery({ key, gallery }: { key: number; gallery: Galler
           {gallery.name.replace("-", "  ")}
         </motion.h2>
       </Link>
-    </motion.div>
+    </motion.article>
   );
 }
