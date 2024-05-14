@@ -1,4 +1,4 @@
-import { ImageType, NavLink } from "./definitions";
+import { NavLink, ImageType } from "./definitions";
 
 export const internalNavLinks: NavLink[] = [
   {
@@ -263,13 +263,5 @@ export const flags: ImageType[] = [
     height: 936,
     description: "A giant American flag blowing against candy blue storm clouds",
     name: "load-flag-14",
-  },
-  {
-    id: 15,
-    path: "/load-flags/load-flag-15.AVIF",
-    width: 1400,
-    height: 936,
-    description: "A giant American flag blowing against candy blue storm clouds",
-    name: "load-flag-15",
   },
 ];

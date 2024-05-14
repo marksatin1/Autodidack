@@ -34,7 +34,7 @@ export default function AutoCarousel({
           duration: fadeInterval / 1000,
         }}
         variants={variants}
-        className="flex justify-center items-center w-full h-full"
+        className="px-2 flex justify-center items-center w-full h-full"
       >
         <Image
           src={images[currentPage].path}
@@ -43,6 +43,7 @@ export default function AutoCarousel({
           alt={images[currentPage].description}
           loading="eager"
           className="w-full h-full object-contain"
+          loading="eager"
         />
       </motion.article>
     </AnimatePresence>

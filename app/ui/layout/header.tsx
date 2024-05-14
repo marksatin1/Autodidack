@@ -10,7 +10,7 @@ export default function Header() {
   const [showMenu, setShowMenu] = useState<boolean>(false);
 
   return (
-    <header className="px-4 py-8 flex justify-center items-center gap-2 lg:items-start">
+    <header className="sm:px-4 py-4 sm:py-8 flex justify-center items-center gap-2 lg:items-start">
       <Logo />
       <article className="flex sm:hidden">
         <Image
@@ -25,9 +25,9 @@ export default function Header() {
           role="button"
           aria-label="main dropdown menu"
           tabIndex={0}
-          className="w-6 cursor-pointer hover:scale-[1.2] duration-200"
+          className="w-5 cursor-pointer hover:scale-[1.2] duration-200"
         />
-        {showMenu && <InternalNavbarDropdown links={internalNavLinks} />}
+        {showMenu && <InternalNavbarDropdown links={internalNavLinks} setShowMenu={setShowMenu} />}
       </article>
     </header>
   );

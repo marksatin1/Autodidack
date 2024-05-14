@@ -9,6 +9,8 @@ import { carouselVariants } from "../../lib/animate-context";
 
 export default function Carousel({ slides }: { slides: ImageType[] }) {
   const [currentIdx, setCurrentIdx] = useState<number>(0);
+  const [touchStartX, setTouchStartX] = useState<number>(0);
+  const [touchEndX, setTouchEndX] = useState<number>(0);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   // Focus to <section> when component mounts
@@ -33,8 +35,12 @@ export default function Carousel({ slides }: { slides: ImageType[] }) {
         handleNextImage();
         break;
       default:
-        console.log("Some other key was pressed.");
+        return;
     }
+  }
+
+  function handleSwipe() {
+    touchEndX > touchStartX ? handleNextImage() : handlePrevImage();
   }
 
   return (
@@ -43,7 +49,11 @@ export default function Carousel({ slides }: { slides: ImageType[] }) {
         tabIndex={0} // makes <section> focusable
         ref={sectionRef}
         onKeyDown={handleKeyDown}
-        onTouchMove={handleNextImage}
+        onTouchStart={(e: any) => {
+          setTouchStartX(e.touches[0].clientX);
+        }}
+        onTouchMove={(e: any) => setTouchEndX(e.touches[0].clientX)}
+        onTouchEnd={handleSwipe}
         layout
         initial="initial"
         animate="animate"
@@ -53,7 +63,7 @@ export default function Carousel({ slides }: { slides: ImageType[] }) {
       >
         <section className="relative w-full h-[77%] sm:h-full">
           {slides.map((p: ImageType, i: number) => (
-            <img
+            <Image
               key={p.id}
               src={p.path}
               width={p.width}
