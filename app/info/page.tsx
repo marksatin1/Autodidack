@@ -4,15 +4,15 @@ import { Metadata } from "next";
 import AboutCard from "../ui/components/about-card";
 import ContactCard from "../ui/components/contact-card";
 
-// export async function generateMetadata(): Promise<Metadata> {
-//   const aboutPage = await getPageMetadata(18);
+export async function generateMetadata(): Promise<Metadata> {
+  const infoPage = await getPageMetadata(18);
 
-//   return {
-//     title: `Autodidack | ${aboutPage[0].name.replace("-", " ")}`,
-//     description: aboutPage[0].description,
-//     keywords: aboutPage[0].keywords,
-//   };
-// }
+  return {
+    title: `Autodidack | ${infoPage[0].name.replace("-", " ")}`,
+    description: infoPage[0].description,
+    keywords: infoPage[0].keywords,
+  };
+}
 
 export default async function Page() {
   const waterfallReversed = await getOnePhoto(299);
