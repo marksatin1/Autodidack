@@ -24,7 +24,7 @@ export default function AutoCarousel({
 
   return (
     <AnimatePresence mode="wait">
-      <motion.div
+      <motion.article
         key={images[currentPage].id}
         initial="hidden"
         animate="visible"
@@ -41,10 +41,11 @@ export default function AutoCarousel({
           width={images[currentPage].width}
           height={images[currentPage].height}
           alt={images[currentPage].description}
+          loading="eager"
           className="w-full h-full object-contain"
           loading="eager"
         />
-      </motion.div>
+      </motion.article>
     </AnimatePresence>
   );
 }

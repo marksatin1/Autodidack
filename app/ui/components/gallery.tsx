@@ -12,7 +12,7 @@ import { GalleryType } from "../../lib/definitions";
 
 export default function Gallery({ key, gallery }: { key: number; gallery: GalleryType }) {
   return (
-    <motion.div
+    <motion.article
       key={key}
       initial="hidden"
       animate="visible"
@@ -44,6 +44,6 @@ export default function Gallery({ key, gallery }: { key: number; gallery: Galler
           {gallery.name.replace("-", "  ")}
         </motion.h2>
       </Link>
-    </motion.div>
+    </motion.article>
   );
 }

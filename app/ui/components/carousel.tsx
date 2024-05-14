@@ -45,7 +45,7 @@ export default function Carousel({ slides }: { slides: ImageType[] }) {
 
   return (
     <AnimatePresence mode="wait">
-      <motion.section
+      <motion.article
         tabIndex={0} // makes <section> focusable
         ref={sectionRef}
         onKeyDown={handleKeyDown}
@@ -61,7 +61,7 @@ export default function Carousel({ slides }: { slides: ImageType[] }) {
         variants={carouselVariants}
         className="w-full h-full outline-none grid grid-rows-[1fr_auto]"
       >
-        <div className="relative w-full h-[77%] sm:h-full">
+        <section className="relative w-full h-[77%] sm:h-full">
           {slides.map((p: ImageType, i: number) => (
             <Image
               key={p.id}
@@ -74,8 +74,8 @@ export default function Carousel({ slides }: { slides: ImageType[] }) {
               } duration-[2s]`}
             />
           ))}
-        </div>
-        <div className="hidden sm:flex sm:justify-center sm:my-4">
+        </section>
+        <section className="hidden sm:flex sm:justify-center sm:my-4">
           <Image
             src={icons.arrowLeftThin.path}
             width={icons.arrowLeftThin.width}
@@ -98,8 +98,8 @@ export default function Carousel({ slides }: { slides: ImageType[] }) {
             tabIndex={0}
             className="w-[48px] cursor-pointer"
           />
-        </div>
-      </motion.section>
+        </section>
+      </motion.article>
     </AnimatePresence>
   );
 }

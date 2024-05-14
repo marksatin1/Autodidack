@@ -6,12 +6,12 @@ import ContactCard from "../ui/components/contact-card";
 import Head from "next/head";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const aboutPage = await getPageMetadata(18);
+  const infoPage = await getPageMetadata(18);
 
   return {
-    title: `Autodidack | ${aboutPage[0].name.replace("-", " ")}`,
-    description: aboutPage[0].description,
-    keywords: aboutPage[0].keywords,
+    title: `Autodidack | ${infoPage[0].name.replace("-", " ")}`,
+    description: infoPage[0].description,
+    keywords: infoPage[0].keywords,
   };
 }
 
