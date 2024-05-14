@@ -17,7 +17,7 @@ export default function ContactCard({
   const [showOnHover, setShowOnHover] = useState<boolean>(false);
 
   return (
-    <section
+    <article
       onMouseEnter={() => setShowOnHover(true)}
       onMouseLeave={() => {
         setShowOnHover(false);
@@ -43,7 +43,7 @@ export default function ContactCard({
         </motion.h3>
       )}
       {showOnHover && (
-        <motion.div
+        <motion.article
           initial="hidden"
           animate="visible"
           transition={{ ease: "easeInOut", duration: 1 }}
@@ -51,8 +51,8 @@ export default function ContactCard({
           className="absolute top-0 w-full h-full p-4 sm:p-8 md:grid grid-rows-[auto_1fr] overflow-y-scroll"
         >
           <div className="overflow-y-scroll">
-            <article className="flex flex-col gap-2">
-              <div className="flex flex-col justify-center items-center">
+            <section className="flex flex-col gap-2">
+              <article className="flex flex-col justify-center items-center">
                 <h3 className="text-center text-3xl sm:text-4xl lg:text-5xl font-extrabold occupation-shadow">
                   Mark Satin
                 </h3>
@@ -64,8 +64,8 @@ export default function ContactCard({
                     Download Resume
                   </p>
                 </a>
-              </div>
-              <div className="border-4 border-[#800080] overflow-clip">
+              </article>
+              <article className="border-4 border-[#800080] overflow-clip">
                 <Image
                   src={bannerImage.path}
                   width={bannerImage.width}
@@ -73,18 +73,18 @@ export default function ContactCard({
                   alt={bannerImage.description}
                   className="relative h-[250px] sm:h-[500px]"
                 />
-              </div>
-              <div className="occupation-shadow text-md w-full sm:text-xl text-center sm:tracking-widest lg:text-2xl xl:text-3xl xl:tracking-wide">
+              </article>
+              <article className="occupation-shadow text-md w-full sm:text-xl text-center sm:tracking-widest lg:text-2xl xl:text-3xl xl:tracking-wide">
                 <h4 className="tracking-wide">Software Engineer</h4>
                 <h4>
                   Designer <span className="md:text-2xl">&#x2022;</span> Photographer
                 </h4>
-              </div>
-            </article>
+              </article>
+            </section>
             <ContactForm className="bg-slate-200" />
           </div>
-        </motion.div>
+        </motion.article>
       )}
-    </section>
+    </article>
   );
 }

@@ -21,6 +21,6 @@ export default async function Page({ params }: { params: { id: number } }) {
   const photos = await getImagesInRandomOrder(params.id);
 
   return (
-    <div className="w-full h-full oveflow-y-scroll">{photos && <Carousel slides={photos} />}</div>
+    <section className="w-full h-full oveflow-y-scroll">{photos && <Carousel slides={photos} />}</section>
   );
 }

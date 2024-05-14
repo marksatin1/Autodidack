@@ -8,7 +8,7 @@ import addVisitorData from "../../lib/actions";
 export default function ContactForm({ className }: { className: string }) {
   return (
     <form action={addVisitorData} className="flex flex-col justify-center items-center py-4 gap-4">
-      <section className="w-full h-full flex flex-col justify-center gap-3">
+      <article className="w-full h-full flex flex-col justify-center gap-3">
         <FormInput id="Name" type="text" className={className} />
         <FormInput id="Email" type="email" className={className} />
         <FormDropdown
@@ -17,8 +17,14 @@ export default function ContactForm({ className }: { className: string }) {
           className={className}
         />
         <FormTextarea id="Message" rows={4} cols={4} className={className} />
-      </section>
-      <Button id="Let's Connect" type="submit" ariaLabel="submit contact info" icon={icons.handshake} disabled={false} />
+      </article>
+      <Button
+        id="Let's Connect"
+        type="submit"
+        ariaLabel="submit contact info"
+        icon={icons.handshake}
+        disabled={false}
+      />
     </form>
   );
 }
