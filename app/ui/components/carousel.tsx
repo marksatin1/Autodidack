@@ -5,7 +5,7 @@ import { ImageType } from "../../lib/definitions";
 import Image from "next/image";
 import { icons } from "../../lib/data";
 import { AnimatePresence, motion } from "framer-motion";
-import { carouselVariants } from "../../lib/animate-context";
+import { carouselVariants } from "../../lib/motion-variants";
 
 export default function Carousel({ slides }: { slides: ImageType[] }) {
   const [currentIdx, setCurrentIdx] = useState<number>(0);

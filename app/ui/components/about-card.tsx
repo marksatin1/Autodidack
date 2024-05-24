@@ -5,7 +5,7 @@ import Image from "next/image";
 import { ImageType } from "../../lib/definitions";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { dissolveVariants } from "../../lib/animate-context";
+import { dissolveVariants } from "../../lib/motion-variants";
 
 export default function AboutCard({ bgImage }: { bgImage: ImageType }) {
   const [showOnHover, setShowOnHover] = useState<boolean>(false);
