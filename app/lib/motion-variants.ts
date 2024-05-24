@@ -1,3 +1,5 @@
+import { transform } from "next/dist/build/swc";
+
 export const dissolveVariants = {
   hidden: {
     opacity: 0,
@@ -54,5 +56,25 @@ export const loadingVariants = {
     width: "100%",
     height: "10rem",
     scaleX: 3,
+  },
+};
+
+export const tiltSpinVariants = {
+  initial: {
+    transform: "rotateY(0deg) rotateX(0deg)",
+  },
+  end: {
+    transform: "rotateY(2100deg) rotateX(90deg)",
+  },
+};
+
+export const pulseVariants = {
+  initial: {
+    opacity: 1,
+    boxShadow: "0px 0px 0px black",
+  },
+  pulse: {
+    opacity: 0.8,
+    boxShadow: "0px 0px 20px black",
   },
 };
