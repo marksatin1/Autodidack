@@ -7,7 +7,7 @@ import {
   dissolveVariants,
   galleryTitleVariants,
   pageTransitionVariants,
-} from "../../lib/animate-context";
+} from "../../lib/motion-variants";
 import { GalleryType } from "../../lib/definitions";
 
 export default function Gallery({ key, gallery }: { key: number; gallery: GalleryType }) {

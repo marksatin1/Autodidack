@@ -1,0 +1,27 @@
+.tilt-spin-parent {
+  /* perspective: 3000px; */
+  /* perspective-origin: center; */
+}
+
+.tilt-spin-child {
+  /* transform: rotateZ(25deg); */
+  animation: spin 10s ease-in forwards, fadeup 1s;
+}
+
+@keyframes spin {
+  from {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  to {
+    transform: rotateX(90deg) rotateY(2100deg);
+  }
+}
+
+@keyframes fadeup {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
