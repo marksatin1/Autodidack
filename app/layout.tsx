@@ -4,9 +4,9 @@ import Header from "./ui/layout/header";
 import Footer from "./ui/layout/footer";
 import { Lora, Merriweather } from "next/font/google";
 import { usePathname } from "next/navigation";
-import "./globals.css";
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import Head from "next/head";
+import "./globals.css";
 
 const lora = Lora({
   subsets: ["latin"],
