@@ -24,6 +24,7 @@ const nextConfig = {
   //     // My laptop - Horizontal
   //   },
   // },
+  reactStrictMode: true,
   images: {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
