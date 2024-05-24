@@ -21,7 +21,7 @@ export default function AutoCarousel({
     setTimeout(() => {
       setCurrentPage(prev => (prev + 1) % images.length);
     }, fadeInterval);
-  }, [currentPage, images.length]);
+  }, [currentPage, images.length, fadeInterval]);
 
   return (
     <AnimatePresence mode="wait">
