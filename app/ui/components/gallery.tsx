@@ -13,7 +13,6 @@ import { GalleryType } from "../../lib/definitions";
 export default function Gallery({ key, gallery }: { key: number; gallery: GalleryType }) {
   return (
     <motion.article
-      key={key}
       initial="hidden"
       animate="visible"
       transition={{ ease: "easeInOut", duration: 0.75 }}

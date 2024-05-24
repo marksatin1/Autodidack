@@ -19,9 +19,7 @@
 .link-disabled {
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #a9a9a9;
-  filter: blur(1.2px);
-  animation: unblur 1.5s;
-  transition-duration: 500ms;
+  filter: blur(1.8px);
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
 }
 
@@ -52,7 +50,7 @@ image:hover {
     filter: blur(4px);
   }
   to {
-    filter: blur(1px);
+    filter: blur(1.5px);
   }
 }
 
