@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import AudioPlayer from "../components/audio-player";
 import { AnimatePresence, motion } from "framer-motion";
-import { dissolveVariants } from "../../lib/animate-context";
+import { dissolveVariants } from "../../lib/motion-variants";
 
 export default function InternalNavbarDropdown({
   links,

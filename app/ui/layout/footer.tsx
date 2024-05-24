@@ -7,7 +7,7 @@ import InternalNavbar from "./internal-navbar";
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
-import { footerVariants } from "../../lib/animate-context";
+import { footerVariants } from "../../lib/motion-variants";
 
 const pathCheck = new RegExp("/[A-Za-z0-9]+/[0-9]+/[A-Za-z]+");
 

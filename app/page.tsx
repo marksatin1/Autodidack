@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { getImagesInSequentialOrder, getImagesInRandomOrder, getPageMetadata } from "./lib/actions";
-import { dissolveVariants } from "./lib/animate-context";
+import { dissolveVariants } from "./lib/motion-variants";
 import AutoCarousel from "./ui/components/auto-carousel";
 import Collage from "./ui/components/collage";
 import Head from "next/head";

@@ -5,7 +5,7 @@ import ContactForm from "../forms/contact-form";
 import { ImageType } from "../../lib/definitions";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { dissolveVariants } from "../../lib/animate-context";
+import { dissolveVariants } from "../../lib/motion-variants";
 
 export default function ContactCard({
   bgImage,
