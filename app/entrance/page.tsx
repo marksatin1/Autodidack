@@ -1,7 +1,6 @@
-import ImageReveal from "../ui/components/image-reveal";
 import { getOnePhoto, getPageMetadata } from "../lib/actions";
 import { Metadata } from "next";
-import LoadingAnimation from "../ui/loading-animation";
+import ImageSpin from "../ui/components/image-spin";
 import Head from "next/head";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -15,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Page() {
-  const entrancePhoto = await getOnePhoto(283);
+  const entrancePhoto = await getOnePhoto(369);
 
   return (
     <>
@@ -29,9 +28,9 @@ export default async function Page() {
         />
         <meta property="og:author" name="author" content="Mark Satin" />
       </Head>
+
       <section className="w-full h-full">
-        {/* <ImageReveal image={entrancePhoto!} eraserSizeFactor={0.2} /> */}
-        <LoadingAnimation />
+        {entrancePhoto && <ImageSpin image={entrancePhoto} />}
       </section>
     </>
   );
