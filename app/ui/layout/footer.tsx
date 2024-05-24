@@ -26,7 +26,7 @@ export default function Footer({ animationDuration }: { animationDuration: numbe
 
     // resets footer as block before moving to next page
     return () => setHideTrigger(false);
-  }, [currentPathsMatch]);
+  }, [currentPathsMatch, animationDuration]);
 
   return (
     <AnimatePresence mode="wait">
