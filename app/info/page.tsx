@@ -3,6 +3,7 @@ import CardTilt from "../ui/components/card-tilt";
 import { Metadata } from "next";
 import AboutCard from "../ui/components/about-card";
 import ContactCard from "../ui/components/contact-card";
+import Head from "next/head";
 
 export async function generateMetadata(): Promise<Metadata> {
   const infoPage = await getPageMetadata(18);
