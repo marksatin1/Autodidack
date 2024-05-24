@@ -45,7 +45,6 @@ export default function AutoCarousel({
           alt={images[currentPage].description}
           loading="eager"
           className="w-full h-full object-contain"
-          loading="eager"
         />
       </motion.article>
     </AnimatePresence>
