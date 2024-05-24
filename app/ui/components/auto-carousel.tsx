@@ -4,7 +4,6 @@ import { ImageType } from "../../lib/definitions";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import Image from "next/image";
 
 export default function AutoCarousel({
   images,
@@ -37,7 +36,6 @@ export default function AutoCarousel({
         variants={variants}
         className="px-2 flex justify-center items-center w-full h-full"
       >
-        <Image
         <Image
           src={images[currentPage].path}
           width={images[currentPage].width}
