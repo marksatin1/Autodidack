@@ -53,17 +53,17 @@ export default function ContactCard({
           <div className="overflow-y-scroll">
             <section className="flex flex-col gap-2">
               <article className="flex flex-col justify-center items-center">
-                <h3 className="text-center text-3xl sm:text-4xl lg:text-5xl font-extrabold occupation-shadow">
+                <h3 className="text-center text-3xl sm:text-4xl lg:text-5xl font-extrabold occupation-shadow sm:mb-3">
                   Mark Satin
                 </h3>
-                <a href="/Software-Engineer-Resume_Mark-Satin.pdf" download="Mark-Satin-SWE-Resume">
+                {/* <a href="/Software-Engineer-Resume_Mark-Satin.pdf" download="Mark-Satin-SWE-Resume">
                   <p
                     role="button"
                     className="text-gray-200 text-right sm:text-left text-[.8rem] sm:text- md:text-lg underline underline-offset-2 cursor-pointer hover:text-accent duration-1000 my-1"
                   >
                     Download Resume
                   </p>
-                </a>
+                </a> */}
               </article>
               <article className="border-4 border-[#800080] overflow-clip">
                 <Image
@@ -74,10 +74,9 @@ export default function ContactCard({
                   className="relative h-[250px] sm:h-[500px]"
                 />
               </article>
-              <article className="occupation-shadow text-md w-full sm:text-xl text-center sm:tracking-widest lg:text-2xl xl:text-3xl xl:tracking-wide">
-                <h4 className="tracking-wide">Software Engineer</h4>
+              <article className="occupation-shadow text-lg w-full sm:text-2xl md:text-4xl md:my-1 text-center tracking-wide sm:tracking-widest xl:tracking-wide">
                 <h4>
-                  Designer <span className="md:text-2xl">&#x2022;</span> Photographer
+                  Photographer
                 </h4>
               </article>
             </section>

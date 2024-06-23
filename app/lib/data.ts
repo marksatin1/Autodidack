@@ -7,12 +7,12 @@ export const internalNavLinks: NavLink[] = [
     href: "/photo",
     disabled: false,
   },
-  {
-    id: 2,
-    name: "Web",
-    href: "/web",
-    disabled: true,
-  },
+  // {
+  //   id: 2,
+  //   name: "Web",
+  //   href: "/web",
+  //   disabled: true,
+  // },
   { id: 3, name: "Info", href: "/info", disabled: false },
 ];
 

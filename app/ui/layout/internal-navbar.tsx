@@ -7,7 +7,7 @@ export default function InternalNavbar({ links }: { links: NavLink[] }) {
 
   return (
     <nav aria-label="primary" className="w-full h-full flex flex-col items-center justify-center">
-      <ul className="w-full py-4 flex flex-col sm:grid sm:grid-cols-3 text-center gap-24 lg:gap-32 xl:gap-64">
+      <ul className="w-full py-4 flex  sm:grid-cols-2 text-center gap-24 lg:gap-32 xl:gap-64">
         {links.map(l => {
           return (
             <li key={l.id}>
