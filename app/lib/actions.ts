@@ -2,19 +2,17 @@
 
 import { createClient } from "@supabase/supabase-js";
 import { AudioFile, CollageImage, ImageType, GalleryType, PageType, Visitor } from "./definitions";
-import axios from "axios";
 
 // SETUP
 const supabase = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_API_KEY!);
 
-// API CALLS //
-//           //
+// API CALLS
 export async function getOnePhoto(photoid: number) {
   const { data, error } = await supabase.from("images").select("*").eq("id", photoid).limit(1);
 
   if (error) {
     throw new Error(
-      `${error.code}: Error while trying to access Photo ID# ${photoid}: ${error.message}`
+      `${error.code}: Error accessing Photo ID# ${photoid}: ${error.message}`
     );
   }
 
@@ -37,7 +35,7 @@ export async function getImagesInSequentialOrder(galleryid?: number) {
 
   if (error) {
     throw new Error(
-      `${error.code}: Error while trying to access images in sequential order: ${error.message}`
+      `${error.code}: Error accessing images in sequential order: ${error.message}`
     );
   }
 
@@ -80,7 +78,7 @@ export async function getImagesInRandomOrder(galleryid?: number) {
 
   if (error) {
     throw new Error(
-      `${error.code}: Error while trying to access images in random order: ${error.message}`
+      `${error.code}: Error accessing images in random order: ${error.message}`
     );
   }
 
@@ -121,7 +119,7 @@ export async function getPageMetadata(pageid?: number) {
 
   if (error) {
     console.error(error);
-    throw new Error(`${error.code}: Error while trying to access page metadata: ${error.message}`);
+    throw new Error(`${error.code}: Error accessing page metadata: ${error.message}`);
   }
 
   if (data.length > 0) {
@@ -143,7 +141,7 @@ export async function getGalleryMetadata(galleryid?: number) {
   });
 
   if (error) {
-    throw new Error(`Error while trying to access galleries metadata: ${error}`);
+    throw new Error(`Error accessing galleries metadata: ${error}`);
   }
 
   if (galleryData.length > 0) {
@@ -176,7 +174,7 @@ export async function getAudioInRandomOrder(albumid?: number) {
   const { data: audioFiles, error } = await supabase.rpc("get_audio_in_random_order", { albumid });
 
   if (error) {
-    throw new Error(`Error while trying to access audio in random order: ${error}`);
+    throw new Error(`Error accessing audio in random order: ${error}`);
   }
 
   if (audioFiles.length > 0) {
@@ -204,12 +202,12 @@ export default async function addVisitorData(formData: FormData) {
       .select();
 
     if (data) {
-      console.log("New visitor data was successfully updated in the database.");
+      console.log("New visitor data successfully updated in the database.");
       return data[0].name;
     }
   } catch (error: any) {
     throw new Error(
-      `${error.code}: ${error.name} was thrown while trying to add visitor data to the backend: ${error.message}`
+      `${error.code}: ${error.name} thrown while adding visitor data to the backend: ${error.message}`
     );
   }
 }
