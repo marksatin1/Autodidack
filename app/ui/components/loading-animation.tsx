@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import AutoCarousel from "./components/auto-carousel";
-import { loadingVariants } from "../lib/motion-variants";
-import { flags } from "../lib/data";
+import AutoCarousel from "./auto-carousel";
+import { loadingVariants } from "../../lib/motion-variants";
+import { flags } from "../../lib/data";
 
 export default function LoadingAnimation() {
   return (

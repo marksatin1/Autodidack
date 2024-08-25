@@ -1,6 +1,6 @@
 "use client";
 
-import AboutSummary from "../about-summary";
+import AboutSummary from "./about-summary";
 import Image from "next/image";
 import { ImageType } from "../../lib/definitions";
 import { useState } from "react";
