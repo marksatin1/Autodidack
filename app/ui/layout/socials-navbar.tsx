@@ -16,7 +16,7 @@ export default function SocialsNavbar({ links }: { links: NavLink[] }) {
                 rel="noopener noreferrer"
               >
                 <Image
-                  src={l.image!.path}
+                  src={l.image!.url}
                   alt={l.image!.description}
                   width={l.image!.width}
                   height={l.image!.height}

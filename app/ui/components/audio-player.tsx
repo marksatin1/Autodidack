@@ -10,7 +10,7 @@ import { getAudioInRandomOrder } from "../../lib/actions";
 import { AudioFile } from "../../lib/definitions";
 
 export default function AudioPlayer() {
-  const [audioIconPath, setAudioIconPath] = useState<string>(icons.quiet.path);
+  const [audioIconPath, setAudioIconPath] = useState<string>(icons.quiet.url);
   const [currentSongIdx, setCurrentSongIdx] = useState<number>(0);
   const [playlist, setPlaylist] = useState<AudioFile[] | null>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
@@ -28,11 +28,11 @@ export default function AudioPlayer() {
     setIsPlaying(prev => !prev);
 
     // handle audio playback
-    audioIconPath === icons.listening.path ? audioRef.current?.pause() : audioRef.current?.play();
+    audioIconPath === icons.listening.url ? audioRef.current?.pause() : audioRef.current?.play();
 
     // handle icon change
     setAudioIconPath(prev =>
-      prev === icons.listening.path ? icons.quiet.path : icons.listening.path
+      prev === icons.listening.url ? icons.quiet.url : icons.listening.url
     );
   }
 
@@ -41,7 +41,7 @@ export default function AudioPlayer() {
     const nextSongIdx = (currentSongIdx + 1) % playlist!.length;
     setCurrentSongIdx(nextSongIdx);
 
-    audioRef.current!.src = playlist![nextSongIdx].path;
+    audioRef.current!.src = playlist![nextSongIdx].url;
     audioRef.current!.load();
     audioRef.current!.play();
   }
@@ -50,7 +50,7 @@ export default function AudioPlayer() {
     <div>
       {playlist && (
         <audio ref={audioRef} preload="auto" onEnded={handleNextSong}>
-          <source src={playlist![currentSongIdx].path} type={playlist![currentSongIdx].type} />
+          <source src={playlist![currentSongIdx].url} type={playlist![currentSongIdx].type} />
         </audio>
       )}
       <Image

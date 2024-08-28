@@ -1,11 +1,9 @@
 "use client";
 
-import { useEffect } from "react";
 import { ImageType } from "../../lib/definitions";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { tiltSpinVariants } from "../../lib/motion-variants";
-import { redirect } from "next/navigation";
 
 export default function ImageSpin({ image }: { image: ImageType }) {
   function handleRedirect() {
@@ -26,7 +24,7 @@ export default function ImageSpin({ image }: { image: ImageType }) {
       className="h-full flex justify-center items-center"
     >
       <Image
-        src={image.path}
+        src={image.url}
         width={image.width}
         height={image.height}
         alt={image.description}
