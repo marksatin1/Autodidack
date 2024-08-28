@@ -1,5 +1,5 @@
 import Carousel from "../../../ui/components/carousel";
-import { getGalleryMetadata, getImagesInRandomOrder } from "../../../lib/actions";
+import { getGalleriesInfo, getGalleryPhotos } from "../../../lib/actions";
 import { Metadata } from "next";
 import Head from "next/head";
 
@@ -9,7 +9,7 @@ export async function generateMetadata({
   params: { id: number; name: string };
 }): Promise<Metadata> {
   const { id: galleryID, name: galleryName } = params;
-  const gallery = await getGalleryMetadata(Number(galleryID));
+  const gallery = await getGalleriesInfo(Number(galleryID));
 
   return (
     gallery && {
@@ -21,7 +21,7 @@ export async function generateMetadata({
 }
 
 export default async function Page({ params }: { params: { id: number; name: string } }) {
-  const photos = await getImagesInRandomOrder(params.id);
+  const photos = await getGalleryPhotos(params.id);
 
   return (
     <>
