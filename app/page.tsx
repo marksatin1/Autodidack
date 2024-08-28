@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { getImagesInSequentialOrder, getImagesInRandomOrder, getPageMetadata } from "./lib/actions";
+import { getGalleryPhotos, getPageMetadata, getCollagePhotos } from "./lib/actions";
 import { dissolveVariants } from "./lib/motion-variants";
 import AutoCarousel from "./ui/components/auto-carousel";
 import Collage from "./ui/components/collage";
@@ -16,8 +16,8 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Page() {
-  const backgroundPhotos = await getImagesInRandomOrder(8);
-  const collagePhotos = await getImagesInSequentialOrder(7);
+  const backgroundPhotos = await getGalleryPhotos(8);
+  const collagePhotos = await getCollagePhotos();
 
   return (
     <>
@@ -33,7 +33,7 @@ export default async function Page() {
       </Head>
 
       <section className="relative w-full h-full">
-        <AutoCarousel images={backgroundPhotos} fadeInterval={15000} variants={dissolveVariants} />
+        <AutoCarousel images={backgroundPhotos} fadeInterval={12000} variants={dissolveVariants} />
         <div className="appear-in absolute top-0 w-full h-full flex justify-center items-center">
           <Collage images={collagePhotos} />
         </div>
