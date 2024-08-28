@@ -15,9 +15,9 @@ export default function Gallery({ gallery }: { gallery: GalleryType }) {
             className="object-cover"
           />
         )}
-        {/* <h2 className="py-4 text-slate-100 font-extrabold text-content-shadow text-4xl">
+        <h2 className="absolute py-4 text-slate-100 font-extrabold text-content-shadow text-4xl">
           {gallery.name.replaceAll("-", "  ")}
-        </h2> */}
+        </h2>
       </Link>
     </section >
   );
