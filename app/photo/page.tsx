@@ -1,8 +1,9 @@
-import { getPageMetadata, getGalleryMetadata } from "../lib/actions";
+import { getPageMetadata, getGalleriesInfo } from "../lib/actions";
 import { GalleryType } from "../lib/definitions";
 import { Metadata } from "next";
 import Gallery from "../ui/components/gallery";
 import Head from "next/head";
+import CardTilt from "../ui/components/card-tilt";
 
 export async function generateMetadata(): Promise<Metadata> {
   const photoPage = await getPageMetadata(19);
@@ -15,7 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Page() {
-  const galleries = await getGalleryMetadata();
+  const galleries = await getGalleriesInfo();
 
   return (
     <>
@@ -30,9 +31,9 @@ export default async function Page() {
         <meta property="og:author" name="author" content="Mark Satin" />
       </Head>
 
-      <section className="w-full h-full overflow-y-scroll overscroll-y-contain snap-mandatory snap-y">
+      <section className="w-full h-full overflow-y-scroll p-2 grid items-center justify-center grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
         {galleries.map((g: GalleryType) => {
-          return <Gallery key={g.id} gallery={g} />;
+          return <CardTilt><Gallery key={g.id} gallery={g} /></CardTilt>;
         })}
       </section>
     </>
