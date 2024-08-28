@@ -38,14 +38,14 @@ export default function CardTilt({ children }: { children: ReactNode }) {
       rotateXUncapped < -tiltEffectSettings.max
         ? -tiltEffectSettings.max
         : rotateXUncapped > tiltEffectSettings.max
-        ? tiltEffectSettings.max
-        : rotateXUncapped;
+          ? tiltEffectSettings.max
+          : rotateXUncapped;
     const rotateY =
       rotateYUncapped < -tiltEffectSettings.max
         ? -tiltEffectSettings.max
         : rotateYUncapped > tiltEffectSettings.max
-        ? tiltEffectSettings.max
-        : rotateYUncapped;
+          ? tiltEffectSettings.max
+          : rotateYUncapped;
 
     card.style.transform = `perspective(${tiltEffectSettings.perspective}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)
                             scale3d(${tiltEffectSettings.scale}, ${tiltEffectSettings.scale}, ${tiltEffectSettings.scale})`;
