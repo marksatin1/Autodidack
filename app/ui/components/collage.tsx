@@ -1,9 +1,9 @@
 "use client";
 
-import { CollageImage } from "../../lib/definitions";
+import { CollagePhotoType } from "../../lib/definitions";
 import { RefObject, createRef, useEffect, useState } from "react";
 
-export default function Collage({ images }: { images: CollageImage[] }) {
+export default function Collage({ images }: { images: CollagePhotoType[] }) {
   const [audioRefs, setAudioRefs] = useState<RefObject<HTMLAudioElement>[]>([]);
 
   useEffect(() => {
@@ -17,7 +17,7 @@ export default function Collage({ images }: { images: CollageImage[] }) {
   function playImageAudio(imageIndex: number) {
     const audio = audioRefs[imageIndex].current;
     if (audio) {
-      audio.src = images[imageIndex].audio_path;
+      audio.src = images[imageIndex].audio_url;
       audio.load();
       audio.play();
     }
@@ -35,11 +35,11 @@ export default function Collage({ images }: { images: CollageImage[] }) {
         xmlns="http://www.w3.org/2000/svg"
         className="object-contain w-full h-full"
       >
-        {images.map((i: CollageImage, idx: number) => {
+        {images.map((i: CollagePhotoType, idx: number) => {
           return (
             <image
               key={i.id}
-              href={i.path}
+              href={i.url}
               width={i.width}
               height={i.height}
               x={i.x_coord + "px"}
