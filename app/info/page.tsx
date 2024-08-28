@@ -16,9 +16,9 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Page() {
-  const waterfallReversed = await getOnePhoto(299);
-  const waterfallOriginal = await getOnePhoto(298);
-  const profileBanner = await getOnePhoto(300);
+  const waterfallReversed = await getOnePhoto(534);
+  const waterfallOriginal = await getOnePhoto(535);
+  const profileBanner = await getOnePhoto(552);
 
   return (
     <>
