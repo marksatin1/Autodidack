@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { GalleryType } from "../../lib/definitions";
 
-export default function Gallery({ gallery }: { gallery: GalleryType }) {
+export default function Gallery({ key, gallery }: { key: number, gallery: GalleryType }) {
   return (
     <section className="h-[400px]">
       <Link href={`photo/${gallery.id}/${gallery.name}`} className="relative overflow-hidden h-full flex flex-col justify-end items-center">
