@@ -1,3 +1,5 @@
+'use client';
+
 import { NavLink } from "../../lib/definitions";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -22,11 +24,10 @@ export default function InternalNavbar({ links }: { links: NavLink[] }) {
                   href={l.disabled ? "#" : l.href}
                   tabIndex={l.disabled ? -1 : 0}
                   role={l.disabled ? "decoration" : ""}
-                  className={`${pathname.slice(1) === l.name.toLowerCase() && "text-accent"} ${
-                    l.disabled
+                  className={`${pathname.slice(1) === l.name.toLowerCase() && "text-accent"} ${l.disabled
                       ? "link-disabled cursor-help"
                       : "title-shadow hover:text-accent hover:drop-shadow-lg hover:blur-[1.5px] duration-400"
-                  }`}
+                    }`}
                 >
                   {l.name}
                 </Link>
