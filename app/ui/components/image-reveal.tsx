@@ -4,7 +4,6 @@ import { ImageType } from "../../lib/definitions";
 import { useRef, useEffect, useState } from "react";
 import { MouseEvent } from "react";
 import { isTransparent } from "../../lib/utils";
-import Image from "next/image";
 
 export default function ImageReveal({
   image,
@@ -30,7 +29,7 @@ export default function ImageReveal({
     topCtx.fillRect(0, 0, image.width, image.height);
     setCanvasContext(topCtx);
     setImageLoading(false);
-  }, [image.width, image.height, image.path]);
+  }, [image.width, image.height, image.url]);
 
   const revealImage = (e: MouseEvent) => {
     let { offsetX: x, offsetY: y } = e.nativeEvent;
@@ -46,7 +45,7 @@ export default function ImageReveal({
     <div className="w-full h-full">
       <div className="relative w-full h-full">
         <img
-          src={image.path}
+          src={image.url}
           width={image.width}
           height={image.height}
           alt={image.description}
@@ -60,7 +59,7 @@ export default function ImageReveal({
           ref={topRef}
           className={`${hideCanvas && "hidden"} bsb w-auto h-full absolute top-0 z-20`}
           onMouseMove={revealImage}
-          // hidden
+        // hidden
         >
           A white rectangle
         </canvas>

@@ -7,13 +7,7 @@ export const internalNavLinks: NavLink[] = [
     href: "/photo",
     disabled: false,
   },
-  // {
-  //   id: 2,
-  //   name: "Web",
-  //   href: "/web",
-  //   disabled: true,
-  // },
-  { id: 3, name: "Info", href: "/info", disabled: false },
+  { id: 2, name: "Info", href: "/info", disabled: false },
 ];
 
 export const externalNavLinks: NavLink[] = [
@@ -24,7 +18,7 @@ export const externalNavLinks: NavLink[] = [
     disabled: false,
     image: {
       id: 1,
-      path: "/icons/256/Instagram.png",
+      url: "/icons/256/Instagram.png",
       width: 256,
       height: 256,
       description: "Color icon of the Instagram logo",
@@ -37,7 +31,7 @@ export const externalNavLinks: NavLink[] = [
     disabled: false,
     image: {
       id: 2,
-      path: "/icons/256/GitHub.png",
+      url: "/icons/256/GitHub.png",
       width: 256,
       height: 256,
       description: "Color icon of the GitHub logo",
@@ -50,7 +44,7 @@ export const externalNavLinks: NavLink[] = [
     disabled: false,
     image: {
       id: 3,
-      path: "/icons/256/LinkedIn.png",
+      url: "/icons/256/LinkedIn.png",
       width: 256,
       height: 256,
       description: "Color icon of the LinkedIn logo",
@@ -63,7 +57,7 @@ export const externalNavLinks: NavLink[] = [
     disabled: false,
     image: {
       id: 4,
-      path: "/icons/256/Upwork.png",
+      url: "/icons/256/Upwork.png",
       width: 256,
       height: 256,
       description: "Color icon of the Upwork logo",
@@ -74,77 +68,77 @@ export const externalNavLinks: NavLink[] = [
 export const icons = {
   download: {
     id: 1,
-    path: "/icons/256/Download.png",
+    url: "/icons/256/Download.png",
     width: 256,
     height: 256,
     description: "An arrow pointing down into an inbox",
   },
   submit: {
     id: 2,
-    path: "/icons/256/Submit.png",
+    url: "/icons/256/Submit.png",
     width: 256,
     height: 256,
     description: "A paper plane tilted to the top right corner",
   },
   arrowLeftTilted: {
     id: 3,
-    path: "/icons/256/ArrowLeftTilted.png",
+    url: "/icons/256/ArrowLeftTilted.png",
     width: 256,
     height: 254,
     description: "Icon of an arrow pointing to the left",
   },
   arrowRightTilted: {
     id: 4,
-    path: "/icons/256/ArrowRightTilted.png",
+    url: "/icons/256/ArrowRightTilted.png",
     width: 256,
     height: 254,
     description: "Icon of an arrow pointing to the right",
   },
   arrowRightThin: {
     id: 5,
-    path: "/icons/256/ArrowRightThin.png",
+    url: "/icons/256/ArrowRightThin.png",
     width: 256,
     height: 256,
     description: "Icon of an arrow pointing to the right",
   },
   arrowLeftThin: {
     id: 6,
-    path: "/icons/256/ArrowLeftThin.png",
+    url: "/icons/256/ArrowLeftThin.png",
     width: 256,
     height: 256,
     description: "Icon of an arrow pointing to the right",
   },
   arrowRightThick: {
     id: 7,
-    path: "/icons/256/ArrowRightThick.png",
+    url: "/icons/256/ArrowRightThick.png",
     width: 256,
     height: 256,
     description: "Icon of an arrow pointing to the right",
   },
   arrowLeftThick: {
     id: 8,
-    path: "/icons/256/ArrowLeftThick.png",
+    url: "/icons/256/ArrowLeftThick.png",
     width: 256,
     height: 256,
     description: "Icon of an arrow pointing to the right",
   },
   quiet: {
     id: 9,
-    path: "/icons/256/Quiet.png",
+    url: "/icons/256/Quiet.png",
     width: 256,
     height: 256,
     description: "Icon of a person with their finger over their mouth indicating silence",
   },
   listening: {
     id: 10,
-    path: "/icons/256/Listening.png",
+    url: "/icons/256/Listening.png",
     width: 256,
     height: 256,
     description: "Icon of a person with their hand to their ear indicating listening",
   },
   handshake: {
     id: 11,
-    path: "/icons/256/Handshake.png",
+    url: "/icons/256/Handshake.png",
     width: 256,
     height: 256,
     description: "Icon of two hands shaking",
@@ -154,7 +148,7 @@ export const icons = {
 export const flags: ImageType[] = [
   {
     id: 1,
-    path: "/load-flags/load-flag-1.AVIF",
+    url: "/load-flags/load-flag-1.AVIF",
     width: 1400,
     height: 936,
     description: "A giant American flag blowing against candy blue storm clouds",
@@ -162,7 +156,7 @@ export const flags: ImageType[] = [
   },
   {
     id: 2,
-    path: "/load-flags/load-flag-2.AVIF",
+    url: "/load-flags/load-flag-2.AVIF",
     width: 1400,
     height: 936,
     description: "A giant American flag blowing against candy blue storm clouds",
@@ -170,7 +164,7 @@ export const flags: ImageType[] = [
   },
   {
     id: 3,
-    path: "/load-flags/load-flag-3.AVIF",
+    url: "/load-flags/load-flag-3.AVIF",
     width: 1400,
     height: 936,
     description: "A giant American flag blowing against candy blue storm clouds",
@@ -178,7 +172,7 @@ export const flags: ImageType[] = [
   },
   {
     id: 4,
-    path: "/load-flags/load-flag-4.AVIF",
+    url: "/load-flags/load-flag-4.AVIF",
     width: 1400,
     height: 936,
     description: "A giant American flag blowing against candy blue storm clouds",
@@ -186,7 +180,7 @@ export const flags: ImageType[] = [
   },
   {
     id: 5,
-    path: "/load-flags/load-flag-5.AVIF",
+    url: "/load-flags/load-flag-5.AVIF",
     width: 1400,
     height: 936,
     description: "A giant American flag blowing against candy blue storm clouds",
@@ -194,7 +188,7 @@ export const flags: ImageType[] = [
   },
   {
     id: 6,
-    path: "/load-flags/load-flag-6.AVIF",
+    url: "/load-flags/load-flag-6.AVIF",
     width: 1400,
     height: 936,
     description: "A giant American flag blowing against candy blue storm clouds",
@@ -202,7 +196,7 @@ export const flags: ImageType[] = [
   },
   {
     id: 7,
-    path: "/load-flags/load-flag-7.AVIF",
+    url: "/load-flags/load-flag-7.AVIF",
     width: 1400,
     height: 936,
     description: "A giant American flag blowing against candy blue storm clouds",
@@ -210,7 +204,7 @@ export const flags: ImageType[] = [
   },
   {
     id: 8,
-    path: "/load-flags/load-flag-8.AVIF",
+    url: "/load-flags/load-flag-8.AVIF",
     width: 1400,
     height: 936,
     description: "A giant American flag blowing against candy blue storm clouds",
@@ -218,7 +212,7 @@ export const flags: ImageType[] = [
   },
   {
     id: 9,
-    path: "/load-flags/load-flag-9.AVIF",
+    url: "/load-flags/load-flag-9.AVIF",
     width: 1400,
     height: 936,
     description: "A giant American flag blowing against candy blue storm clouds",
@@ -226,7 +220,7 @@ export const flags: ImageType[] = [
   },
   {
     id: 10,
-    path: "/load-flags/load-flag-10.AVIF",
+    url: "/load-flags/load-flag-10.AVIF",
     width: 1400,
     height: 936,
     description: "A giant American flag blowing against candy blue storm clouds",
@@ -234,7 +228,7 @@ export const flags: ImageType[] = [
   },
   {
     id: 11,
-    path: "/load-flags/load-flag-11.AVIF",
+    url: "/load-flags/load-flag-11.AVIF",
     width: 1400,
     height: 936,
     description: "A giant American flag blowing against candy blue storm clouds",
@@ -242,7 +236,7 @@ export const flags: ImageType[] = [
   },
   {
     id: 12,
-    path: "/load-flags/load-flag-12.AVIF",
+    url: "/load-flags/load-flag-12.AVIF",
     width: 1400,
     height: 936,
     description: "A giant American flag blowing against candy blue storm clouds",
@@ -250,7 +244,7 @@ export const flags: ImageType[] = [
   },
   {
     id: 13,
-    path: "/load-flags/load-flag-13.AVIF",
+    url: "/load-flags/load-flag-13.AVIF",
     width: 1400,
     height: 936,
     description: "A giant American flag blowing against candy blue storm clouds",
@@ -258,7 +252,7 @@ export const flags: ImageType[] = [
   },
   {
     id: 14,
-    path: "/load-flags/load-flag-14.AVIF",
+    url: "/load-flags/load-flag-14.AVIF",
     width: 1400,
     height: 936,
     description: "A giant American flag blowing against candy blue storm clouds",

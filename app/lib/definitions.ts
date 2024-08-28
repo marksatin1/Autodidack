@@ -8,29 +8,29 @@ export type NavLink = {
 
 export type ImageType = {
   id: number;
-  path: string;
+  url: string;
   width: number;
   height: number;
   description: string;
   name?: string;
 };
 
-export type CollageImage = {
+export type CollagePhotoType = {
   id: number;
   description: string;
-  path: string;
+  url: string;
   width: number;
   height: number;
   x_coord: number;
   y_coord: number;
   audio_id: number;
-  audio_path: string;
+  audio_url: string;
   audio_type: string;
 };
 
 export type AudioFile = {
   id: number;
-  path: string;
+  url: string;
   type: string;
   title: string;
   artist: string;
@@ -49,7 +49,7 @@ export type GalleryType = {
   name: string;
   description: string;
   keywords: string[];
-  image_path: string;
+  image_url: string;
   image_width: number;
   image_height: number;
   image_description: string;

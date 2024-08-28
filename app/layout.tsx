@@ -1,10 +1,7 @@
-"use client";
-
 import Header from "./ui/layout/header";
 import Footer from "./ui/layout/footer";
 import { Lora, Merriweather } from "next/font/google";
-import { usePathname } from "next/navigation";
-import { ReactNode, useEffect } from "react";
+import { ReactNode } from "react";
 import Head from "next/head";
 import "./globals.css";
 
@@ -23,8 +20,6 @@ export default function RootLayout({
 }: Readonly<{
   children: ReactNode;
 }>) {
-  const pathname = usePathname();
-  const showHeaderFooter = pathname !== "/entrance";
 
   return (
     <>
@@ -33,9 +28,9 @@ export default function RootLayout({
       </Head>
       <html lang="en" className={merri.className}>
         <body className="overflow-hidden w-screen h-[100svh] flex flex-col">
-          {showHeaderFooter && <Header />}
+          <Header />
           <main className="w-full h-full overflow-hidden">{children}</main>
-          {showHeaderFooter && <Footer animationDuration={2000} />}
+          <Footer />
         </body>
       </html>
     </>

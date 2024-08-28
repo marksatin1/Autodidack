@@ -1,70 +1,66 @@
 "use server";
 
 import { createClient } from "@supabase/supabase-js";
-import { AudioFile, CollageImage, ImageType, GalleryType, PageType, Visitor } from "./definitions";
-import axios from "axios";
+import { AudioFile, ImageType, GalleryType, PageType, CollagePhotoType } from "./definitions";
 
 // SETUP
 const supabase = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_API_KEY!);
 
-// API CALLS //
-//           //
+// API CALLS
 export async function getOnePhoto(photoid: number) {
-  const { data, error } = await supabase.from("images").select("*").eq("id", photoid).limit(1);
+  const { data, error } = await supabase.from("photos").select("*").eq("id", photoid).limit(1);
 
   if (error) {
     throw new Error(
-      `${error.code}: Error while trying to access Photo ID# ${photoid}: ${error.message}`
+      `${error.code}: Error retrieving Photo ID# ${photoid}: ${error.message}`
     );
   }
 
   if (data.length === 1) {
-    const { id, description, path, width, height }: ImageType = data[0];
+    const { id, description, url, width, height }: ImageType = data[0];
     return {
       id,
       description,
-      path,
+      url,
       width,
       height,
     };
   }
 }
 
-export async function getImagesInSequentialOrder(galleryid?: number) {
-  const { data, error } = await supabase.rpc("get_images_in_sequential_order", {
-    galleryid,
-  });
+export async function getCollagePhotos() {
+  const { data, error } = await supabase.rpc("get_collage_photos");
 
   if (error) {
     throw new Error(
-      `${error.code}: Error while trying to access images in sequential order: ${error.message}`
+      `${error.code}: Error retrieving collage photos: ${error.message}`
     );
   }
 
   if (data.length > 0) {
-    return data.map((p: CollageImage) => {
+    return data.map((p: CollagePhotoType) => {
       const {
         id,
         description,
-        path,
+        url,
         width,
         height,
         x_coord,
         y_coord,
         audio_id,
-        audio_path,
+        audio_url,
         audio_type,
       } = p;
       return {
         id,
         description,
-        path,
+        url,
         width,
         height,
         x_coord,
         y_coord,
         audio_id,
-        audio_path,
+        audio_url,
         audio_type,
       };
     });
@@ -73,41 +69,41 @@ export async function getImagesInSequentialOrder(galleryid?: number) {
 
 // returns all photos in random order OR all photos of specific gallery in random order
 // variable names must be lowercase to work with supabase rpc - annoying
-export async function getImagesInRandomOrder(galleryid?: number) {
-  const { data, error } = await supabase.rpc("get_images_in_random_order", {
+export async function getGalleryPhotos(galleryid?: number) {
+  const { data, error } = await supabase.rpc("get_photos_in_random_order", {
     galleryid,
   });
 
   if (error) {
     throw new Error(
-      `${error.code}: Error while trying to access images in random order: ${error.message}`
+      `${error.code}: Error accessing photos in random order: ${error.message}`
     );
   }
 
   if (data.length > 0) {
-    return data.map((p: CollageImage) => {
+    return data.map((p: CollagePhotoType) => {
       const {
         id,
         description,
-        path,
+        url,
         width,
         height,
         x_coord,
         y_coord,
         audio_id,
-        audio_path,
+        audio_url,
         audio_type,
       } = p;
       return {
         id,
         description,
-        path,
+        url,
         width,
         height,
         x_coord,
         y_coord,
         audio_id,
-        audio_path,
+        audio_url,
         audio_type,
       };
     });
@@ -121,7 +117,7 @@ export async function getPageMetadata(pageid?: number) {
 
   if (error) {
     console.error(error);
-    throw new Error(`${error.code}: Error while trying to access page metadata: ${error.message}`);
+    throw new Error(`${error.code}: Error accessing page metadata: ${error.message}`);
   }
 
   if (data.length > 0) {
@@ -137,13 +133,13 @@ export async function getPageMetadata(pageid?: number) {
   }
 }
 
-export async function getGalleryMetadata(galleryid?: number) {
-  const { data: galleryData, error } = await supabase.rpc("get_gallery_metadata", {
-    galleryid,
+export async function getGalleriesInfo(galleryid?: number) {
+  const { data: galleryData, error } = await supabase.rpc("get_galleries_info", {
+    galleryid
   });
 
   if (error) {
-    throw new Error(`Error while trying to access galleries metadata: ${error}`);
+    throw new Error(`Error accessing galleries info: ${error}`);
   }
 
   if (galleryData.length > 0) {
@@ -153,7 +149,7 @@ export async function getGalleryMetadata(galleryid?: number) {
         name,
         description,
         keywords,
-        image_path,
+        image_url,
         image_width,
         image_height,
         image_description,
@@ -163,7 +159,7 @@ export async function getGalleryMetadata(galleryid?: number) {
         name,
         description,
         keywords,
-        image_path,
+        image_url,
         image_width,
         image_height,
         image_description,
@@ -176,15 +172,15 @@ export async function getAudioInRandomOrder(albumid?: number) {
   const { data: audioFiles, error } = await supabase.rpc("get_audio_in_random_order", { albumid });
 
   if (error) {
-    throw new Error(`Error while trying to access audio in random order: ${error}`);
+    throw new Error(`Error accessing audio in random order: ${error}`);
   }
 
   if (audioFiles.length > 0) {
     return audioFiles.map((a: AudioFile) => {
-      const { id, path, type, title, artist, year } = a;
+      const { id, url, type, title, artist, year } = a;
       return {
         id,
-        path,
+        url,
         type,
         title,
         artist,
@@ -204,12 +200,12 @@ export default async function addVisitorData(formData: FormData) {
       .select();
 
     if (data) {
-      console.log("New visitor data was successfully updated in the database.");
+      console.log("New visitor data successfully updated in the database.");
       return data[0].name;
     }
   } catch (error: any) {
     throw new Error(
-      `${error.code}: ${error.name} was thrown while trying to add visitor data to the backend: ${error.message}`
+      `${error.code}: ${error.name} thrown while adding visitor data to the backend: ${error.message}`
     );
   }
 }

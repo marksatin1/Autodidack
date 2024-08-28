@@ -37,7 +37,7 @@ export default function AutoCarousel({
         className="px-2 flex justify-center items-center w-full h-full"
       >
         <Image
-          src={images[currentPage].path}
+          src={images[currentPage].url}
           width={images[currentPage].width}
           height={images[currentPage].height}
           alt={images[currentPage].description}
