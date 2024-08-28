@@ -19,9 +19,9 @@ export default function AboutCard({ bgImage }: { bgImage: ImageType }) {
       className="relative"
     >
       <Image
-        src={bgImage.path}
-        width={bgImage.width}
-        height={bgImage.height}
+        src={bgImage.url}
+        width={800}
+        height={600}
         alt={bgImage.description}
         className="w-full md:w-auto md:max-h-[600px] hue-rotate-180 rounded-lg"
       />

@@ -25,9 +25,9 @@ export default function ContactCard({
       className="relative overflow-y-scroll"
     >
       <Image
-        src={bgImage.path}
-        width={bgImage.width}
-        height={bgImage.height}
+        src={bgImage.url}
+        width={800}
+        height={600}
         alt={bgImage.description}
         className="w-full md:w-auto md:max-h-[600px] grayscale-[75%] opacity-75 rounded-lg"
       />
@@ -56,20 +56,12 @@ export default function ContactCard({
                 <h3 className="text-center text-3xl sm:text-4xl lg:text-5xl font-extrabold occupation-shadow sm:mb-3">
                   Mark Satin
                 </h3>
-                {/* <a href="/Software-Engineer-Resume_Mark-Satin.pdf" download="Mark-Satin-SWE-Resume">
-                  <p
-                    role="button"
-                    className="text-gray-200 text-right sm:text-left text-[.8rem] sm:text- md:text-lg underline underline-offset-2 cursor-pointer hover:text-accent duration-1000 my-1"
-                  >
-                    Download Resume
-                  </p>
-                </a> */}
               </article>
               <article className="border-4 border-[#800080] overflow-clip">
                 <Image
-                  src={bannerImage.path}
-                  width={bannerImage.width}
-                  height={bannerImage.height}
+                  src={bannerImage.url}
+                  width={800}
+                  height={600}
                   alt={bannerImage.description}
                   className="relative h-[250px] sm:h-[500px]"
                 />
