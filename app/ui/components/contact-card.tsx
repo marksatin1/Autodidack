@@ -53,7 +53,7 @@ export default function ContactCard({
           <div className="overflow-y-scroll">
             <section className="flex flex-col gap-2">
               <article className="flex flex-col justify-center items-center">
-                <h3 className="text-center text-3xl sm:text-4xl lg:text-5xl font-extrabold occupation-shadow sm:mb-3">
+                <h3 className="text-center text-2xl sm:text-4xl lg:text-5xl font-extrabold occupation-shadow sm:mb-3">
                   Mark Satin
                 </h3>
               </article>
@@ -63,16 +63,16 @@ export default function ContactCard({
                   width={800}
                   height={600}
                   alt={bannerImage.description}
-                  className="relative h-[250px] sm:h-[500px]"
+                  className="relative h-[100px] sm:h-[300px]"
                 />
               </article>
-              <article className="occupation-shadow text-lg w-full sm:text-2xl md:text-4xl md:my-1 text-center tracking-wide sm:tracking-widest xl:tracking-wide">
-                <h4>
-                  Photographer
-                </h4>
+              <article className="occupation-shadow w-full text-sm sm:text-2xl md:text-3xl md:my-1 text-center tracking-wide sm:tracking-widest xl:tracking-wide">
+                <h4>Photographer</h4>
+                <hr className="w-3/4 m-auto my-2 md:my-3 md:border-2 rounded" />
+                <h4>Software Engineer</h4>
               </article>
             </section>
-            <ContactForm className="bg-slate-200" />
+            <ContactForm className="bg-slate-200 text-xs md:text-lg" />
           </div>
         </motion.article>
       )}

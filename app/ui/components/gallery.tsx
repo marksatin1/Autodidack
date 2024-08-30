@@ -4,7 +4,7 @@ import { GalleryType } from "../../lib/definitions";
 
 export default function Gallery({ gallery }: { gallery: GalleryType }) {
   return (
-    <section className="h-[400px]">
+    <section className="h-[200px] md:h-[400px]">
       <Link href={`photo/${gallery.id}/${gallery.name}`} className="relative overflow-hidden h-full flex flex-col justify-end items-center">
         {gallery.image_url && (
           <Image
@@ -15,7 +15,7 @@ export default function Gallery({ gallery }: { gallery: GalleryType }) {
             className="object-cover"
           />
         )}
-        <h2 className="absolute py-4 text-slate-100 font-extrabold text-content-shadow text-4xl">
+        <h2 className="absolute py-4 text-slate-100 font-extrabold text-center text-content-shadow text-4xl">
           {gallery.name.replaceAll("-", "  ")}
         </h2>
       </Link>
