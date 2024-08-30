@@ -4,7 +4,7 @@ import { GalleryType } from "../../lib/definitions";
 
 export default function Gallery({ gallery }: { gallery: GalleryType }) {
   return (
-    <section className="h-[400px]">
+    <section className="h-[200px] md:h-[400px]">
       <Link href={`photo/${gallery.id}/${gallery.name}`} className="relative overflow-hidden h-full flex flex-col justify-end items-center">
         {gallery.image_url && (
           <Image
