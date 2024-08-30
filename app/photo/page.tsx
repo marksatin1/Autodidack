@@ -32,7 +32,7 @@ export default async function Page() {
       </Head>
 
       <section className="w-full h-full overflow-x-hidden overflow-y-scroll p-2 grid items-center justify-center grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-        {galleries.map((g: GalleryType) => {
+        {galleries.sort((a: GalleryType, b: GalleryType) => a.name.localeCompare(b.name)).map((g: GalleryType) => {
           return <CardTilt key={g.id}><Gallery gallery={g} /></CardTilt>;
         })}
       </section>
