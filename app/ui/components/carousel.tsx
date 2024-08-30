@@ -3,8 +3,7 @@
 import { useState, useRef, useEffect, KeyboardEvent } from "react";
 import { ImageType } from "../../lib/definitions";
 import Image from "next/image";
-import { icons } from "../../lib/data";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function Carousel({ slides }: { slides: ImageType[] }) {
   const [currentIdx, setCurrentIdx] = useState<number>(0);
@@ -53,9 +52,9 @@ export default function Carousel({ slides }: { slides: ImageType[] }) {
       onTouchMove={(e: any) => setTouchEndX(e.touches[0].clientX)}
       onTouchEnd={handleSwipe}
       layout
-      className="w-full h-full outline-none grid grid-rows-[1fr_auto]"
+      className="w-full h-full outline-none"
     >
-      <section className="relative w-full h-[77%] sm:h-full">
+      <section className="relative w-full h-full sm:h-full">
         {slides.map((p: ImageType, i: number) => (
           <Image
             key={p.id}
