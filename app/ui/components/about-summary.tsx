@@ -34,7 +34,7 @@ export default function AboutSummary() {
       <p>
         Two months into the pandemic George Floyd was murdered by a cop, and all those people burst out into the streets.
         For the second time in two months the
-        social reality changed overnight. Breonna Taylor's name was quickly reinvoked, and justice was demanded for dozens of black Americans murdered by police.
+        social reality changed overnight. Breonna Taylor&#39;s name was quickly reinvoked, and justice was demanded for dozens of black Americans murdered by police.
         It felt as if people were fed up with being trapped - not just within their apartments but within a
         system that continued to empower the empowered and disadvantage the disadvantaged. Police brutality had persisted through a global pandemic and billions
         of people sat idly by in their homes. Now millions would march.
