@@ -4,7 +4,7 @@ export default function AboutSummary() {
       <aside>
         <p>
           <i>Autodidack</i> is a portmanteau of “autodidact” - a self-taught person - and “Adirondacks” -
-          the name given to 5000 square miles of lush mountain range in upstate New York .......
+          the name given to 5000 square miles of lush mountain range in upstate New York ......
         </p>
       </aside>
       <br />
